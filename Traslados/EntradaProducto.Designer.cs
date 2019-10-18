@@ -174,6 +174,7 @@
             this.btn_cancelar.Tag = "3";
             this.btn_cancelar.Text = "Cancelar";
             this.btn_cancelar.UseVisualStyleBackColor = false;
+            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
             // label5
             // 

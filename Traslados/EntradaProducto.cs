@@ -169,5 +169,37 @@ namespace Bodega.Traslados
             Devoluciones dev = new Devoluciones();
             dev.Show();
         }
+
+        private void btn_cancelar_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Desea cancelar esta operación?", "Nuevo", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                txt_producto.Text = "";
+                txt_cantidad.Text = "";
+
+                OdbcConnection con = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
+
+                OdbcCommand cmd1 = new OdbcCommand("delete from encabezadoentrada where idEntrada='" + txt_codigo.Text + "'", con);
+                con.Open();//abre la conexion 
+                cmd1.ExecuteNonQuery();//ejecuta el query
+                con.Close();//cierra la conexion
+
+                OdbcCommand cmd2 = new OdbcCommand("delete from encabezadoinvetariobodega where idEncabezadoInvetarioBodega='" + txt_codigo.Text + "'", con);
+                con.Open();//abre la conexion 
+                cmd2.ExecuteNonQuery();//ejecuta el query
+                con.Close();//cierra la conexion
+
+                btn_continuar.Enabled = true;
+                txt_producto.Enabled = false;
+                txt_cantidad.Enabled = false;
+                btn_aceptar.Enabled = false;
+                nuevaEntrada();
+            }
+            else if (result == DialogResult.No)
+            {
+            }
+        }
     }
 }
