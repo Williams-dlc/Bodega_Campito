@@ -22,6 +22,7 @@ namespace Bodega.Traslados
         
         public EntradaProducto()
         {
+            
             InitializeComponent();
             txt_producto.Enabled = false;
             txt_cantidad.Enabled = false;
@@ -46,8 +47,24 @@ namespace Bodega.Traslados
             numero_generado = r_aleatgenerador.Next();
             txt_codigo.Text = Convert.ToString(numero_generado);
         }
-        
-        
+
+        public void abrirFormHijo(object formHijo)
+        {
+            Prinicipal prin = new Prinicipal();
+            if (prin.panelContenedor.Controls.Count > 0)
+                prin.panelContenedor.Controls.RemoveAt(0);
+
+            Form fh = formHijo as Form; //no es formulario de nivel superior, si no secundario
+            fh.TopLevel = false;
+            fh.Dock = DockStyle.Fill;
+            prin.panelContenedor.Controls.Add(fh);
+            prin.panelContenedor.Tag = fh;
+            fh.Show();
+            
+        }
+
+
+
         private void btn_aceptar_Click(object sender, EventArgs e)
         {
             
@@ -195,7 +212,9 @@ namespace Bodega.Traslados
                 txt_producto.Enabled = false;
                 txt_cantidad.Enabled = false;
                 btn_aceptar.Enabled = false;
+                abrirFormHijo(new Productos.ListadoProducto());
                 nuevaEntrada();
+                
             }
             else if (result == DialogResult.No)
             {
