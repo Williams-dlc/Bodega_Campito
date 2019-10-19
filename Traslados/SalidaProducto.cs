@@ -227,5 +227,10 @@ namespace Bodega.Traslados
             {
             }
         }
+
+        private void cmb_propietario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

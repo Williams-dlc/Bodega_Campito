@@ -98,14 +98,14 @@
             // menu
             // 
             this.menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.menu.Controls.Add(this.pnl_subTraslados);
+            this.menu.Controls.Add(this.btn_reportes);
             this.menu.Controls.Add(this.pnl_traslados);
             this.menu.Controls.Add(this.btn_traslados);
             this.menu.Controls.Add(this.pnl_subreportes);
             this.menu.Controls.Add(this.pnl_reportes);
             this.menu.Controls.Add(this.pnl_productos);
             this.menu.Controls.Add(this.btn_producto);
-            this.menu.Controls.Add(this.pnl_subTraslados);
-            this.menu.Controls.Add(this.btn_reportes);
             this.menu.Dock = System.Windows.Forms.DockStyle.Left;
             this.menu.Location = new System.Drawing.Point(0, 35);
             this.menu.Name = "menu";
@@ -238,7 +238,7 @@
             this.pnl_subTraslados.Controls.Add(this.btn_trasladosSalidas);
             this.pnl_subTraslados.Controls.Add(this.panel5);
             this.pnl_subTraslados.Controls.Add(this.panel8);
-            this.pnl_subTraslados.Location = new System.Drawing.Point(20, 191);
+            this.pnl_subTraslados.Location = new System.Drawing.Point(22, 189);
             this.pnl_subTraslados.Name = "pnl_subTraslados";
             this.pnl_subTraslados.Size = new System.Drawing.Size(200, 75);
             this.pnl_subTraslados.TabIndex = 7;
@@ -303,9 +303,9 @@
             this.btn_reportes.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btn_reportes.Image = ((System.Drawing.Image)(resources.GetObject("btn_reportes.Image")));
             this.btn_reportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_reportes.Location = new System.Drawing.Point(22, 189);
+            this.btn_reportes.Location = new System.Drawing.Point(16, 189);
             this.btn_reportes.Name = "btn_reportes";
-            this.btn_reportes.Size = new System.Drawing.Size(198, 45);
+            this.btn_reportes.Size = new System.Drawing.Size(204, 45);
             this.btn_reportes.TabIndex = 4;
             this.btn_reportes.Text = "Reportes";
             this.btn_reportes.UseVisualStyleBackColor = true;

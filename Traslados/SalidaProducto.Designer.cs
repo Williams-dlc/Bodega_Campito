@@ -83,6 +83,7 @@
             this.cmb_propietario.Name = "cmb_propietario";
             this.cmb_propietario.Size = new System.Drawing.Size(198, 21);
             this.cmb_propietario.TabIndex = 25;
+            this.cmb_propietario.SelectedIndexChanged += new System.EventHandler(this.cmb_propietario_SelectedIndexChanged);
             // 
             // label4
             // 

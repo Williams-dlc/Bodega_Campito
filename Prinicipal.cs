@@ -67,6 +67,7 @@ namespace Bodega
         {
             pnl_subreportes.Visible = false;
             pnl_subTraslados.Visible = false;
+            abrirFormHijo(new Reportes.ReportesEntradas());
         }
 
         private void btn_reportSalidas_Click(object sender, EventArgs e)
