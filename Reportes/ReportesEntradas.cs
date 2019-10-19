@@ -45,8 +45,8 @@ namespace Bodega.Reportes
             {
                 con.Open();
                 OdbcDataAdapter cmd = new OdbcDataAdapter("select * from detalleInventario where FK_Propietario =  '"+cmb_propietario.Text.ToString()+"'", con);//llama a la tabla de inventario para ver stock
-                                                                                         //OdbcDataReader queryResults = cmd.ExecuteReader();
-                
+                                                                                                                                                                //OdbcDataReader queryResults = cmd.ExecuteReader();
+                                                                                                                                                                //SELECT YEAR(Fecha), SUM(Cantidad) as total, '"+cmb_propietario.Text.ToString()+"' from encabezadoentrada a INNER JOIN detalleentrada b on a.idEntrada = b.FK_encEntrada
                 cmd.Fill(tabla);
 
             }

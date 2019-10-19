@@ -28,11 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.grf_Barras = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.cmb_propietario = new System.Windows.Forms.ComboBox();
             this.btn_aceptar = new System.Windows.Forms.Button();
@@ -43,25 +41,17 @@
             // 
             // grf_Barras
             // 
-            chartArea3.Name = "ChartArea1";
-            this.grf_Barras.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.grf_Barras.Legends.Add(legend3);
+            chartArea1.Name = "ChartArea1";
+            this.grf_Barras.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.grf_Barras.Legends.Add(legend1);
             this.grf_Barras.Location = new System.Drawing.Point(52, 192);
             this.grf_Barras.Name = "grf_Barras";
             this.grf_Barras.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series7.ChartArea = "ChartArea1";
-            series7.Legend = "Legend1";
-            series7.Name = "Series1";
-            series8.ChartArea = "ChartArea1";
-            series8.Legend = "Legend1";
-            series8.Name = "Series2";
-            series9.ChartArea = "ChartArea1";
-            series9.Legend = "Legend1";
-            series9.Name = "Series3";
-            this.grf_Barras.Series.Add(series7);
-            this.grf_Barras.Series.Add(series8);
-            this.grf_Barras.Series.Add(series9);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.grf_Barras.Series.Add(series1);
             this.grf_Barras.Size = new System.Drawing.Size(694, 300);
             this.grf_Barras.TabIndex = 0;
             this.grf_Barras.Text = "chart1";
