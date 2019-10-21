@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Data.Odbc;
 using System.Data;
+using Dominio;
+using Datos;
 
 namespace Bodega
 {
@@ -17,6 +19,14 @@ namespace Bodega
     {
 
         string ConnStr = "Driver={MySQL ODBC 3.51 Driver};Server=localhost;Database=bodega_campito;uid=willi;pwd=1234";
+
+        CapaDatosBodega dc = new CapaDatosBodega();
+        //USER user = new USER();
+
+        //TRANSFERIR A OTRO FORM
+
+        public static string T_username;
+        public static string T_role;
 
         public Login()
         {
@@ -95,31 +105,95 @@ namespace Bodega
 
         private void btn_aceptar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                OdbcConnection con = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
-                OdbcCommand cmd = new OdbcCommand("select * from usuario where Nombre = '" + txt_usuario.Text + "'and contraseña= '" + txt_contraseña.Text + "'", con);
-                con.Open();//abre la conexion 
-                OdbcDataReader queryResults = cmd.ExecuteReader();
-                if (queryResults.Read())
-                {
-                    MessageBox.Show("CONECTADO");
-                    Prinicipal prin = new Prinicipal();
-                    prin.Show();
-                }
-                else
-                {
-                    MessageBox.Show("usuario o contraseña incorrecto");
 
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-            Login log = new Login();
-            log.Close();
+
+
+            /* try
+             {
+                 OdbcConnection con = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
+                 OdbcCommand cmd = new OdbcCommand("select * from usuario where Nombre = '" + txt_usuario.Text + "'and contraseña= '" + txt_contraseña.Text + "'", con);
+                 con.Open();//abre la conexion 
+                 OdbcDataReader queryResults = cmd.ExecuteReader();
+                 if (queryResults.Read())
+                 {
+                     MessageBox.Show("CONECTADO");
+                     Prinicipal prin = new Prinicipal();
+                     prin.Show();
+                 }
+                 else
+                 {
+                     MessageBox.Show("usuario o contraseña incorrecto");
+
+                 }
+             }
+             catch (Exception ex)
+             {
+                 MessageBox.Show(ex.ToString());
+             }
+             Login log = new Login();
+             log.Close();*/
             
+            /*user.log_username = txt_usuario.Text;
+             user.log_password = txt_contraseña.Text;
+             bool verify = user.user_verification();
+             if (verify==true)
+             {
+                 MessageBox.Show("CONECTADO");
+                 string role = user.log_role;
+                 T_username = user.log_username;
+                 if (role == "1")
+                 {
+                     MessageBox.Show("ADMIN");
+                 }
+                 else if (role == "0")
+                 {
+                     T_role = "TRABAJADOR";
+                 }
+                 MessageBox.Show("CONECTADO");
+                 Prinicipal prin = new Prinicipal();
+                 prin.Show();
+             }
+             else
+             {
+                 MessageBox.Show("Verifique usuario y contraseña");
+                 
+             }*/
+            UsuarioModel user = new UsuarioModel();
+            DatosUsuario data = new DatosUsuario();
+            if (txt_usuario.Text != "USUARIO")
+            {
+                if (txt_contraseña.Text != "CONTRASEÑA")
+                {
+                    
+                    var validLogin = user.LoginUser(txt_usuario.Text, txt_contraseña.Text);
+                    if (validLogin == true)
+                    {
+                        Prinicipal mainMenu = new Prinicipal();
+                        mainMenu.Show();
+                        mainMenu.FormClosed += logout;
+
+                        this.Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Usuario o contraseña incorrecta, intente nuevamente",data.user2 );
+                        txt_contraseña.Clear();
+                        txt_usuario.Focus();
+                    }
+                }
+                else MessageBox.Show("Llene todos los campos");
+            }
+            else MessageBox.Show("Llene todos los campos");
+        }
+
+        
+
+        private void logout(object sender, FormClosedEventArgs e)
+        {
+            txt_contraseña.Text = "CONTRASEÑA";//Aparecer marca de agua despues de cerrar sesion
+            txt_contraseña.UseSystemPasswordChar = false;
+            txt_usuario.Text = "USUARIO";//Aparecer marca de agua despues de cerrar sesion
+            this.Show();
         }
     }
 }

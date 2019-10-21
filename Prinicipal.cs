@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using Common.Cache;
 
 namespace Bodega
 {
@@ -16,7 +17,7 @@ namespace Bodega
         public Prinicipal()
         {
             InitializeComponent();
-            btn_reportes.Location = new Point(22, 189);
+            btn_reportes.Location = new Point(22, 289);
 
 
         }
@@ -56,8 +57,8 @@ namespace Bodega
             }
             else
             {
-                btn_reportes.Location = new Point(22, 189);
-                pnl_reportes.Location = new Point(0, 189);
+                btn_reportes.Location = new Point(22, 289);
+                pnl_reportes.Location = new Point(0, 289);
                 pnl_subreportes.Visible = true;
                 pnl_subTraslados.Visible = false;
             }
@@ -78,8 +79,8 @@ namespace Bodega
 
         private void btn_producto_Click(object sender, EventArgs e)
         {
-            btn_reportes.Location = new Point(22, 189);
-            pnl_reportes.Location = new Point(0, 189);
+            btn_reportes.Location = new Point(22, 289);
+            pnl_reportes.Location = new Point(0, 289);
             pnl_subreportes.Visible = false;
             pnl_subTraslados.Visible = false;
             abrirFormHijo(new Productos.ListadoProducto());
@@ -90,15 +91,15 @@ namespace Bodega
             if (pnl_subTraslados.Visible == true)
             {
                 pnl_subTraslados.Visible = false;
-                btn_reportes.Location = new Point(22, 189);
-                pnl_reportes.Location = new Point(0, 189);
+                btn_reportes.Location = new Point(22, 289);
+                pnl_reportes.Location = new Point(0, 289);
             }
             else
             {
                 pnl_subreportes.Visible = false;
                 pnl_subTraslados.Visible = true;
-                btn_reportes.Location = new Point(22, 270);
-                pnl_reportes.Location = new Point(0, 270);
+                btn_reportes.Location = new Point(22, 370);
+                pnl_reportes.Location = new Point(0, 370);
                 
             }
 
@@ -129,6 +130,31 @@ namespace Bodega
         }
 
         private void panelContenedor_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Prinicipal_Load(object sender, EventArgs e)
+        {
+            LoadUserData();
+        }
+
+        private void LoadUserData()
+        {
+            lbl_usuario.Text = UserLoginCache.username;
+            if (UserLoginCache.Perfil == "1")
+                lbl_perfil.Text = "Administrador";
+            else if(UserLoginCache.Perfil == "0")
+                lbl_perfil.Text = "Trabajador";
+        }
+
+        private void btn_logOut_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Esta seguro de cerrar sesion? \n Cualquier operacion que se este realizando se perdera.", "Warnning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                this.Close();
+        }
+
+        private void lbl_usuario1_Click(object sender, EventArgs e)
         {
 
         }

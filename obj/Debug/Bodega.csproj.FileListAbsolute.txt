@@ -34,3 +34,9 @@ C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2\obj\Debug\Bodega.Reportes.
 C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2\bin\Debug\MySql.Data.dll
 C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2\bin\Debug\Google.Protobuf.dll
 C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2\bin\Debug\MySql.Data.xml
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2\bin\Debug\Dominio.dll
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2\bin\Debug\Datos.dll
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2\bin\Debug\Dominio.pdb
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2\bin\Debug\Datos.pdb
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2\bin\Debug\Common.dll
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2\bin\Debug\Common.pdb

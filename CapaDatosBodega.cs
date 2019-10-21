@@ -6,14 +6,24 @@ using System.Threading.Tasks;
 using System.Data.Odbc;
 using System.Data;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+using System.Data.Odbc;
 
 namespace Bodega
 {
     class CapaDatosBodega
     {
         public static OdbcConnection cnx = new OdbcConnection(Properties.Settings.Default.ruta);
+        public OdbcConnection con1;
 
-        string ConnStr = "Driver={MySQL ODBC 3.51 Driver};Server=35.225.5.123;Database=Db_Colchoneria;uid=umg;pwd=umg";
+
+        public CapaDatosBodega()
+        {
+            string ConnStr = "Driver={MySQL ODBC 3.51 Driver};Server=localhost;Database=bodega_campito;uid=willi;pwd=1234";
+            con1 = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
+        }
+
+
         public static string producto = "select * from Producto";
         public static string encargado = "select * from trabajador";
         public static string propietario = "select * from distribuidores";
@@ -128,6 +138,45 @@ namespace Bodega
             }
             finally { cnx.Close(); }
             return tmp;
+        }        
+    }
+
+    class USER :CapaDatosBodega
+    {        
+        
+
+        public string log_username { set; get; }
+        public string log_password { set; get; }
+        public string log_role { set; get; }
+        
+        public bool user_verification()
+        {            
+            //OdbcCommand command = new OdbcCommand("SELECT * FROM `usuario` where Nombre=@user AND contraseña=@pass", con1);
+            con1.Open();
+            OdbcDataReader rd;
+            bool check = false;
+            using (OdbcCommand cmd = new OdbcCommand())
+            {
+                
+                cmd.CommandText = "SELECT * FROM usuario where Nombre='" + log_username + "' AND contraseña='" + log_password + "'";
+                cmd.CommandType = CommandType.Text;
+                cmd.Connection = con1;
+
+                //cmd.Parameters.Add("@user", OdbcType.VarChar).Value = log_username;
+                //cmd.Parameters.Add("@pass", OdbcType.VarChar).Value = log_password;
+                cmd.Parameters.AddWithValue("@user", log_username);
+                cmd.Parameters.AddWithValue("@pass", log_password);
+                
+                rd = cmd.ExecuteReader();
+                while (rd.Read())
+                {
+                    log_role= "Perfil";
+                    
+                }
+                con1.Close();
+            }
+            return check;
+
         }
     }
 }
