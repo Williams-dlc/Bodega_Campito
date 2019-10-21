@@ -33,6 +33,15 @@
             this.btn_minizar = new System.Windows.Forms.PictureBox();
             this.btn_salir = new System.Windows.Forms.PictureBox();
             this.menu = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btn_ajustes = new System.Windows.Forms.Button();
+            this.lbl_perfil1 = new System.Windows.Forms.Label();
+            this.lbl_usuario1 = new System.Windows.Forms.Label();
+            this.lbl_perfil = new System.Windows.Forms.Label();
+            this.lbl_usuario = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_logOut = new System.Windows.Forms.Button();
             this.pnl_subTraslados = new System.Windows.Forms.Panel();
             this.btn_trasladosEntradas = new System.Windows.Forms.Button();
             this.btn_trasladosSalidas = new System.Windows.Forms.Button();
@@ -50,20 +59,15 @@
             this.pnl_productos = new System.Windows.Forms.Panel();
             this.btn_producto = new System.Windows.Forms.Button();
             this.panelContenedor = new System.Windows.Forms.Panel();
-            this.btn_logOut = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lbl_usuario = new System.Windows.Forms.Label();
-            this.lbl_perfil = new System.Windows.Forms.Label();
-            this.lbl_usuario1 = new System.Windows.Forms.Label();
-            this.lbl_perfil1 = new System.Windows.Forms.Label();
+            this.pnl_graficas = new System.Windows.Forms.Panel();
+            this.btn_chart = new System.Windows.Forms.Button();
             this.pnl_titulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_minizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).BeginInit();
             this.menu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnl_subTraslados.SuspendLayout();
             this.pnl_subreportes.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnl_titulo
@@ -106,6 +110,12 @@
             // menu
             // 
             this.menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.menu.Controls.Add(this.pnl_subreportes);
+            this.menu.Controls.Add(this.pnl_graficas);
+            this.menu.Controls.Add(this.pnl_subTraslados);
+            this.menu.Controls.Add(this.btn_chart);
+            this.menu.Controls.Add(this.panel2);
+            this.menu.Controls.Add(this.btn_ajustes);
             this.menu.Controls.Add(this.lbl_perfil1);
             this.menu.Controls.Add(this.lbl_usuario1);
             this.menu.Controls.Add(this.lbl_perfil);
@@ -113,11 +123,9 @@
             this.menu.Controls.Add(this.pictureBox1);
             this.menu.Controls.Add(this.panel1);
             this.menu.Controls.Add(this.btn_logOut);
-            this.menu.Controls.Add(this.pnl_subTraslados);
             this.menu.Controls.Add(this.btn_reportes);
             this.menu.Controls.Add(this.pnl_traslados);
             this.menu.Controls.Add(this.btn_traslados);
-            this.menu.Controls.Add(this.pnl_subreportes);
             this.menu.Controls.Add(this.pnl_reportes);
             this.menu.Controls.Add(this.pnl_productos);
             this.menu.Controls.Add(this.btn_producto);
@@ -126,6 +134,112 @@
             this.menu.Name = "menu";
             this.menu.Size = new System.Drawing.Size(220, 615);
             this.menu.TabIndex = 1;
+            this.menu.Paint += new System.Windows.Forms.PaintEventHandler(this.menu_Paint);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
+            this.panel2.Location = new System.Drawing.Point(0, 528);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(16, 45);
+            this.panel2.TabIndex = 13;
+            // 
+            // btn_ajustes
+            // 
+            this.btn_ajustes.FlatAppearance.BorderSize = 0;
+            this.btn_ajustes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(192)))), ((int)(((byte)(227)))));
+            this.btn_ajustes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ajustes.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ajustes.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_ajustes.Image = ((System.Drawing.Image)(resources.GetObject("btn_ajustes.Image")));
+            this.btn_ajustes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_ajustes.Location = new System.Drawing.Point(16, 528);
+            this.btn_ajustes.Name = "btn_ajustes";
+            this.btn_ajustes.Size = new System.Drawing.Size(204, 45);
+            this.btn_ajustes.TabIndex = 14;
+            this.btn_ajustes.Text = "Ajustes";
+            this.btn_ajustes.UseVisualStyleBackColor = true;
+            // 
+            // lbl_perfil1
+            // 
+            this.lbl_perfil1.AutoSize = true;
+            this.lbl_perfil1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_perfil1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lbl_perfil1.Location = new System.Drawing.Point(118, 78);
+            this.lbl_perfil1.Name = "lbl_perfil1";
+            this.lbl_perfil1.Size = new System.Drawing.Size(43, 18);
+            this.lbl_perfil1.TabIndex = 12;
+            this.lbl_perfil1.Text = "Perfil";
+            // 
+            // lbl_usuario1
+            // 
+            this.lbl_usuario1.AutoSize = true;
+            this.lbl_usuario1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_usuario1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbl_usuario1.Location = new System.Drawing.Point(118, 37);
+            this.lbl_usuario1.Name = "lbl_usuario1";
+            this.lbl_usuario1.Size = new System.Drawing.Size(62, 18);
+            this.lbl_usuario1.TabIndex = 11;
+            this.lbl_usuario1.Text = "Usuario";
+            this.lbl_usuario1.Click += new System.EventHandler(this.lbl_usuario1_Click);
+            // 
+            // lbl_perfil
+            // 
+            this.lbl_perfil.AutoSize = true;
+            this.lbl_perfil.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_perfil.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lbl_perfil.Location = new System.Drawing.Point(118, 100);
+            this.lbl_perfil.Name = "lbl_perfil";
+            this.lbl_perfil.Size = new System.Drawing.Size(38, 17);
+            this.lbl_perfil.TabIndex = 10;
+            this.lbl_perfil.Text = "Perfil";
+            // 
+            // lbl_usuario
+            // 
+            this.lbl_usuario.AutoSize = true;
+            this.lbl_usuario.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_usuario.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbl_usuario.Location = new System.Drawing.Point(118, 57);
+            this.lbl_usuario.Name = "lbl_usuario";
+            this.lbl_usuario.Size = new System.Drawing.Size(54, 17);
+            this.lbl_usuario.TabIndex = 0;
+            this.lbl_usuario.Text = "Usuario";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(6, 37);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(97, 89);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Maroon;
+            this.panel1.Location = new System.Drawing.Point(0, 579);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(16, 36);
+            this.panel1.TabIndex = 4;
+            // 
+            // btn_logOut
+            // 
+            this.btn_logOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_logOut.FlatAppearance.BorderSize = 0;
+            this.btn_logOut.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_logOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_logOut.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_logOut.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_logOut.Image = ((System.Drawing.Image)(resources.GetObject("btn_logOut.Image")));
+            this.btn_logOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_logOut.Location = new System.Drawing.Point(16, 579);
+            this.btn_logOut.Name = "btn_logOut";
+            this.btn_logOut.Size = new System.Drawing.Size(204, 36);
+            this.btn_logOut.TabIndex = 8;
+            this.btn_logOut.Text = "Cerrar Sesion";
+            this.btn_logOut.UseVisualStyleBackColor = false;
+            this.btn_logOut.Click += new System.EventHandler(this.btn_logOut_Click);
             // 
             // pnl_subTraslados
             // 
@@ -237,7 +351,7 @@
             this.pnl_subreportes.Controls.Add(this.btn_reportEntradas);
             this.pnl_subreportes.Controls.Add(this.panel6);
             this.pnl_subreportes.Controls.Add(this.panel3);
-            this.pnl_subreportes.Location = new System.Drawing.Point(20, 340);
+            this.pnl_subreportes.Location = new System.Drawing.Point(22, 340);
             this.pnl_subreportes.Name = "pnl_subreportes";
             this.pnl_subreportes.Size = new System.Drawing.Size(200, 75);
             this.pnl_subreportes.TabIndex = 3;
@@ -335,86 +449,30 @@
             this.panelContenedor.TabIndex = 2;
             this.panelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContenedor_Paint);
             // 
-            // btn_logOut
+            // pnl_graficas
             // 
-            this.btn_logOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btn_logOut.FlatAppearance.BorderSize = 0;
-            this.btn_logOut.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btn_logOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_logOut.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_logOut.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_logOut.Image = ((System.Drawing.Image)(resources.GetObject("btn_logOut.Image")));
-            this.btn_logOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_logOut.Location = new System.Drawing.Point(16, 567);
-            this.btn_logOut.Name = "btn_logOut";
-            this.btn_logOut.Size = new System.Drawing.Size(204, 48);
-            this.btn_logOut.TabIndex = 8;
-            this.btn_logOut.Text = "Cerrar Sesion";
-            this.btn_logOut.UseVisualStyleBackColor = false;
-            this.btn_logOut.Click += new System.EventHandler(this.btn_logOut_Click);
+            this.pnl_graficas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
+            this.pnl_graficas.Location = new System.Drawing.Point(0, 340);
+            this.pnl_graficas.Name = "pnl_graficas";
+            this.pnl_graficas.Size = new System.Drawing.Size(16, 45);
+            this.pnl_graficas.TabIndex = 15;
             // 
-            // panel1
+            // btn_chart
             // 
-            this.panel1.BackColor = System.Drawing.Color.Maroon;
-            this.panel1.Location = new System.Drawing.Point(0, 567);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(16, 48);
-            this.panel1.TabIndex = 4;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(6, 37);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(97, 89);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
-            // 
-            // lbl_usuario
-            // 
-            this.lbl_usuario.AutoSize = true;
-            this.lbl_usuario.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_usuario.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbl_usuario.Location = new System.Drawing.Point(118, 57);
-            this.lbl_usuario.Name = "lbl_usuario";
-            this.lbl_usuario.Size = new System.Drawing.Size(54, 17);
-            this.lbl_usuario.TabIndex = 0;
-            this.lbl_usuario.Text = "Usuario";
-            // 
-            // lbl_perfil
-            // 
-            this.lbl_perfil.AutoSize = true;
-            this.lbl_perfil.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_perfil.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lbl_perfil.Location = new System.Drawing.Point(118, 100);
-            this.lbl_perfil.Name = "lbl_perfil";
-            this.lbl_perfil.Size = new System.Drawing.Size(38, 17);
-            this.lbl_perfil.TabIndex = 10;
-            this.lbl_perfil.Text = "Perfil";
-            // 
-            // lbl_usuario1
-            // 
-            this.lbl_usuario1.AutoSize = true;
-            this.lbl_usuario1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_usuario1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbl_usuario1.Location = new System.Drawing.Point(118, 37);
-            this.lbl_usuario1.Name = "lbl_usuario1";
-            this.lbl_usuario1.Size = new System.Drawing.Size(62, 18);
-            this.lbl_usuario1.TabIndex = 11;
-            this.lbl_usuario1.Text = "Usuario";
-            this.lbl_usuario1.Click += new System.EventHandler(this.lbl_usuario1_Click);
-            // 
-            // lbl_perfil1
-            // 
-            this.lbl_perfil1.AutoSize = true;
-            this.lbl_perfil1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_perfil1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lbl_perfil1.Location = new System.Drawing.Point(118, 78);
-            this.lbl_perfil1.Name = "lbl_perfil1";
-            this.lbl_perfil1.Size = new System.Drawing.Size(43, 18);
-            this.lbl_perfil1.TabIndex = 12;
-            this.lbl_perfil1.Text = "Perfil";
+            this.btn_chart.FlatAppearance.BorderSize = 0;
+            this.btn_chart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(192)))), ((int)(((byte)(227)))));
+            this.btn_chart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_chart.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_chart.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_chart.Image = ((System.Drawing.Image)(resources.GetObject("btn_chart.Image")));
+            this.btn_chart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_chart.Location = new System.Drawing.Point(16, 340);
+            this.btn_chart.Name = "btn_chart";
+            this.btn_chart.Size = new System.Drawing.Size(204, 45);
+            this.btn_chart.TabIndex = 16;
+            this.btn_chart.Text = "Graficas";
+            this.btn_chart.UseVisualStyleBackColor = true;
+            this.btn_chart.Click += new System.EventHandler(this.btn_chart_Click);
             // 
             // Prinicipal
             // 
@@ -434,9 +492,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).EndInit();
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnl_subTraslados.ResumeLayout(false);
             this.pnl_subreportes.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -471,5 +529,9 @@
         private System.Windows.Forms.Label lbl_usuario;
         private System.Windows.Forms.Label lbl_perfil1;
         private System.Windows.Forms.Label lbl_usuario1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btn_ajustes;
+        private System.Windows.Forms.Panel pnl_graficas;
+        private System.Windows.Forms.Button btn_chart;
     }
 }

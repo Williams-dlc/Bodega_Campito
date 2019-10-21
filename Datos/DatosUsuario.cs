@@ -51,5 +51,17 @@ namespace Datos
                 connection.Close();
             }
         }
+        //PERMISOS DE USUARIO
+        public void AnyMethod()
+        {
+            if (UserLoginCache.Perfil == Cargos.Administrador)
+            {
+
+            }
+            if (UserLoginCache.Perfil == Cargos.Trabajador)
+            {
+
+            }
+        }
     }
 }

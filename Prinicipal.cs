@@ -53,27 +53,34 @@ namespace Bodega
             if (pnl_subreportes.Visible == true)
             {
                 pnl_subreportes.Visible = false;
+                btn_chart.Location = new Point(22, 340);
+                pnl_graficas.Location = new Point(0, 340);
                 
             }
             else
             {
                 btn_reportes.Location = new Point(22, 289);
                 pnl_reportes.Location = new Point(0, 289);
+                btn_chart.Location = new Point(22, 420);
+                pnl_graficas.Location = new Point(0, 420);
                 pnl_subreportes.Visible = true;
                 pnl_subTraslados.Visible = false;
             }
+
+
+
         }
 
         private void btn_reportEntradas_Click(object sender, EventArgs e)
         {
-            pnl_subreportes.Visible = false;
+            //pnl_subreportes.Visible = false;
             pnl_subTraslados.Visible = false;
-            abrirFormHijo(new Reportes.ReportesEntradas());
+            
         }
 
         private void btn_reportSalidas_Click(object sender, EventArgs e)
         {
-            pnl_subreportes.Visible = false;
+           // pnl_subreportes.Visible = false;
             pnl_subTraslados.Visible = false;
         }
 
@@ -81,6 +88,8 @@ namespace Bodega
         {
             btn_reportes.Location = new Point(22, 289);
             pnl_reportes.Location = new Point(0, 289);
+            btn_chart.Location = new Point(22, 340);
+            pnl_graficas.Location = new Point(0, 340);
             pnl_subreportes.Visible = false;
             pnl_subTraslados.Visible = false;
             abrirFormHijo(new Productos.ListadoProducto());
@@ -93,6 +102,9 @@ namespace Bodega
                 pnl_subTraslados.Visible = false;
                 btn_reportes.Location = new Point(22, 289);
                 pnl_reportes.Location = new Point(0, 289);
+                btn_chart.Location = new Point(22, 340);
+                pnl_graficas.Location = new Point(0, 340);
+
             }
             else
             {
@@ -100,7 +112,8 @@ namespace Bodega
                 pnl_subTraslados.Visible = true;
                 btn_reportes.Location = new Point(22, 370);
                 pnl_reportes.Location = new Point(0, 370);
-                
+                btn_chart.Location = new Point(22, 420);
+                pnl_graficas.Location = new Point(0, 420);
             }
 
         }
@@ -137,19 +150,31 @@ namespace Bodega
         private void Prinicipal_Load(object sender, EventArgs e)
         {
             LoadUserData();
+            //MANEJO DE PERMISOS DE USUARIO
+            if (UserLoginCache.Perfil == Cargos.Trabajador)
+            {
+                pnl_reportes.Visible = false;
+                pnl_subreportes.Visible = false;
+                btn_reportes.Visible = false;
+                pnl_graficas.Visible = false;
+                btn_chart.Visible = false;
+            }
+
+            if (UserLoginCache.Perfil == Cargos.Administrador)
+            {
+               
+            }
         }
 
         private void LoadUserData()
         {
             lbl_usuario.Text = UserLoginCache.username;
-            if (UserLoginCache.Perfil == "1")
-                lbl_perfil.Text = "Administrador";
-            else if (UserLoginCache.Perfil == "0")
+            if (UserLoginCache.Perfil == Cargos.Administrador)
+                lbl_perfil.Text = Cargos.Administrador;
+            else if (UserLoginCache.Perfil == Cargos.Trabajador)
             {
-                lbl_perfil.Text = "Trabajador";
-                pnl_reportes.Visible = false;
-                pnl_subreportes.Visible = false;
-                btn_reportes.Visible = false;
+                lbl_perfil.Text = Cargos.Trabajador;
+                
             }
         }
 
@@ -162,6 +187,26 @@ namespace Bodega
         private void lbl_usuario1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void menu_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btn_chart_Click(object sender, EventArgs e)
+        {
+            abrirFormHijo(new Reportes.ReportesEntradas());
         }
     }
 }
