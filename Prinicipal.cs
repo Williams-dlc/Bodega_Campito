@@ -144,8 +144,13 @@ namespace Bodega
             lbl_usuario.Text = UserLoginCache.username;
             if (UserLoginCache.Perfil == "1")
                 lbl_perfil.Text = "Administrador";
-            else if(UserLoginCache.Perfil == "0")
+            else if (UserLoginCache.Perfil == "0")
+            {
                 lbl_perfil.Text = "Trabajador";
+                pnl_reportes.Visible = false;
+                pnl_subreportes.Visible = false;
+                btn_reportes.Visible = false;
+            }
         }
 
         private void btn_logOut_Click(object sender, EventArgs e)
