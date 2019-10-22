@@ -55,10 +55,14 @@
             this.btn_nuevo = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.txt_encargado = new System.Windows.Forms.TextBox();
+            this.btn_refrescar = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.dgb_pedido = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_productos)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gbx_encabezado.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgb_pedido)).BeginInit();
             this.SuspendLayout();
             // 
             // dtp_fecha
@@ -70,14 +74,14 @@
             // 
             // txt_producto
             // 
-            this.txt_producto.Location = new System.Drawing.Point(184, 272);
+            this.txt_producto.Location = new System.Drawing.Point(155, 288);
             this.txt_producto.Name = "txt_producto";
             this.txt_producto.Size = new System.Drawing.Size(200, 20);
             this.txt_producto.TabIndex = 2;
             // 
             // txt_cantidad
             // 
-            this.txt_cantidad.Location = new System.Drawing.Point(443, 272);
+            this.txt_cantidad.Location = new System.Drawing.Point(414, 288);
             this.txt_cantidad.Name = "txt_cantidad";
             this.txt_cantidad.Size = new System.Drawing.Size(198, 20);
             this.txt_cantidad.TabIndex = 3;
@@ -88,7 +92,7 @@
             this.dgv_productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_productos.Location = new System.Drawing.Point(38, 372);
             this.dgv_productos.Name = "dgv_productos";
-            this.dgv_productos.Size = new System.Drawing.Size(770, 150);
+            this.dgv_productos.Size = new System.Drawing.Size(356, 150);
             this.dgv_productos.TabIndex = 4;
             this.dgv_productos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_productos_CellDoubleClick);
             // 
@@ -116,7 +120,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(181, 247);
+            this.label3.Location = new System.Drawing.Point(152, 263);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(95, 22);
             this.label3.TabIndex = 9;
@@ -126,7 +130,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(439, 247);
+            this.label4.Location = new System.Drawing.Point(410, 263);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(99, 22);
             this.label4.TabIndex = 10;
@@ -141,7 +145,7 @@
             this.btn_aceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_aceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_aceptar.ForeColor = System.Drawing.Color.Silver;
-            this.btn_aceptar.Location = new System.Drawing.Point(662, 319);
+            this.btn_aceptar.Location = new System.Drawing.Point(684, 273);
             this.btn_aceptar.Name = "btn_aceptar";
             this.btn_aceptar.Size = new System.Drawing.Size(146, 35);
             this.btn_aceptar.TabIndex = 11;
@@ -351,11 +355,45 @@
             this.txt_encargado.Size = new System.Drawing.Size(198, 20);
             this.txt_encargado.TabIndex = 70;
             // 
+            // btn_refrescar
+            // 
+            this.btn_refrescar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_refrescar.BackgroundImage")));
+            this.btn_refrescar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_refrescar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_refrescar.Location = new System.Drawing.Point(355, 528);
+            this.btn_refrescar.Name = "btn_refrescar";
+            this.btn_refrescar.Size = new System.Drawing.Size(39, 31);
+            this.btn_refrescar.TabIndex = 74;
+            this.btn_refrescar.UseVisualStyleBackColor = true;
+            this.btn_refrescar.Click += new System.EventHandler(this.btn_refrescar_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(439, 341);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(193, 22);
+            this.label8.TabIndex = 76;
+            this.label8.Text = "Entrada de material";
+            // 
+            // dgb_pedido
+            // 
+            this.dgb_pedido.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgb_pedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgb_pedido.Location = new System.Drawing.Point(443, 372);
+            this.dgb_pedido.Name = "dgb_pedido";
+            this.dgb_pedido.Size = new System.Drawing.Size(376, 150);
+            this.dgb_pedido.TabIndex = 75;
+            // 
             // EntradaProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(850, 615);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.dgb_pedido);
+            this.Controls.Add(this.btn_refrescar);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_nuevo);
             this.Controls.Add(this.gbx_encabezado);
@@ -381,6 +419,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.gbx_encabezado.ResumeLayout(false);
             this.gbx_encabezado.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgb_pedido)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -414,5 +453,8 @@
         private System.Windows.Forms.Button btn_nuevo;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txt_encargado;
+        private System.Windows.Forms.Button btn_refrescar;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DataGridView dgb_pedido;
     }
 }

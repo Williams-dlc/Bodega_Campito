@@ -85,6 +85,18 @@ namespace Bodega.Traslados
                 txt_producto.Text = "";
                 txt_cantidad.Text = "";
 
+                DataTable tabla = new DataTable();
+                using (OdbcConnection con1 = new OdbcConnection(ConnStr))
+                {
+                    con1.Open();
+                    OdbcDataAdapter cmd2 = new OdbcDataAdapter("select FK_producto, cantidad from DetalleEntrada where FK_EncEntrada= '" + txt_detalle.Text + "'", con1);//llama a la tabla de inventario para ver stock
+                                                                                                                                                                      //OdbcDataReader queryResults = cmd.ExecuteReader();
+                    cmd2.Fill(tabla);
+
+                }
+
+                dgb_pedido.DataSource = tabla;
+
             }
             catch (Exception ex)
             {
@@ -115,7 +127,8 @@ namespace Bodega.Traslados
                     con.Close();//cierra la conexion
                     txt_producto.Enabled = true;
                     txt_cantidad.Enabled = true;
-                    cmb_propietario.Enabled = true;
+                    cmb_propietario.Enabled = false;
+                    cmb_tipoBodega.Enabled = false;
                     btn_aceptar.Enabled = true;
                     btn_continuar.Enabled = false;
 
@@ -162,6 +175,13 @@ namespace Bodega.Traslados
             txt_codigo.Text = Convert.ToString(numero_generado);
 
             txt_detalle.Text = "";
+            btn_continuar.Enabled = true;
+            txt_producto.Enabled = false;
+            txt_cantidad.Enabled = false;
+            cmb_propietario.Enabled = true;
+            cmb_tipoBodega.Enabled = true;
+            dgb_pedido.DataSource = null;
+            dgb_pedido.Refresh();
         }
 
         private void btn_nuevo_Click(object sender, EventArgs e)
@@ -195,7 +215,9 @@ namespace Bodega.Traslados
 
             if (result == DialogResult.Yes)
             {
-                txt_producto.Text = "";
+                if (dgb_pedido.Rows.Count == 0)
+                {
+                    txt_producto.Text = "";
                 txt_cantidad.Text = "";
 
                 OdbcConnection con = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
@@ -214,9 +236,15 @@ namespace Bodega.Traslados
                 txt_producto.Enabled = false;
                 txt_cantidad.Enabled = false;
                 btn_aceptar.Enabled = false;
+                    
                 abrirFormHijo(new Productos.ListadoProducto());
                 nuevaEntrada();
-                
+                }
+                else
+                {
+                    nuevaEntrada();
+                }
+
             }
             else if (result == DialogResult.No)
             {
@@ -226,6 +254,27 @@ namespace Bodega.Traslados
         private void EntradaProducto_Load(object sender, EventArgs e)
         {
             txt_encargado.Text = UserLoginCache.username;
+        }
+
+        public void producto()
+        {
+            DataTable tabla = new DataTable();
+            using (OdbcConnection con = new OdbcConnection(ConnStr))
+            {
+                con.Open();
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select * from producto", con);//llama a la tabla de inventario para ver stock
+                                                                                         //OdbcDataReader queryResults = cmd.ExecuteReader();
+                cmd.Fill(tabla);
+
+            }
+
+            dgv_productos.DataSource = tabla;
+        }
+
+        private void btn_refrescar_Click(object sender, EventArgs e)
+        {
+            txt_producto.Text = "";
+            producto();
         }
     }
 }
