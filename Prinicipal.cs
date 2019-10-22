@@ -75,13 +75,14 @@ namespace Bodega
         {
             //pnl_subreportes.Visible = false;
             pnl_subTraslados.Visible = false;
-            
+            abrirFormHijo(new Reportes.ReportEntradas());
         }
 
         private void btn_reportSalidas_Click(object sender, EventArgs e)
         {
            // pnl_subreportes.Visible = false;
             pnl_subTraslados.Visible = false;
+            abrirFormHijo(new Reportes.ReportSalidas());
         }
 
         private void btn_producto_Click(object sender, EventArgs e)
