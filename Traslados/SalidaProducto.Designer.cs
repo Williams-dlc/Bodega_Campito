@@ -37,7 +37,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txt_cantidad = new System.Windows.Forms.TextBox();
             this.txt_producto = new System.Windows.Forms.TextBox();
-            this.cmb_encargado = new System.Windows.Forms.ComboBox();
             this.dtp_fecha = new System.Windows.Forms.DateTimePicker();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
@@ -59,6 +58,8 @@
             this.btn_nuevo = new System.Windows.Forms.Button();
             this.lbl_disponible = new System.Windows.Forms.Label();
             this.txt_disponible = new System.Windows.Forms.TextBox();
+            this.txt_encargado = new System.Windows.Forms.TextBox();
+            this.btn_refrescar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_producto)).BeginInit();
@@ -139,14 +140,6 @@
             this.txt_producto.Name = "txt_producto";
             this.txt_producto.Size = new System.Drawing.Size(200, 20);
             this.txt_producto.TabIndex = 19;
-            // 
-            // cmb_encargado
-            // 
-            this.cmb_encargado.FormattingEnabled = true;
-            this.cmb_encargado.Location = new System.Drawing.Point(224, 43);
-            this.cmb_encargado.Name = "cmb_encargado";
-            this.cmb_encargado.Size = new System.Drawing.Size(198, 21);
-            this.cmb_encargado.TabIndex = 18;
             // 
             // dtp_fecha
             // 
@@ -343,6 +336,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txt_encargado);
             this.groupBox1.Controls.Add(this.btn_continuar);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.lbl_bodega);
@@ -354,13 +348,13 @@
             this.groupBox1.Controls.Add(this.lbl_codigo);
             this.groupBox1.Controls.Add(this.cmb_propietario);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.cmb_encargado);
             this.groupBox1.Location = new System.Drawing.Point(12, 73);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(826, 151);
             this.groupBox1.TabIndex = 69;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Encabezado";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // btn_nuevo
             // 
@@ -397,11 +391,32 @@
             this.txt_disponible.Size = new System.Drawing.Size(200, 20);
             this.txt_disponible.TabIndex = 71;
             // 
+            // txt_encargado
+            // 
+            this.txt_encargado.Enabled = false;
+            this.txt_encargado.Location = new System.Drawing.Point(224, 44);
+            this.txt_encargado.Name = "txt_encargado";
+            this.txt_encargado.Size = new System.Drawing.Size(198, 20);
+            this.txt_encargado.TabIndex = 69;
+            // 
+            // btn_refrescar
+            // 
+            this.btn_refrescar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_refrescar.BackgroundImage")));
+            this.btn_refrescar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_refrescar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_refrescar.Location = new System.Drawing.Point(325, 520);
+            this.btn_refrescar.Name = "btn_refrescar";
+            this.btn_refrescar.Size = new System.Drawing.Size(39, 31);
+            this.btn_refrescar.TabIndex = 73;
+            this.btn_refrescar.UseVisualStyleBackColor = true;
+            this.btn_refrescar.Click += new System.EventHandler(this.btn_refrescar_Click);
+            // 
             // SalidaProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(850, 615);
+            this.Controls.Add(this.btn_refrescar);
             this.Controls.Add(this.lbl_disponible);
             this.Controls.Add(this.txt_disponible);
             this.Controls.Add(this.btn_nuevo);
@@ -421,6 +436,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SalidaProducto";
             this.Text = "v";
+            this.Load += new System.EventHandler(this.SalidaProducto_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -443,7 +459,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txt_cantidad;
         private System.Windows.Forms.TextBox txt_producto;
-        private System.Windows.Forms.ComboBox cmb_encargado;
         private System.Windows.Forms.DateTimePicker dtp_fecha;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label5;
@@ -465,5 +480,7 @@
         private System.Windows.Forms.Button btn_nuevo;
         private System.Windows.Forms.Label lbl_disponible;
         private System.Windows.Forms.TextBox txt_disponible;
+        private System.Windows.Forms.TextBox txt_encargado;
+        private System.Windows.Forms.Button btn_refrescar;
     }
 }

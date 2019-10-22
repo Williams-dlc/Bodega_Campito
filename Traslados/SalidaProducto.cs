@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Odbc;
+using Common.Cache;
 
 namespace Bodega.Traslados
 {
@@ -21,8 +22,9 @@ namespace Bodega.Traslados
             InitializeComponent();
 
             dgv_producto.DataSource = CapaDatosBodega.llenarproducto();
-            cmb_encargado.DataSource = CapaDatosBodega.llenarTrabajador();//llama la tabla trabajador
-            cmb_encargado.ValueMember = "Nombre";
+            //cmb_encargado.DataSource = CapaDatosBodega.llenarTrabajador();//llama la tabla trabajador
+            //cmb_encargado.ValueMember = "Nombre";
+            txt_encargado.Text= UserLoginCache.username;
 
             cmb_propietario.DataSource = CapaDatosBodega.llenarPropietario();
             cmb_propietario.ValueMember = "Nombre";
@@ -65,7 +67,7 @@ namespace Bodega.Traslados
 
         private void btn_continuar_Click(object sender, EventArgs e)
         {
-            if (txt_codigo.Text == "" || cmb_encargado.SelectedIndex == -1 || cmb_propietario.SelectedIndex == -1 || cmb_bodega.SelectedIndex == -1)
+            if (txt_codigo.Text == "" || txt_encargado.Text == "" || cmb_propietario.SelectedIndex == -1 || cmb_bodega.SelectedIndex == -1)
             {
                 MessageBox.Show("llene todos los campos");//lanza mensaje
             }
@@ -76,7 +78,7 @@ namespace Bodega.Traslados
                     OdbcConnection con = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
 
 
-                    OdbcCommand cmd = new OdbcCommand("insert into encabezadopedido values ('" + txt_codigo.Text + "','" + dtp_fecha.Value.ToString("yyyyMMdd") + "', '" + cmb_propietario.Text.ToString() + "', '" +cmb_encargado.Text.ToString() + "', '" + cmb_bodega.Text.ToString() + "')", con);
+                    OdbcCommand cmd = new OdbcCommand("insert into encabezadopedido values ('" + txt_codigo.Text + "','" + dtp_fecha.Value.ToString("yyyyMMdd") + "', '" + cmb_propietario.Text.ToString() + "', '" + txt_encargado.Text + "', '" + cmb_bodega.Text.ToString() + "')", con);
                     con.Open();//abre la conexion 
                     cmd.ExecuteNonQuery();//ejecuta el query
                     con.Close();//cierra la conexion
@@ -168,6 +170,18 @@ namespace Bodega.Traslados
                 txt_cantidad.Text = "";
                 txt_disponible.Text = "";
                 producto();
+
+                DataTable tabla = new DataTable();
+                using (OdbcConnection con1 = new OdbcConnection(ConnStr))
+                {
+                    con1.Open();
+                    OdbcDataAdapter cmd = new OdbcDataAdapter("select FK_producto, cantidad from Detallepedido where FK_EncPedido= '" + txt_detalle.Text + "'", con1);//llama a la tabla de inventario para ver stock
+                                                                                                                                                                                                                                                      //OdbcDataReader queryResults = cmd.ExecuteReader();
+                    cmd.Fill(tabla);
+
+                }
+
+                dgb_pedido.DataSource = tabla;
             }
             catch (Exception ex)
             {
@@ -183,6 +197,14 @@ namespace Bodega.Traslados
             txt_codigo.Text = Convert.ToString(numero_generado);
 
             txt_detalle.Text = "";
+            dgb_pedido.DataSource = null;
+            dgb_pedido.Refresh();
+
+            btn_continuar.Enabled = true;
+            txt_producto.Enabled = false;
+            txt_disponible.Enabled = false;
+            txt_cantidad.Enabled = false;
+            btn_aceptar.Enabled = false;
         }
 
         private void btn_nuevo_Click(object sender, EventArgs e)
@@ -204,6 +226,7 @@ namespace Bodega.Traslados
 
             if (result == DialogResult.Yes)
             {
+                if (dgb_pedido.Rows.Count == 0) { 
                 txt_producto.Text = "";
                 txt_cantidad.Text = "";
 
@@ -221,6 +244,10 @@ namespace Bodega.Traslados
                 txt_cantidad.Enabled = false;
                 btn_aceptar.Enabled = false;
                 nuevaEntrada();
+                }
+                else {
+                    nuevaEntrada();
+                }
 
             }
             else if (result == DialogResult.No)
@@ -231,6 +258,22 @@ namespace Bodega.Traslados
         private void cmb_propietario_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SalidaProducto_Load(object sender, EventArgs e)
+        {
+            txt_encargado.Text = UserLoginCache.username;
+        }
+
+        private void btn_refrescar_Click(object sender, EventArgs e)
+        {
+            txt_producto.Text = "";
+            producto();
         }
     }
 }

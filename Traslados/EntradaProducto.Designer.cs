@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EntradaProducto));
             this.dtp_fecha = new System.Windows.Forms.DateTimePicker();
-            this.cmb_encargado = new System.Windows.Forms.ComboBox();
             this.txt_producto = new System.Windows.Forms.TextBox();
             this.txt_cantidad = new System.Windows.Forms.TextBox();
             this.dgv_productos = new System.Windows.Forms.DataGridView();
@@ -55,6 +54,7 @@
             this.lbl_tipoBodega = new System.Windows.Forms.Label();
             this.btn_nuevo = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.txt_encargado = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_productos)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -67,14 +67,6 @@
             this.dtp_fecha.Name = "dtp_fecha";
             this.dtp_fecha.Size = new System.Drawing.Size(200, 20);
             this.dtp_fecha.TabIndex = 0;
-            // 
-            // cmb_encargado
-            // 
-            this.cmb_encargado.FormattingEnabled = true;
-            this.cmb_encargado.Location = new System.Drawing.Point(245, 56);
-            this.cmb_encargado.Name = "cmb_encargado";
-            this.cmb_encargado.Size = new System.Drawing.Size(198, 21);
-            this.cmb_encargado.TabIndex = 1;
             // 
             // txt_producto
             // 
@@ -280,11 +272,11 @@
             // 
             // gbx_encabezado
             // 
+            this.gbx_encabezado.Controls.Add(this.txt_encargado);
             this.gbx_encabezado.Controls.Add(this.cmb_tipoBodega);
             this.gbx_encabezado.Controls.Add(this.lbl_tipoBodega);
             this.gbx_encabezado.Controls.Add(this.dtp_fecha);
             this.gbx_encabezado.Controls.Add(this.btn_continuar);
-            this.gbx_encabezado.Controls.Add(this.cmb_encargado);
             this.gbx_encabezado.Controls.Add(this.label1);
             this.gbx_encabezado.Controls.Add(this.label2);
             this.gbx_encabezado.Controls.Add(this.cmb_propietario);
@@ -300,7 +292,7 @@
             // cmb_tipoBodega
             // 
             this.cmb_tipoBodega.FormattingEnabled = true;
-            this.cmb_tipoBodega.Location = new System.Drawing.Point(467, 56);
+            this.cmb_tipoBodega.Location = new System.Drawing.Point(467, 55);
             this.cmb_tipoBodega.Name = "cmb_tipoBodega";
             this.cmb_tipoBodega.Size = new System.Drawing.Size(198, 21);
             this.cmb_tipoBodega.TabIndex = 66;
@@ -351,6 +343,14 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // txt_encargado
+            // 
+            this.txt_encargado.Enabled = false;
+            this.txt_encargado.Location = new System.Drawing.Point(245, 56);
+            this.txt_encargado.Name = "txt_encargado";
+            this.txt_encargado.Size = new System.Drawing.Size(198, 20);
+            this.txt_encargado.TabIndex = 70;
+            // 
             // EntradaProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -374,6 +374,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EntradaProducto";
             this.Text = "EntradaProducto";
+            this.Load += new System.EventHandler(this.EntradaProducto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_productos)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -388,7 +389,6 @@
         #endregion
 
         private System.Windows.Forms.DateTimePicker dtp_fecha;
-        private System.Windows.Forms.ComboBox cmb_encargado;
         private System.Windows.Forms.TextBox txt_producto;
         private System.Windows.Forms.TextBox txt_cantidad;
         private System.Windows.Forms.DataGridView dgv_productos;
@@ -413,5 +413,6 @@
         private System.Windows.Forms.Label lbl_tipoBodega;
         private System.Windows.Forms.Button btn_nuevo;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txt_encargado;
     }
 }

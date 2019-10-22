@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Odbc;
 using System.Data;
+using Common.Cache;
 
 namespace Bodega.Traslados
 {
@@ -33,9 +34,10 @@ namespace Bodega.Traslados
             //dtp_fecha.Format = DateTimePickerFormat.Custom;
             //Display the date as "Mon 27 Feb 2012".  
             //dtp_fecha.CustomFormat = "yyyy MM dd";
-            cmb_encargado.DataSource = CapaDatosBodega.llenarTrabajador();//llama la tabla trabajador
-            cmb_encargado.ValueMember = "Nombre";
-            
+            //cmb_encargado.DataSource = CapaDatosBodega.llenarTrabajador();//llama la tabla trabajador
+            //cmb_encargado.ValueMember = "Nombre";
+            txt_encargado.Text = UserLoginCache.username;
+
             cmb_propietario.DataSource = CapaDatosBodega.llenarPropietario();
             cmb_propietario.ValueMember = "Nombre";
 
@@ -92,7 +94,7 @@ namespace Bodega.Traslados
 
         private void btn_continuar_Click(object sender, EventArgs e)
         {
-            if (txt_codigo.Text == "" || cmb_encargado.SelectedIndex == -1)
+            if (txt_codigo.Text == "" || txt_encargado.Text == "")
             {
                 MessageBox.Show("llene todos los campos");//lanza mensaje
             }
@@ -102,12 +104,12 @@ namespace Bodega.Traslados
                 {
                     OdbcConnection con = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
 
-                    OdbcCommand cmd1 = new OdbcCommand("insert into encabezadoentrada values ('" + txt_codigo.Text + "','" + dtp_fecha.Value.ToString("yyyyMMdd") + "', '"+ cmb_propietario.Text.ToString() + "', '" + cmb_encargado.Text.ToString() + "', '" + cmb_tipoBodega.Text.ToString() + "')", con);
+                    OdbcCommand cmd1 = new OdbcCommand("insert into encabezadoentrada values ('" + txt_codigo.Text + "','" + dtp_fecha.Value.ToString("yyyyMMdd") + "', '"+ cmb_propietario.Text.ToString() + "', '" + txt_encargado.Text + "', '" + cmb_tipoBodega.Text.ToString() + "')", con);
                     con.Open();//abre la conexion 
                     cmd1.ExecuteNonQuery();//ejecuta el query
                     con.Close();//cierra la conexion
 
-                    OdbcCommand cmd = new OdbcCommand("insert into EncabezadoInvetarioBodega values ('" + txt_codigo.Text + "','" + dtp_fecha.Value.ToString("yyyyMMdd") + "', '" + cmb_encargado.Text.ToString() + "', '" + cmb_tipoBodega.Text.ToString() + "')", con);
+                    OdbcCommand cmd = new OdbcCommand("insert into EncabezadoInvetarioBodega values ('" + txt_codigo.Text + "','" + dtp_fecha.Value.ToString("yyyyMMdd") + "', '" + txt_encargado.Text + "', '" + cmb_tipoBodega.Text.ToString() + "')", con);
                     con.Open();//abre la conexion 
                     cmd.ExecuteNonQuery();//ejecuta el query
                     con.Close();//cierra la conexion
@@ -219,6 +221,11 @@ namespace Bodega.Traslados
             else if (result == DialogResult.No)
             {
             }
+        }
+
+        private void EntradaProducto_Load(object sender, EventArgs e)
+        {
+            txt_encargado.Text = UserLoginCache.username;
         }
     }
 }

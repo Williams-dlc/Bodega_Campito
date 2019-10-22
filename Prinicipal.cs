@@ -170,6 +170,7 @@ namespace Bodega
         private void LoadUserData()
         {
             lbl_usuario.Text = UserLoginCache.username;
+            
             if (UserLoginCache.Perfil == Cargos.Administrador)
                 lbl_perfil.Text = Cargos.Administrador;
             else if (UserLoginCache.Perfil == Cargos.Trabajador)
