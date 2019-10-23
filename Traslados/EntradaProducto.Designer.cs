@@ -50,14 +50,15 @@
             this.txt_detalle = new System.Windows.Forms.TextBox();
             this.btn_continuar = new System.Windows.Forms.Button();
             this.gbx_encabezado = new System.Windows.Forms.GroupBox();
+            this.txt_encargado = new System.Windows.Forms.TextBox();
             this.cmb_tipoBodega = new System.Windows.Forms.ComboBox();
             this.lbl_tipoBodega = new System.Windows.Forms.Label();
             this.btn_nuevo = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.txt_encargado = new System.Windows.Forms.TextBox();
             this.btn_refrescar = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.dgb_pedido = new System.Windows.Forms.DataGridView();
+            this.txt_codProducto = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_productos)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -74,9 +75,9 @@
             // 
             // txt_producto
             // 
-            this.txt_producto.Location = new System.Drawing.Point(155, 288);
+            this.txt_producto.Location = new System.Drawing.Point(206, 288);
             this.txt_producto.Name = "txt_producto";
-            this.txt_producto.Size = new System.Drawing.Size(200, 20);
+            this.txt_producto.Size = new System.Drawing.Size(178, 20);
             this.txt_producto.TabIndex = 2;
             // 
             // txt_cantidad
@@ -293,6 +294,14 @@
             this.gbx_encabezado.TabStop = false;
             this.gbx_encabezado.Text = "Encabezado";
             // 
+            // txt_encargado
+            // 
+            this.txt_encargado.Enabled = false;
+            this.txt_encargado.Location = new System.Drawing.Point(245, 56);
+            this.txt_encargado.Name = "txt_encargado";
+            this.txt_encargado.Size = new System.Drawing.Size(198, 20);
+            this.txt_encargado.TabIndex = 70;
+            // 
             // cmb_tipoBodega
             // 
             this.cmb_tipoBodega.FormattingEnabled = true;
@@ -347,14 +356,6 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // txt_encargado
-            // 
-            this.txt_encargado.Enabled = false;
-            this.txt_encargado.Location = new System.Drawing.Point(245, 56);
-            this.txt_encargado.Name = "txt_encargado";
-            this.txt_encargado.Size = new System.Drawing.Size(198, 20);
-            this.txt_encargado.TabIndex = 70;
-            // 
             // btn_refrescar
             // 
             this.btn_refrescar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_refrescar.BackgroundImage")));
@@ -386,11 +387,19 @@
             this.dgb_pedido.Size = new System.Drawing.Size(376, 150);
             this.dgb_pedido.TabIndex = 75;
             // 
+            // txt_codProducto
+            // 
+            this.txt_codProducto.Location = new System.Drawing.Point(156, 288);
+            this.txt_codProducto.Name = "txt_codProducto";
+            this.txt_codProducto.Size = new System.Drawing.Size(51, 20);
+            this.txt_codProducto.TabIndex = 77;
+            // 
             // EntradaProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(850, 615);
+            this.Controls.Add(this.txt_codProducto);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.dgb_pedido);
             this.Controls.Add(this.btn_refrescar);
@@ -456,5 +465,6 @@
         private System.Windows.Forms.Button btn_refrescar;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView dgb_pedido;
+        private System.Windows.Forms.TextBox txt_codProducto;
     }
 }

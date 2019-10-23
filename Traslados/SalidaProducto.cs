@@ -41,6 +41,7 @@ namespace Bodega.Traslados
             txt_producto.Enabled = false;
             txt_disponible.Enabled = false;
             btn_aceptar.Enabled = false;
+            txt_codProducto.Enabled = false;
         }
 
 
@@ -87,6 +88,7 @@ namespace Bodega.Traslados
                     txt_disponible.Enabled = true;
                     btn_aceptar.Enabled = true;
                     btn_continuar.Enabled = false;
+                    txt_codProducto.Enabled = true;
 
 
                 }
@@ -107,7 +109,7 @@ namespace Bodega.Traslados
             using (OdbcConnection con = new OdbcConnection(ConnStr))
             {
                 con.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("select FK_producto, cantidad, FK_Propietario from DetalleInventario where FK_Producto= '"+txt_producto.Text+"' AND FK_Propietario='"+cmb_propietario.Text.ToString()+"'", con);//llama a la tabla de inventario para ver stock
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select FK_producto, cantidad, FK_Propietario from DetalleInventario where FK_Producto= '"+txt_codProducto.Text+"' AND FK_Propietario='"+cmb_propietario.Text.ToString()+"'", con);//llama a la tabla de inventario para ver stock
                                                                                                                                       //OdbcDataReader queryResults = cmd.ExecuteReader();
                 cmd.Fill(tabla);
 
@@ -123,8 +125,8 @@ namespace Bodega.Traslados
             {
                 try
                 {
-
-                    txt_producto.Text = Convert.ToString(dgv_producto.Rows[e.RowIndex].Cells[0].Value.ToString());//llena el textbox con los campos seleccionados en el datagrid
+                    txt_codProducto.Text = Convert.ToString(dgv_producto.Rows[e.RowIndex].Cells[0].Value.ToString());//llena el textbox con los campos seleccionados en el datagrid
+                    txt_producto.Text = Convert.ToString(dgv_producto.Rows[e.RowIndex].Cells[1].Value.ToString());//llena el textbox con los campos seleccionados en el datagrid
                     disponibilidad();
 
                 }
@@ -156,12 +158,12 @@ namespace Bodega.Traslados
             {
                 OdbcConnection con = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
 
-                OdbcCommand cmd1 = new OdbcCommand("insert into DetallePedido values (NULL,'" + txt_cantidad.Text + "', '" + txt_detalle.Text + "', '" + txt_producto.Text + "')", con);
+                OdbcCommand cmd1 = new OdbcCommand("insert into DetallePedido values (NULL,'" + txt_cantidad.Text + "', '" + txt_detalle.Text + "', '" + txt_codProducto.Text + "')", con);
                 con.Open();//abre la conexion ;
                 cmd1.ExecuteNonQuery();
                 con.Close();//cierra la conexion
 
-                OdbcCommand cmd2 = new OdbcCommand("update detalleinventario set Cantidad='" + txt_disponible.Text + "'-'" + txt_cantidad.Text + "' where FK_Propietario='" + cmb_propietario.Text.ToString() + "' AND FK_producto='" + txt_producto.Text + " '", con);//elimina de stock lo solicitado
+                OdbcCommand cmd2 = new OdbcCommand("update detalleinventario set Cantidad='" + txt_disponible.Text + "'-'" + txt_cantidad.Text + "' where FK_Propietario='" + cmb_propietario.Text.ToString() + "' AND FK_producto='" + txt_codProducto.Text + " '", con);//elimina de stock lo solicitado
                 con.Open();//abre la conexion ;               
                 cmd2.ExecuteNonQuery();
                 con.Close();//cierra la conexion
@@ -169,6 +171,7 @@ namespace Bodega.Traslados
                 txt_producto.Text = "";
                 txt_cantidad.Text = "";
                 txt_disponible.Text = "";
+                txt_codProducto.Text = "";
                 producto();
 
                 DataTable tabla = new DataTable();
@@ -205,6 +208,7 @@ namespace Bodega.Traslados
             txt_disponible.Enabled = false;
             txt_cantidad.Enabled = false;
             btn_aceptar.Enabled = false;
+            txt_codProducto.Enabled = false;
         }
 
         private void btn_nuevo_Click(object sender, EventArgs e)
@@ -273,6 +277,9 @@ namespace Bodega.Traslados
         private void btn_refrescar_Click(object sender, EventArgs e)
         {
             txt_producto.Text = "";
+            txt_codProducto.Text = "";
+            txt_cantidad.Text = "";
+            txt_disponible.Text = "";
             producto();
         }
     }

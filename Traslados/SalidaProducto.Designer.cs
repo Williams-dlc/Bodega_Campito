@@ -55,11 +55,12 @@
             this.cmb_bodega = new System.Windows.Forms.ComboBox();
             this.btn_continuar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txt_encargado = new System.Windows.Forms.TextBox();
             this.btn_nuevo = new System.Windows.Forms.Button();
             this.lbl_disponible = new System.Windows.Forms.Label();
             this.txt_disponible = new System.Windows.Forms.TextBox();
-            this.txt_encargado = new System.Windows.Forms.TextBox();
             this.btn_refrescar = new System.Windows.Forms.Button();
+            this.txt_codProducto = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_producto)).BeginInit();
@@ -136,9 +137,9 @@
             // 
             // txt_producto
             // 
-            this.txt_producto.Location = new System.Drawing.Point(134, 244);
+            this.txt_producto.Location = new System.Drawing.Point(183, 244);
             this.txt_producto.Name = "txt_producto";
-            this.txt_producto.Size = new System.Drawing.Size(200, 20);
+            this.txt_producto.Size = new System.Drawing.Size(151, 20);
             this.txt_producto.TabIndex = 19;
             // 
             // dtp_fecha
@@ -356,6 +357,14 @@
             this.groupBox1.Text = "Encabezado";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // txt_encargado
+            // 
+            this.txt_encargado.Enabled = false;
+            this.txt_encargado.Location = new System.Drawing.Point(224, 44);
+            this.txt_encargado.Name = "txt_encargado";
+            this.txt_encargado.Size = new System.Drawing.Size(198, 20);
+            this.txt_encargado.TabIndex = 69;
+            // 
             // btn_nuevo
             // 
             this.btn_nuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
@@ -391,14 +400,6 @@
             this.txt_disponible.Size = new System.Drawing.Size(200, 20);
             this.txt_disponible.TabIndex = 71;
             // 
-            // txt_encargado
-            // 
-            this.txt_encargado.Enabled = false;
-            this.txt_encargado.Location = new System.Drawing.Point(224, 44);
-            this.txt_encargado.Name = "txt_encargado";
-            this.txt_encargado.Size = new System.Drawing.Size(198, 20);
-            this.txt_encargado.TabIndex = 69;
-            // 
             // btn_refrescar
             // 
             this.btn_refrescar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_refrescar.BackgroundImage")));
@@ -411,11 +412,19 @@
             this.btn_refrescar.UseVisualStyleBackColor = true;
             this.btn_refrescar.Click += new System.EventHandler(this.btn_refrescar_Click);
             // 
+            // txt_codProducto
+            // 
+            this.txt_codProducto.Location = new System.Drawing.Point(134, 244);
+            this.txt_codProducto.Name = "txt_codProducto";
+            this.txt_codProducto.Size = new System.Drawing.Size(51, 20);
+            this.txt_codProducto.TabIndex = 78;
+            // 
             // SalidaProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(850, 615);
+            this.Controls.Add(this.txt_codProducto);
             this.Controls.Add(this.btn_refrescar);
             this.Controls.Add(this.lbl_disponible);
             this.Controls.Add(this.txt_disponible);
@@ -482,5 +491,6 @@
         private System.Windows.Forms.TextBox txt_disponible;
         private System.Windows.Forms.TextBox txt_encargado;
         private System.Windows.Forms.Button btn_refrescar;
+        private System.Windows.Forms.TextBox txt_codProducto;
     }
 }
