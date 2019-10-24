@@ -45,7 +45,6 @@
             this.btn_cancelar = new System.Windows.Forms.Button();
             this.btn_aceptar = new System.Windows.Forms.Button();
             this.dgv_producto = new System.Windows.Forms.DataGridView();
-            this.btn_prestar = new System.Windows.Forms.Button();
             this.dgb_pedido = new System.Windows.Forms.DataGridView();
             this.label8 = new System.Windows.Forms.Label();
             this.txt_codigo = new System.Windows.Forms.TextBox();
@@ -61,6 +60,7 @@
             this.txt_disponible = new System.Windows.Forms.TextBox();
             this.btn_refrescar = new System.Windows.Forms.Button();
             this.txt_codProducto = new System.Windows.Forms.TextBox();
+            this.btn_prestamo = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_producto)).BeginInit();
@@ -236,24 +236,6 @@
             this.dgv_producto.TabIndex = 28;
             this.dgv_producto.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_producto_CellDoubleClick);
             // 
-            // btn_prestar
-            // 
-            this.btn_prestar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.btn_prestar.FlatAppearance.BorderSize = 0;
-            this.btn_prestar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.btn_prestar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btn_prestar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_prestar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_prestar.ForeColor = System.Drawing.Color.Silver;
-            this.btn_prestar.Location = new System.Drawing.Point(32, 556);
-            this.btn_prestar.Name = "btn_prestar";
-            this.btn_prestar.Size = new System.Drawing.Size(146, 35);
-            this.btn_prestar.TabIndex = 33;
-            this.btn_prestar.Tag = "3";
-            this.btn_prestar.Text = "Prestar";
-            this.btn_prestar.UseVisualStyleBackColor = false;
-            this.btn_prestar.Click += new System.EventHandler(this.btn_prestar_Click);
-            // 
             // dgb_pedido
             // 
             this.dgb_pedido.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -419,11 +401,31 @@
             this.txt_codProducto.Size = new System.Drawing.Size(51, 20);
             this.txt_codProducto.TabIndex = 78;
             // 
+            // btn_prestamo
+            // 
+            this.btn_prestamo.BackColor = System.Drawing.Color.DarkOrange;
+            this.btn_prestamo.FlatAppearance.BorderSize = 0;
+            this.btn_prestamo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(192)))), ((int)(((byte)(227)))));
+            this.btn_prestamo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_prestamo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_prestamo.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_prestamo.Image = ((System.Drawing.Image)(resources.GetObject("btn_prestamo.Image")));
+            this.btn_prestamo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_prestamo.Location = new System.Drawing.Point(90, 530);
+            this.btn_prestamo.Name = "btn_prestamo";
+            this.btn_prestamo.Size = new System.Drawing.Size(157, 47);
+            this.btn_prestamo.TabIndex = 83;
+            this.btn_prestamo.Text = "Realizar \r\nprestamo";
+            this.btn_prestamo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_prestamo.UseVisualStyleBackColor = false;
+            this.btn_prestamo.Click += new System.EventHandler(this.btn_prestamo_Click);
+            // 
             // SalidaProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(850, 615);
+            this.Controls.Add(this.btn_prestamo);
             this.Controls.Add(this.txt_codProducto);
             this.Controls.Add(this.btn_refrescar);
             this.Controls.Add(this.lbl_disponible);
@@ -431,7 +433,6 @@
             this.Controls.Add(this.btn_nuevo);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.dgb_pedido);
-            this.Controls.Add(this.btn_prestar);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btn_cancelar);
             this.Controls.Add(this.btn_aceptar);
@@ -476,7 +477,6 @@
         private System.Windows.Forms.Button btn_cancelar;
         private System.Windows.Forms.Button btn_aceptar;
         private System.Windows.Forms.DataGridView dgv_producto;
-        private System.Windows.Forms.Button btn_prestar;
         private System.Windows.Forms.DataGridView dgb_pedido;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txt_codigo;
@@ -492,5 +492,6 @@
         private System.Windows.Forms.TextBox txt_encargado;
         private System.Windows.Forms.Button btn_refrescar;
         private System.Windows.Forms.TextBox txt_codProducto;
+        private System.Windows.Forms.Button btn_prestamo;
     }
 }

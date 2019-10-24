@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Odbc;
 using System.Runtime.InteropServices;
+using Common.Cache;
 
 namespace Bodega.Traslados
 {
@@ -24,6 +25,8 @@ namespace Bodega.Traslados
             txt_producto.Enabled = false;
             txt_disponible.Enabled = false;
             btn_ingresar.Enabled = false;
+            txt_codProducto.Enabled = false;
+            btn_finalizar.Enabled = false;
 
             Random r_aleatgenerador = new Random();/////////////generando numero random
             int numero_generado;
@@ -31,8 +34,7 @@ namespace Bodega.Traslados
             txt_codigo.Text = Convert.ToString(numero_generado);
 
             dgv_producto.DataSource = CapaDatosBodega.llenarproducto();
-            cmb_encargado.DataSource = CapaDatosBodega.llenarTrabajador();//llama la tabla trabajador
-            cmb_encargado.ValueMember = "Nombre";
+            txt_encargado.Text = UserLoginCache.username;
 
             cmb_propietario.DataSource = CapaDatosBodega.llenarPropietario();
             cmb_propietario.ValueMember = "Nombre";
@@ -67,14 +69,65 @@ namespace Bodega.Traslados
 
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
+            DialogResult result = MessageBox.Show("¿Desea cancelar esta operación?", "Nuevo", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                if (dgb_pedido.Rows.Count != 0)
+                {
+                    OdbcConnection con2 = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
+
+                    OdbcCommand cmd3 = new OdbcCommand("delete from detalleprestamo_respaldo where fk_encprestamo_resp='" + txt_codigo.Text + "'", con2);
+                    con2.Open();//abre la conexion 
+                    cmd3.ExecuteNonQuery();//ejecuta el query
+                    con2.Close();//cierra la conexion
+
+                    OdbcConnection con3 = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
+
+                    OdbcCommand cmd4 = new OdbcCommand("delete from detalleprestamo where fk_encprestamo='" + txt_codigo.Text + "'", con3);
+                    con3.Open();//abre la conexion 
+                    cmd4.ExecuteNonQuery();//ejecuta el query
+                    con3.Close();//cierra la conexion
+
+                    OdbcConnection con = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
+
+                    OdbcCommand cmd1 = new OdbcCommand("delete from encabezadoprestamo where idPrestamo='" + txt_codigo.Text + "'", con);
+                    con.Open();//abre la conexion 
+                    cmd1.ExecuteNonQuery();//ejecuta el query
+                    con.Close();//cierra la conexion
+
+                    OdbcConnection con1 = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
+
+                    OdbcCommand cmd2 = new OdbcCommand("delete from encabezadoprestamo_respaldo where idPrestamo_resp='" + txt_codigo.Text + "'", con1);
+                    con1.Open();//abre la conexion 
+                    cmd2.ExecuteNonQuery();//ejecuta el query
+                    con1.Close();//cierra la conexion
+
+                    
+
+                    this.Close();
+                }
+                else
+                {
+                    nuevaEntrada();
+                }
+
+            }
+            else if (result == DialogResult.No)
+            {
+            }
             this.Close();
         }
 
         private void btn_continuar_Click(object sender, EventArgs e)
         {
-            if (txt_codigo.Text == "" || cmb_encargado.SelectedIndex == -1 || cmb_propietario.SelectedIndex == -1 || cmb_bodega.SelectedIndex == -1 || cmb_prestador.SelectedIndex==-1)
+            if (txt_codigo.Text == "" || txt_encargado.Text == "" || cmb_propietario.SelectedIndex == -1 || cmb_bodega.SelectedIndex == -1 || cmb_prestador.SelectedIndex==-1)
             {
                 MessageBox.Show("llene todos los campos");//lanza mensaje
+            }
+            else if (cmb_propietario.Text.ToString()== cmb_prestador.Text.ToString())
+            {
+                MessageBox.Show("El nombre del propietario y el nombre del prestador tiene que ser diferentes", "Error de ingreso",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
             else
             {
@@ -83,12 +136,12 @@ namespace Bodega.Traslados
                     OdbcConnection con = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
 
 
-                    OdbcCommand cmd = new OdbcCommand("insert into encabezadoprestamo values ('" + txt_codigo.Text + "','" + dtp_fecha.Value.ToString("yyyyMMdd") + "','"  + cmb_encargado.Text.ToString() + "','" + cmb_propietario.Text.ToString() + "', '" + cmb_prestador.Text.ToString() + "', '" + cmb_bodega.Text.ToString() + "')", con);
+                    OdbcCommand cmd = new OdbcCommand("insert into encabezadoprestamo values ('" + txt_codigo.Text + "','" + dtp_fecha.Value.ToString("yyyyMMdd") + "','"  + txt_encargado.Text + "','" + cmb_propietario.Text.ToString() + "', '" + cmb_prestador.Text.ToString() + "', '" + cmb_bodega.Text.ToString() + "')", con);
                     con.Open();//abre la conexion 
                     cmd.ExecuteNonQuery();//ejecuta el query
                     con.Close();//cierra la conexion
 
-                    OdbcCommand cmd1 = new OdbcCommand("insert into encabezadoprestamo_respaldo values ('" + txt_codigo.Text + "','" + dtp_fecha.Value.ToString("yyyyMMdd") + "','" + cmb_encargado.Text.ToString() + "','" + cmb_propietario.Text.ToString() + "', '" + cmb_prestador.Text.ToString() + "', '" + cmb_bodega.Text.ToString() + "')", con);
+                    OdbcCommand cmd1 = new OdbcCommand("insert into encabezadoprestamo_respaldo values ('" + txt_codigo.Text + "','" + dtp_fecha.Value.ToString("yyyyMMdd") + "','" + txt_encargado.Text + "','" + cmb_propietario.Text.ToString() + "', '" + cmb_prestador.Text.ToString() + "', '" + cmb_bodega.Text.ToString() + "')", con);
                     con.Open();//abre la conexion 
                     cmd1.ExecuteNonQuery();//ejecuta el query
                     con.Close();//cierra la conexion
@@ -97,7 +150,7 @@ namespace Bodega.Traslados
                     txt_cantidad.Enabled = true;
                     txt_disponible.Enabled = true;
                     btn_ingresar.Enabled = true;
-
+                    txt_codProducto.Enabled = true;
 
                 }
                 catch (Exception ex)
@@ -110,28 +163,43 @@ namespace Bodega.Traslados
             }
         }
 
+        public void pedido()
+        {
+            DataTable tabla = new DataTable();
+            using (OdbcConnection con1 = new OdbcConnection(ConnStr))
+            {
+                con1.Open();
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select FK_producto, cantidad from Detalleprestamo where FK_EncPrestamo= '" + txt_detalle.Text + "'", con1);//llama a la tabla de inventario para ver stock
+                                                                                                                                                                  //OdbcDataReader queryResults = cmd.ExecuteReader();
+                cmd.Fill(tabla);
+
+            }
+
+            dgb_pedido.DataSource = tabla;
+        }
+
         private void btn_ingresar_Click(object sender, EventArgs e)
         {
              try
             {
                 OdbcConnection con = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
 
-                OdbcCommand cmd1 = new OdbcCommand("insert into DetallePrestamo values (NULL,'" + txt_cantidad.Text + "', '" + txt_detalle.Text + "', '" + txt_producto.Text + "')", con);
+                OdbcCommand cmd1 = new OdbcCommand("insert into DetallePrestamo values (NULL,'" + txt_cantidad.Text + "', '" + txt_detalle.Text + "', '" + txt_codProducto.Text + "')", con);
                 con.Open();//abre la conexion ;
                 cmd1.ExecuteNonQuery();
                 con.Close();//cierra la conexion
 
-                OdbcCommand cmd3 = new OdbcCommand("insert into DetallePrestamo_respaldo values (NULL,'" + txt_cantidad.Text + "', '" + txt_detalle.Text + "', '" + txt_producto.Text + "')", con);
+                OdbcCommand cmd3 = new OdbcCommand("insert into DetallePrestamo_respaldo values (NULL,'" + txt_cantidad.Text + "', '" + txt_detalle.Text + "', '" + txt_codProducto.Text + "')", con);
                 con.Open();//abre la conexion ;
                 cmd3.ExecuteNonQuery();
                 con.Close();//cierra la conexion
 
-                OdbcCommand cmd2 = new OdbcCommand("update detalleinventario set Cantidad='" + txt_disponible.Text + "'-'" + txt_cantidad.Text + "' where FK_Propietario='" + cmb_propietario.Text.ToString() + "' AND FK_producto='" + txt_producto.Text + " '", con);//elimina de stock lo solicitado
+                OdbcCommand cmd2 = new OdbcCommand("update detalleinventario set Cantidad='" + txt_disponible.Text + "'-'" + txt_cantidad.Text + "' where FK_Propietario='" + cmb_propietario.Text.ToString() + "' AND FK_producto='" + txt_codProducto.Text + " '", con);//elimina de stock lo solicitado
                 con.Open();//abre la conexion ;               
                 cmd2.ExecuteNonQuery();
                 con.Close();//cierra la conexion
 
-                OdbcCommand cmd = new OdbcCommand("update detalleinventario set Cantidad= Cantidad + '" + txt_cantidad.Text + "' where FK_Propietario='" + cmb_prestador.Text.ToString() + "' AND FK_producto='" + txt_producto.Text + " '", con);
+                OdbcCommand cmd = new OdbcCommand("update detalleinventario set Cantidad= Cantidad + '" + txt_cantidad.Text + "' where FK_Propietario='" + cmb_prestador.Text.ToString() + "' AND FK_producto='" + txt_codProducto.Text + " '", con);
                 con.Open();//abre la conexion 
                 cmd.ExecuteNonQuery();//ejecuta el query
                 con.Close();//cierra la conexion
@@ -139,7 +207,10 @@ namespace Bodega.Traslados
                 txt_producto.Text = "";
                 txt_cantidad.Text = "";
                 txt_disponible.Text = "";
+                txt_codProducto.Text = "";
+                btn_finalizar.Enabled = true;
                 producto();
+                pedido();
             }
             catch (Exception ex)
             {
@@ -154,7 +225,7 @@ namespace Bodega.Traslados
             using (OdbcConnection con = new OdbcConnection(ConnStr))
             {
                 con.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("select FK_producto, cantidad, FK_Propietario from DetalleInventario where FK_Producto= '" + txt_producto.Text + "' AND FK_Propietario='" + cmb_propietario.Text.ToString() + "'", con);//llama a la tabla de inventario para ver stock
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select FK_producto, cantidad, FK_Propietario from DetalleInventario where FK_Producto= '" + txt_codProducto.Text + "' AND FK_Propietario='" + cmb_propietario.Text.ToString() + "'", con);//llama a la tabla de inventario para ver stock
                                                                                                                                                                                                                                                   //OdbcDataReader queryResults = cmd.ExecuteReader();
                 cmd.Fill(tabla);
 
@@ -170,8 +241,8 @@ namespace Bodega.Traslados
             {
                 try
                 {
-
-                    txt_producto.Text = Convert.ToString(dgv_producto.Rows[e.RowIndex].Cells[0].Value.ToString());//llena el textbox con los campos seleccionados en el datagrid
+                    txt_codProducto.Text= Convert.ToString(dgv_producto.Rows[e.RowIndex].Cells[0].Value.ToString());//llena el textbox con los campos seleccionados en el datagrid
+                    txt_producto.Text = Convert.ToString(dgv_producto.Rows[e.RowIndex].Cells[1].Value.ToString());//llena el textbox con los campos seleccionados en el datagrid
                     disponibilidad();
 
                 }
@@ -216,6 +287,13 @@ namespace Bodega.Traslados
             txt_codigo.Text = Convert.ToString(numero_generado);
 
             txt_detalle.Text = "";
+            txt_codProducto.Enabled = false ;
+            txt_producto.Enabled=false;
+            txt_disponible.Enabled = false;
+            txt_cantidad.Enabled = false;
+            btn_ingresar.Enabled = false;
+            dgb_pedido.DataSource = null;
+            dgb_pedido.Refresh();
         }
 
         private void btn_nuevo_Click(object sender, EventArgs e)
@@ -234,6 +312,20 @@ namespace Bodega.Traslados
         private void btn_salir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btn_refrescar_Click(object sender, EventArgs e)
+        {
+            txt_producto.Text = "";
+            txt_codProducto.Text = "";
+            txt_cantidad.Text = "";
+            txt_disponible.Text = "";
+            producto();
+        }
+
+        private void btn_prestar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

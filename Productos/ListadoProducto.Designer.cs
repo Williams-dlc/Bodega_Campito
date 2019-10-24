@@ -34,13 +34,14 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.gbx_Nombre = new System.Windows.Forms.GroupBox();
-            this.gbx_Producto = new System.Windows.Forms.GroupBox();
-            this.cmb_propietario = new System.Windows.Forms.ComboBox();
-            this.txt_producto = new System.Windows.Forms.TextBox();
             this.btn_aceptar = new System.Windows.Forms.Button();
+            this.cmb_propietario = new System.Windows.Forms.ComboBox();
+            this.gbx_Producto = new System.Windows.Forms.GroupBox();
             this.btn_aceptarProd = new System.Windows.Forms.Button();
+            this.txt_producto = new System.Windows.Forms.TextBox();
             this.btn_Mostrar = new System.Windows.Forms.Button();
             this.lbl_buscar = new System.Windows.Forms.Label();
+            this.txt_codProducto = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_productos)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -101,33 +102,6 @@
             this.gbx_Nombre.TabStop = false;
             this.gbx_Nombre.Text = "Buscar por propietario";
             // 
-            // gbx_Producto
-            // 
-            this.gbx_Producto.Controls.Add(this.btn_aceptarProd);
-            this.gbx_Producto.Controls.Add(this.txt_producto);
-            this.gbx_Producto.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbx_Producto.Location = new System.Drawing.Point(462, 85);
-            this.gbx_Producto.Name = "gbx_Producto";
-            this.gbx_Producto.Size = new System.Drawing.Size(343, 68);
-            this.gbx_Producto.TabIndex = 4;
-            this.gbx_Producto.TabStop = false;
-            this.gbx_Producto.Text = "Buscar por producto";
-            // 
-            // cmb_propietario
-            // 
-            this.cmb_propietario.FormattingEnabled = true;
-            this.cmb_propietario.Location = new System.Drawing.Point(6, 25);
-            this.cmb_propietario.Name = "cmb_propietario";
-            this.cmb_propietario.Size = new System.Drawing.Size(188, 26);
-            this.cmb_propietario.TabIndex = 0;
-            // 
-            // txt_producto
-            // 
-            this.txt_producto.Location = new System.Drawing.Point(9, 25);
-            this.txt_producto.Name = "txt_producto";
-            this.txt_producto.Size = new System.Drawing.Size(204, 26);
-            this.txt_producto.TabIndex = 0;
-            // 
             // btn_aceptar
             // 
             this.btn_aceptar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
@@ -146,6 +120,27 @@
             this.btn_aceptar.UseVisualStyleBackColor = false;
             this.btn_aceptar.Click += new System.EventHandler(this.btn_aceptar_Click);
             // 
+            // cmb_propietario
+            // 
+            this.cmb_propietario.FormattingEnabled = true;
+            this.cmb_propietario.Location = new System.Drawing.Point(6, 25);
+            this.cmb_propietario.Name = "cmb_propietario";
+            this.cmb_propietario.Size = new System.Drawing.Size(188, 26);
+            this.cmb_propietario.TabIndex = 0;
+            // 
+            // gbx_Producto
+            // 
+            this.gbx_Producto.Controls.Add(this.txt_codProducto);
+            this.gbx_Producto.Controls.Add(this.btn_aceptarProd);
+            this.gbx_Producto.Controls.Add(this.txt_producto);
+            this.gbx_Producto.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbx_Producto.Location = new System.Drawing.Point(462, 85);
+            this.gbx_Producto.Name = "gbx_Producto";
+            this.gbx_Producto.Size = new System.Drawing.Size(343, 68);
+            this.gbx_Producto.TabIndex = 4;
+            this.gbx_Producto.TabStop = false;
+            this.gbx_Producto.Text = "Buscar por producto";
+            // 
             // btn_aceptarProd
             // 
             this.btn_aceptarProd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
@@ -163,6 +158,13 @@
             this.btn_aceptarProd.Text = "Aceptar";
             this.btn_aceptarProd.UseVisualStyleBackColor = false;
             this.btn_aceptarProd.Click += new System.EventHandler(this.btn_aceptarProd_Click);
+            // 
+            // txt_producto
+            // 
+            this.txt_producto.Location = new System.Drawing.Point(50, 25);
+            this.txt_producto.Name = "txt_producto";
+            this.txt_producto.Size = new System.Drawing.Size(163, 26);
+            this.txt_producto.TabIndex = 0;
             // 
             // btn_Mostrar
             // 
@@ -187,6 +189,13 @@
             this.lbl_buscar.Size = new System.Drawing.Size(165, 19);
             this.lbl_buscar.TabIndex = 6;
             this.lbl_buscar.Text = "Buscar por producto";
+            // 
+            // txt_codProducto
+            // 
+            this.txt_codProducto.Location = new System.Drawing.Point(15, 25);
+            this.txt_codProducto.Name = "txt_codProducto";
+            this.txt_codProducto.Size = new System.Drawing.Size(36, 26);
+            this.txt_codProducto.TabIndex = 14;
             // 
             // ListadoProducto
             // 
@@ -228,5 +237,6 @@
         private System.Windows.Forms.Button btn_aceptarProd;
         private System.Windows.Forms.Button btn_Mostrar;
         private System.Windows.Forms.Label lbl_buscar;
+        private System.Windows.Forms.TextBox txt_codProducto;
     }
 }

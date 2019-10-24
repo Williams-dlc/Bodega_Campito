@@ -152,6 +152,21 @@ namespace Bodega.Traslados
             }
         }
 
+        public void pedido()
+        {
+            DataTable tabla = new DataTable();
+            using (OdbcConnection con1 = new OdbcConnection(ConnStr))
+            {
+                con1.Open();
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select FK_producto, cantidad from Detallepedido where FK_EncPedido= '" + txt_detalle.Text + "'", con1);//llama a la tabla de inventario para ver stock
+                                                                                                                                                                  //OdbcDataReader queryResults = cmd.ExecuteReader();
+                cmd.Fill(tabla);
+
+            }
+
+            dgb_pedido.DataSource = tabla;
+        }
+
         private void btn_aceptar_Click(object sender, EventArgs e)
         {
             try
@@ -174,17 +189,7 @@ namespace Bodega.Traslados
                 txt_codProducto.Text = "";
                 producto();
 
-                DataTable tabla = new DataTable();
-                using (OdbcConnection con1 = new OdbcConnection(ConnStr))
-                {
-                    con1.Open();
-                    OdbcDataAdapter cmd = new OdbcDataAdapter("select FK_producto, cantidad from Detallepedido where FK_EncPedido= '" + txt_detalle.Text + "'", con1);//llama a la tabla de inventario para ver stock
-                                                                                                                                                                                                                                                      //OdbcDataReader queryResults = cmd.ExecuteReader();
-                    cmd.Fill(tabla);
-
-                }
-
-                dgb_pedido.DataSource = tabla;
+                pedido();//LLenar el datagrid con los productos que se estan operando
             }
             catch (Exception ex)
             {
@@ -281,6 +286,12 @@ namespace Bodega.Traslados
             txt_cantidad.Text = "";
             txt_disponible.Text = "";
             producto();
+        }
+
+        private void btn_prestamo_Click(object sender, EventArgs e)
+        {
+            Prestamo prestamo = new Prestamo();
+            prestamo.Show();
         }
     }
 }

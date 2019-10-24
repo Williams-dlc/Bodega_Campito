@@ -282,5 +282,11 @@ namespace Bodega.Traslados
             txt_cantidad.Text = "";
             producto();
         }
+
+        private void btn_prestamo_Click(object sender, EventArgs e)
+        {
+            Devoluciones dev = new Devoluciones();
+            dev.Show();
+        }
     }
 }

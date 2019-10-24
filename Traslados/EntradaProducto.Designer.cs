@@ -54,11 +54,11 @@
             this.cmb_tipoBodega = new System.Windows.Forms.ComboBox();
             this.lbl_tipoBodega = new System.Windows.Forms.Label();
             this.btn_nuevo = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.btn_refrescar = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.dgb_pedido = new System.Windows.Forms.DataGridView();
             this.txt_codProducto = new System.Windows.Forms.TextBox();
+            this.btn_prestamo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_productos)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -338,24 +338,6 @@
             this.btn_nuevo.UseVisualStyleBackColor = false;
             this.btn_nuevo.Click += new System.EventHandler(this.btn_nuevo_Click);
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.button1.Location = new System.Drawing.Point(38, 550);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(124, 35);
-            this.button1.TabIndex = 67;
-            this.button1.Tag = "3";
-            this.button1.Text = "Devoluciones";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // btn_refrescar
             // 
             this.btn_refrescar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_refrescar.BackgroundImage")));
@@ -394,16 +376,35 @@
             this.txt_codProducto.Size = new System.Drawing.Size(51, 20);
             this.txt_codProducto.TabIndex = 77;
             // 
+            // btn_prestamo
+            // 
+            this.btn_prestamo.BackColor = System.Drawing.Color.ForestGreen;
+            this.btn_prestamo.FlatAppearance.BorderSize = 0;
+            this.btn_prestamo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(192)))), ((int)(((byte)(227)))));
+            this.btn_prestamo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_prestamo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_prestamo.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_prestamo.Image = ((System.Drawing.Image)(resources.GetObject("btn_prestamo.Image")));
+            this.btn_prestamo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_prestamo.Location = new System.Drawing.Point(119, 542);
+            this.btn_prestamo.Name = "btn_prestamo";
+            this.btn_prestamo.Size = new System.Drawing.Size(157, 47);
+            this.btn_prestamo.TabIndex = 84;
+            this.btn_prestamo.Text = "Realizar \r\nDevolucion";
+            this.btn_prestamo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_prestamo.UseVisualStyleBackColor = false;
+            this.btn_prestamo.Click += new System.EventHandler(this.btn_prestamo_Click);
+            // 
             // EntradaProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(850, 615);
+            this.Controls.Add(this.btn_prestamo);
             this.Controls.Add(this.txt_codProducto);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.dgb_pedido);
             this.Controls.Add(this.btn_refrescar);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_nuevo);
             this.Controls.Add(this.gbx_encabezado);
             this.Controls.Add(this.txt_detalle);
@@ -460,11 +461,11 @@
         private System.Windows.Forms.ComboBox cmb_tipoBodega;
         private System.Windows.Forms.Label lbl_tipoBodega;
         private System.Windows.Forms.Button btn_nuevo;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txt_encargado;
         private System.Windows.Forms.Button btn_refrescar;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView dgb_pedido;
         private System.Windows.Forms.TextBox txt_codProducto;
+        private System.Windows.Forms.Button btn_prestamo;
     }
 }

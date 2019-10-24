@@ -47,7 +47,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txt_cantidad = new System.Windows.Forms.TextBox();
             this.txt_producto = new System.Windows.Forms.TextBox();
-            this.cmb_encargado = new System.Windows.Forms.ComboBox();
             this.dtp_fecha = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
             this.cmb_prestador = new System.Windows.Forms.ComboBox();
@@ -61,6 +60,10 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lbl_disponible = new System.Windows.Forms.Label();
             this.txt_disponible = new System.Windows.Forms.TextBox();
+            this.txt_codProducto = new System.Windows.Forms.TextBox();
+            this.btn_refrescar = new System.Windows.Forms.Button();
+            this.txt_encargado = new System.Windows.Forms.TextBox();
+            this.btn_finalizar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgb_pedido)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_producto)).BeginInit();
             this.pnl_titulo.SuspendLayout();
@@ -105,14 +108,14 @@
             this.btn_cancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.btn_cancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btn_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_cancelar.ForeColor = System.Drawing.Color.Silver;
-            this.btn_cancelar.Location = new System.Drawing.Point(678, 556);
+            this.btn_cancelar.Location = new System.Drawing.Point(691, 556);
             this.btn_cancelar.Name = "btn_cancelar";
-            this.btn_cancelar.Size = new System.Drawing.Size(124, 35);
+            this.btn_cancelar.Size = new System.Drawing.Size(111, 47);
             this.btn_cancelar.TabIndex = 50;
             this.btn_cancelar.Tag = "3";
-            this.btn_cancelar.Text = "Cancelar";
+            this.btn_cancelar.Text = "Cancelar operacion";
             this.btn_cancelar.UseVisualStyleBackColor = false;
             this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
@@ -125,9 +128,9 @@
             this.btn_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_nuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_nuevo.ForeColor = System.Drawing.Color.Silver;
-            this.btn_nuevo.Location = new System.Drawing.Point(501, 556);
+            this.btn_nuevo.Location = new System.Drawing.Point(428, 556);
             this.btn_nuevo.Name = "btn_nuevo";
-            this.btn_nuevo.Size = new System.Drawing.Size(146, 35);
+            this.btn_nuevo.Size = new System.Drawing.Size(118, 47);
             this.btn_nuevo.TabIndex = 49;
             this.btn_nuevo.Tag = "3";
             this.btn_nuevo.Text = "Nuevo";
@@ -257,18 +260,10 @@
             // 
             // txt_producto
             // 
-            this.txt_producto.Location = new System.Drawing.Point(20, 273);
+            this.txt_producto.Location = new System.Drawing.Point(68, 273);
             this.txt_producto.Name = "txt_producto";
-            this.txt_producto.Size = new System.Drawing.Size(200, 20);
+            this.txt_producto.Size = new System.Drawing.Size(152, 20);
             this.txt_producto.TabIndex = 39;
-            // 
-            // cmb_encargado
-            // 
-            this.cmb_encargado.FormattingEnabled = true;
-            this.cmb_encargado.Location = new System.Drawing.Point(278, 47);
-            this.cmb_encargado.Name = "cmb_encargado";
-            this.cmb_encargado.Size = new System.Drawing.Size(198, 21);
-            this.cmb_encargado.TabIndex = 38;
             // 
             // dtp_fecha
             // 
@@ -377,6 +372,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txt_encargado);
             this.groupBox1.Controls.Add(this.lbl_bodega);
             this.groupBox1.Controls.Add(this.cmb_bodega);
             this.groupBox1.Controls.Add(this.btn_continuar);
@@ -386,7 +382,6 @@
             this.groupBox1.Controls.Add(this.cmb_propietario);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.cmb_encargado);
             this.groupBox1.Controls.Add(this.dtp_fecha);
             this.groupBox1.Location = new System.Drawing.Point(142, 81);
             this.groupBox1.Name = "groupBox1";
@@ -412,11 +407,58 @@
             this.txt_disponible.Size = new System.Drawing.Size(200, 20);
             this.txt_disponible.TabIndex = 73;
             // 
+            // txt_codProducto
+            // 
+            this.txt_codProducto.Location = new System.Drawing.Point(20, 273);
+            this.txt_codProducto.Name = "txt_codProducto";
+            this.txt_codProducto.Size = new System.Drawing.Size(51, 20);
+            this.txt_codProducto.TabIndex = 79;
+            // 
+            // btn_refrescar
+            // 
+            this.btn_refrescar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_refrescar.BackgroundImage")));
+            this.btn_refrescar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_refrescar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_refrescar.Location = new System.Drawing.Point(320, 556);
+            this.btn_refrescar.Name = "btn_refrescar";
+            this.btn_refrescar.Size = new System.Drawing.Size(39, 31);
+            this.btn_refrescar.TabIndex = 80;
+            this.btn_refrescar.UseVisualStyleBackColor = true;
+            this.btn_refrescar.Click += new System.EventHandler(this.btn_refrescar_Click);
+            // 
+            // txt_encargado
+            // 
+            this.txt_encargado.Enabled = false;
+            this.txt_encargado.Location = new System.Drawing.Point(278, 47);
+            this.txt_encargado.Name = "txt_encargado";
+            this.txt_encargado.Size = new System.Drawing.Size(198, 20);
+            this.txt_encargado.TabIndex = 70;
+            // 
+            // btn_finalizar
+            // 
+            this.btn_finalizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.btn_finalizar.FlatAppearance.BorderSize = 0;
+            this.btn_finalizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.btn_finalizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_finalizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_finalizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_finalizar.ForeColor = System.Drawing.Color.Silver;
+            this.btn_finalizar.Location = new System.Drawing.Point(560, 556);
+            this.btn_finalizar.Name = "btn_finalizar";
+            this.btn_finalizar.Size = new System.Drawing.Size(118, 47);
+            this.btn_finalizar.TabIndex = 81;
+            this.btn_finalizar.Tag = "3";
+            this.btn_finalizar.Text = "Finalizar";
+            this.btn_finalizar.UseVisualStyleBackColor = false;
+            // 
             // Prestamo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(850, 615);
+            this.Controls.Add(this.btn_finalizar);
+            this.Controls.Add(this.btn_refrescar);
+            this.Controls.Add(this.txt_codProducto);
             this.Controls.Add(this.lbl_disponible);
             this.Controls.Add(this.txt_disponible);
             this.Controls.Add(this.groupBox1);
@@ -471,7 +513,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txt_cantidad;
         private System.Windows.Forms.TextBox txt_producto;
-        private System.Windows.Forms.ComboBox cmb_encargado;
         private System.Windows.Forms.DateTimePicker dtp_fecha;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cmb_prestador;
@@ -486,5 +527,9 @@
         private System.Windows.Forms.Label lbl_disponible;
         private System.Windows.Forms.TextBox txt_disponible;
         private System.Windows.Forms.PictureBox btn_salir;
+        private System.Windows.Forms.TextBox txt_codProducto;
+        private System.Windows.Forms.Button btn_refrescar;
+        private System.Windows.Forms.TextBox txt_encargado;
+        private System.Windows.Forms.Button btn_finalizar;
     }
 }

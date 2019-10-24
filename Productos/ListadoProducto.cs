@@ -38,7 +38,7 @@ namespace Bodega.Productos
             using (OdbcConnection con = new OdbcConnection(ConnStr))
             {
                 con.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("select FK_producto, cantidad, FK_Propietario from DetalleInventario where FK_Propietario='" + cmb_propietario.Text.ToString() + "'", con);//llama a la tabla de inventario para ver stock
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select * from Producto a INNER JOIN detalleinventario b on a.idProducto=b.FK_producto where FK_Propietario='" + cmb_propietario.Text.ToString() + "'", con);//llama a la tabla de inventario para ver stock
                                                                                                                                                                                                                                                   //OdbcDataReader queryResults = cmd.ExecuteReader();
                 cmd.Fill(tabla);
 
@@ -57,7 +57,7 @@ namespace Bodega.Productos
             using (OdbcConnection con = new OdbcConnection(ConnStr))
             {
                 con.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("select Nombre from producto", con);//llama a la tabla de inventario para ver stock
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select * from producto", con);//llama a la tabla de inventario para ver stock
                                                                                               //OdbcDataReader queryResults = cmd.ExecuteReader();
                 cmd.Fill(tabla);
 
@@ -72,8 +72,8 @@ namespace Bodega.Productos
             using (OdbcConnection con = new OdbcConnection(ConnStr))
             {
                 con.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("select FK_producto, cantidad, FK_Propietario from DetalleInventario where FK_Producto='" + txt_producto.Text + "'", con);//llama a la tabla de inventario para ver stock
-                                                                                                                                                                                                     //OdbcDataReader queryResults = cmd.ExecuteReader();
+                OdbcDataAdapter cmd = new OdbcDataAdapter("select FK_producto, cantidad, FK_Propietario from DetalleInventario  where FK_Producto='" + txt_codProducto.Text + "'", con);//llama a la tabla de inventario para ver stock   a INNER JOIN producto b on a.FK_producto=b.idProducto
+                                                                                                                                                                                   //OdbcDataReader queryResults = cmd.ExecuteReader();
                 cmd.Fill(tabla);
 
             }
@@ -85,8 +85,8 @@ namespace Bodega.Productos
         {
             try
             {
-
-                txt_producto.Text = Convert.ToString(dgv_productos.Rows[e.RowIndex].Cells[0].Value.ToString());//llena el textbox con los campos seleccionados en el datagrid
+                txt_codProducto.Text= Convert.ToString(dgv_productos.Rows[e.RowIndex].Cells[0].Value.ToString());//llena el textbox con los campos seleccionados en el datagrid
+                txt_producto.Text = Convert.ToString(dgv_productos.Rows[e.RowIndex].Cells[1].Value.ToString());//llena el textbox con los campos seleccionados en el datagrid
 
             }
             catch (Exception ex)
