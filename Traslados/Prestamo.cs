@@ -69,7 +69,7 @@ namespace Bodega.Traslados
 
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("¿Desea cancelar esta operación?", "Nuevo", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("¿Desea cancelar esta operación y realizar uno nuevo?", "Nuevo", MessageBoxButtons.YesNo);
 
             if (result == DialogResult.Yes)
             {
@@ -103,9 +103,9 @@ namespace Bodega.Traslados
                     cmd2.ExecuteNonQuery();//ejecuta el query
                     con1.Close();//cierra la conexion
 
-                    
 
-                    this.Close();
+
+                    nuevaEntrada();
                 }
                 else
                 {
@@ -211,6 +211,7 @@ namespace Bodega.Traslados
                 btn_finalizar.Enabled = true;
                 producto();
                 pedido();
+
             }
             catch (Exception ex)
             {
@@ -326,6 +327,11 @@ namespace Bodega.Traslados
         private void btn_prestar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_finalizar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

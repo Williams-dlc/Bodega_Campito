@@ -58,11 +58,11 @@
             this.lbl_bodega = new System.Windows.Forms.Label();
             this.cmb_bodega = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txt_encargado = new System.Windows.Forms.TextBox();
             this.lbl_disponible = new System.Windows.Forms.Label();
             this.txt_disponible = new System.Windows.Forms.TextBox();
             this.txt_codProducto = new System.Windows.Forms.TextBox();
             this.btn_refrescar = new System.Windows.Forms.Button();
-            this.txt_encargado = new System.Windows.Forms.TextBox();
             this.btn_finalizar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgb_pedido)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_producto)).BeginInit();
@@ -390,6 +390,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Encabezado";
             // 
+            // txt_encargado
+            // 
+            this.txt_encargado.Enabled = false;
+            this.txt_encargado.Location = new System.Drawing.Point(278, 47);
+            this.txt_encargado.Name = "txt_encargado";
+            this.txt_encargado.Size = new System.Drawing.Size(198, 20);
+            this.txt_encargado.TabIndex = 70;
+            // 
             // lbl_disponible
             // 
             this.lbl_disponible.AutoSize = true;
@@ -426,14 +434,6 @@
             this.btn_refrescar.UseVisualStyleBackColor = true;
             this.btn_refrescar.Click += new System.EventHandler(this.btn_refrescar_Click);
             // 
-            // txt_encargado
-            // 
-            this.txt_encargado.Enabled = false;
-            this.txt_encargado.Location = new System.Drawing.Point(278, 47);
-            this.txt_encargado.Name = "txt_encargado";
-            this.txt_encargado.Size = new System.Drawing.Size(198, 20);
-            this.txt_encargado.TabIndex = 70;
-            // 
             // btn_finalizar
             // 
             this.btn_finalizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
@@ -450,6 +450,7 @@
             this.btn_finalizar.Tag = "3";
             this.btn_finalizar.Text = "Finalizar";
             this.btn_finalizar.UseVisualStyleBackColor = false;
+            this.btn_finalizar.Click += new System.EventHandler(this.btn_finalizar_Click);
             // 
             // Prestamo
             // 

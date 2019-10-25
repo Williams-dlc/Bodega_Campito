@@ -37,7 +37,6 @@
             this.txt_detalle = new System.Windows.Forms.TextBox();
             this.txt_codigo = new System.Windows.Forms.TextBox();
             this.lbl_codigo = new System.Windows.Forms.Label();
-            this.btn_cancelar = new System.Windows.Forms.Button();
             this.dgv_productos = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -69,6 +68,9 @@
             this.lbl_ProductoPrestamo = new System.Windows.Forms.Label();
             this.lbl_CantidadPrestamo = new System.Windows.Forms.Label();
             this.btn_ok = new System.Windows.Forms.Button();
+            this.txt_codProducto = new System.Windows.Forms.TextBox();
+            this.btn_finalizar = new System.Windows.Forms.Button();
+            this.btn_cancelar = new System.Windows.Forms.Button();
             this.pnl_titulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -111,7 +113,7 @@
             this.lbl_titulo.Name = "lbl_titulo";
             this.lbl_titulo.Size = new System.Drawing.Size(354, 33);
             this.lbl_titulo.TabIndex = 28;
-            this.lbl_titulo.Text = "Devolucion de prestamos";
+            this.lbl_titulo.Text = "Devolución de prestamos";
             // 
             // pictureBox1
             // 
@@ -166,24 +168,6 @@
             this.lbl_codigo.Text = "Codigo de entrada";
             this.lbl_codigo.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // btn_cancelar
-            // 
-            this.btn_cancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.btn_cancelar.FlatAppearance.BorderSize = 0;
-            this.btn_cancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.btn_cancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btn_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_cancelar.ForeColor = System.Drawing.Color.Silver;
-            this.btn_cancelar.Location = new System.Drawing.Point(684, 657);
-            this.btn_cancelar.Name = "btn_cancelar";
-            this.btn_cancelar.Size = new System.Drawing.Size(124, 35);
-            this.btn_cancelar.TabIndex = 73;
-            this.btn_cancelar.Tag = "3";
-            this.btn_cancelar.Text = "Cancelar";
-            this.btn_cancelar.UseVisualStyleBackColor = false;
-            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
-            // 
             // dgv_productos
             // 
             this.dgv_productos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -200,6 +184,7 @@
             this.groupBox1.Controls.Add(this.cmb_prestador);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.cmb_propietario);
+            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(203, 90);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(453, 75);
@@ -222,7 +207,7 @@
             this.cmb_prestador.FormattingEnabled = true;
             this.cmb_prestador.Location = new System.Drawing.Point(21, 42);
             this.cmb_prestador.Name = "cmb_prestador";
-            this.cmb_prestador.Size = new System.Drawing.Size(198, 21);
+            this.cmb_prestador.Size = new System.Drawing.Size(198, 25);
             this.cmb_prestador.TabIndex = 60;
             // 
             // label6
@@ -240,7 +225,7 @@
             this.cmb_propietario.FormattingEnabled = true;
             this.cmb_propietario.Location = new System.Drawing.Point(244, 42);
             this.cmb_propietario.Name = "cmb_propietario";
-            this.cmb_propietario.Size = new System.Drawing.Size(198, 21);
+            this.cmb_propietario.Size = new System.Drawing.Size(198, 25);
             this.cmb_propietario.TabIndex = 58;
             // 
             // btn_aceptar
@@ -271,6 +256,7 @@
             this.gbx_encabezado.Controls.Add(this.label1);
             this.gbx_encabezado.Controls.Add(this.label2);
             this.gbx_encabezado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gbx_encabezado.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbx_encabezado.Location = new System.Drawing.Point(16, 358);
             this.gbx_encabezado.Name = "gbx_encabezado";
             this.gbx_encabezado.Size = new System.Drawing.Size(822, 106);
@@ -283,7 +269,7 @@
             this.cmb_tipoBodega.FormattingEnabled = true;
             this.cmb_tipoBodega.Location = new System.Drawing.Point(467, 56);
             this.cmb_tipoBodega.Name = "cmb_tipoBodega";
-            this.cmb_tipoBodega.Size = new System.Drawing.Size(198, 21);
+            this.cmb_tipoBodega.Size = new System.Drawing.Size(198, 25);
             this.cmb_tipoBodega.TabIndex = 66;
             // 
             // lbl_tipoBodega
@@ -300,7 +286,7 @@
             // 
             this.dtp_fecha.Location = new System.Drawing.Point(26, 57);
             this.dtp_fecha.Name = "dtp_fecha";
-            this.dtp_fecha.Size = new System.Drawing.Size(200, 20);
+            this.dtp_fecha.Size = new System.Drawing.Size(200, 22);
             this.dtp_fecha.TabIndex = 0;
             // 
             // btn_continuar
@@ -326,7 +312,7 @@
             this.cmb_encargado.FormattingEnabled = true;
             this.cmb_encargado.Location = new System.Drawing.Point(245, 56);
             this.cmb_encargado.Name = "cmb_encargado";
-            this.cmb_encargado.Size = new System.Drawing.Size(198, 21);
+            this.cmb_encargado.Size = new System.Drawing.Size(198, 25);
             this.cmb_encargado.TabIndex = 1;
             // 
             // label1
@@ -351,6 +337,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txt_codProducto);
             this.groupBox2.Controls.Add(this.lbl_disponible);
             this.groupBox2.Controls.Add(this.txt_disponible);
             this.groupBox2.Controls.Add(this.label4);
@@ -359,12 +346,13 @@
             this.groupBox2.Controls.Add(this.txt_producto);
             this.groupBox2.Controls.Add(this.btn_introducir);
             this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(16, 470);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(822, 87);
             this.groupBox2.TabIndex = 85;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Encabezado";
+            this.groupBox2.Text = "Información ";
             // 
             // lbl_disponible
             // 
@@ -380,7 +368,7 @@
             // 
             this.txt_disponible.Location = new System.Drawing.Point(208, 51);
             this.txt_disponible.Name = "txt_disponible";
-            this.txt_disponible.Size = new System.Drawing.Size(156, 20);
+            this.txt_disponible.Size = new System.Drawing.Size(156, 22);
             this.txt_disponible.TabIndex = 79;
             // 
             // label4
@@ -407,14 +395,14 @@
             // 
             this.txt_cantidad.Location = new System.Drawing.Point(386, 51);
             this.txt_cantidad.Name = "txt_cantidad";
-            this.txt_cantidad.Size = new System.Drawing.Size(147, 20);
+            this.txt_cantidad.Size = new System.Drawing.Size(147, 22);
             this.txt_cantidad.TabIndex = 76;
             // 
             // txt_producto
             // 
-            this.txt_producto.Location = new System.Drawing.Point(10, 51);
+            this.txt_producto.Location = new System.Drawing.Point(58, 51);
             this.txt_producto.Name = "txt_producto";
-            this.txt_producto.Size = new System.Drawing.Size(171, 20);
+            this.txt_producto.Size = new System.Drawing.Size(123, 22);
             this.txt_producto.TabIndex = 75;
             // 
             // btn_introducir
@@ -426,7 +414,7 @@
             this.btn_introducir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_introducir.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_introducir.ForeColor = System.Drawing.Color.Silver;
-            this.btn_introducir.Location = new System.Drawing.Point(668, 42);
+            this.btn_introducir.Location = new System.Drawing.Point(590, 38);
             this.btn_introducir.Name = "btn_introducir";
             this.btn_introducir.Size = new System.Drawing.Size(135, 35);
             this.btn_introducir.TabIndex = 64;
@@ -449,12 +437,12 @@
             // 
             this.txt_ProductoPrestamo.Location = new System.Drawing.Point(182, 332);
             this.txt_ProductoPrestamo.Name = "txt_ProductoPrestamo";
-            this.txt_ProductoPrestamo.Size = new System.Drawing.Size(315, 20);
+            this.txt_ProductoPrestamo.Size = new System.Drawing.Size(135, 20);
             this.txt_ProductoPrestamo.TabIndex = 87;
             // 
             // txt_CantidadPrestamo
             // 
-            this.txt_CantidadPrestamo.Location = new System.Drawing.Point(516, 332);
+            this.txt_CantidadPrestamo.Location = new System.Drawing.Point(340, 332);
             this.txt_CantidadPrestamo.Name = "txt_CantidadPrestamo";
             this.txt_CantidadPrestamo.Size = new System.Drawing.Size(129, 20);
             this.txt_CantidadPrestamo.TabIndex = 88;
@@ -469,12 +457,12 @@
             // lbl_CodPrestamo
             // 
             this.lbl_CodPrestamo.AutoSize = true;
-            this.lbl_CodPrestamo.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_CodPrestamo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_CodPrestamo.Location = new System.Drawing.Point(38, 307);
             this.lbl_CodPrestamo.Name = "lbl_CodPrestamo";
-            this.lbl_CodPrestamo.Size = new System.Drawing.Size(124, 22);
+            this.lbl_CodPrestamo.Size = new System.Drawing.Size(136, 20);
             this.lbl_CodPrestamo.TabIndex = 62;
-            this.lbl_CodPrestamo.Text = "ID_Prestamo";
+            this.lbl_CodPrestamo.Text = "Codigo Prestamo";
             // 
             // lbl_ProductoPrestamo
             // 
@@ -490,7 +478,7 @@
             // 
             this.lbl_CantidadPrestamo.AutoSize = true;
             this.lbl_CantidadPrestamo.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_CantidadPrestamo.Location = new System.Drawing.Point(512, 307);
+            this.lbl_CantidadPrestamo.Location = new System.Drawing.Point(336, 307);
             this.lbl_CantidadPrestamo.Name = "lbl_CantidadPrestamo";
             this.lbl_CantidadPrestamo.Size = new System.Drawing.Size(99, 22);
             this.lbl_CantidadPrestamo.TabIndex = 91;
@@ -499,7 +487,7 @@
             // btn_ok
             // 
             this.btn_ok.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_ok.BackgroundImage")));
-            this.btn_ok.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_ok.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ok.Location = new System.Drawing.Point(721, 211);
             this.btn_ok.Name = "btn_ok";
             this.btn_ok.Size = new System.Drawing.Size(64, 63);
@@ -507,11 +495,56 @@
             this.btn_ok.UseVisualStyleBackColor = true;
             this.btn_ok.Click += new System.EventHandler(this.btn_ok_Click_1);
             // 
+            // txt_codProducto
+            // 
+            this.txt_codProducto.Location = new System.Drawing.Point(10, 51);
+            this.txt_codProducto.Name = "txt_codProducto";
+            this.txt_codProducto.Size = new System.Drawing.Size(51, 22);
+            this.txt_codProducto.TabIndex = 81;
+            // 
+            // btn_finalizar
+            // 
+            this.btn_finalizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.btn_finalizar.FlatAppearance.BorderSize = 0;
+            this.btn_finalizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.btn_finalizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_finalizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_finalizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_finalizar.ForeColor = System.Drawing.Color.Silver;
+            this.btn_finalizar.Location = new System.Drawing.Point(684, 604);
+            this.btn_finalizar.Name = "btn_finalizar";
+            this.btn_finalizar.Size = new System.Drawing.Size(124, 37);
+            this.btn_finalizar.TabIndex = 95;
+            this.btn_finalizar.Tag = "3";
+            this.btn_finalizar.Text = "Finalizar";
+            this.btn_finalizar.UseVisualStyleBackColor = false;
+            this.btn_finalizar.Click += new System.EventHandler(this.btn_finalizar_Click);
+            // 
+            // btn_cancelar
+            // 
+            this.btn_cancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.btn_cancelar.FlatAppearance.BorderSize = 0;
+            this.btn_cancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.btn_cancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_cancelar.ForeColor = System.Drawing.Color.Silver;
+            this.btn_cancelar.Location = new System.Drawing.Point(684, 647);
+            this.btn_cancelar.Name = "btn_cancelar";
+            this.btn_cancelar.Size = new System.Drawing.Size(124, 47);
+            this.btn_cancelar.TabIndex = 96;
+            this.btn_cancelar.Tag = "3";
+            this.btn_cancelar.Text = "Cancelar operacion";
+            this.btn_cancelar.UseVisualStyleBackColor = false;
+            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click_1);
+            // 
             // Devoluciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(850, 704);
+            this.Controls.Add(this.btn_cancelar);
+            this.Controls.Add(this.btn_finalizar);
             this.Controls.Add(this.btn_ok);
             this.Controls.Add(this.lbl_CantidadPrestamo);
             this.Controls.Add(this.lbl_ProductoPrestamo);
@@ -528,9 +561,9 @@
             this.Controls.Add(this.txt_detalle);
             this.Controls.Add(this.txt_codigo);
             this.Controls.Add(this.lbl_codigo);
-            this.Controls.Add(this.btn_cancelar);
             this.Controls.Add(this.dgv_productos);
             this.Controls.Add(this.pnl_titulo);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Devoluciones";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -561,7 +594,6 @@
         private System.Windows.Forms.TextBox txt_detalle;
         private System.Windows.Forms.TextBox txt_codigo;
         private System.Windows.Forms.Label lbl_codigo;
-        private System.Windows.Forms.Button btn_cancelar;
         private System.Windows.Forms.DataGridView dgv_productos;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label9;
@@ -594,5 +626,8 @@
         private System.Windows.Forms.Label lbl_ProductoPrestamo;
         private System.Windows.Forms.Label lbl_CantidadPrestamo;
         private System.Windows.Forms.Button btn_ok;
+        private System.Windows.Forms.TextBox txt_codProducto;
+        private System.Windows.Forms.Button btn_finalizar;
+        private System.Windows.Forms.Button btn_cancelar;
     }
 }
