@@ -33,6 +33,18 @@
             this.btn_minizar = new System.Windows.Forms.PictureBox();
             this.btn_salir = new System.Windows.Forms.PictureBox();
             this.menu = new System.Windows.Forms.Panel();
+            this.pnl_subreportes = new System.Windows.Forms.Panel();
+            this.btn_reportSalidas = new System.Windows.Forms.Button();
+            this.btn_reportEntradas = new System.Windows.Forms.Button();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.pnl_graficas = new System.Windows.Forms.Panel();
+            this.pnl_subTraslados = new System.Windows.Forms.Panel();
+            this.btn_trasladosEntradas = new System.Windows.Forms.Button();
+            this.btn_trasladosSalidas = new System.Windows.Forms.Button();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.btn_chart = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_ajustes = new System.Windows.Forms.Button();
             this.lbl_perfil1 = new System.Windows.Forms.Label();
@@ -42,32 +54,20 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_logOut = new System.Windows.Forms.Button();
-            this.pnl_subTraslados = new System.Windows.Forms.Panel();
-            this.btn_trasladosEntradas = new System.Windows.Forms.Button();
-            this.btn_trasladosSalidas = new System.Windows.Forms.Button();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
             this.btn_reportes = new System.Windows.Forms.Button();
             this.pnl_traslados = new System.Windows.Forms.Panel();
             this.btn_traslados = new System.Windows.Forms.Button();
-            this.pnl_subreportes = new System.Windows.Forms.Panel();
-            this.btn_reportSalidas = new System.Windows.Forms.Button();
-            this.btn_reportEntradas = new System.Windows.Forms.Button();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.pnl_reportes = new System.Windows.Forms.Panel();
             this.pnl_productos = new System.Windows.Forms.Panel();
             this.btn_producto = new System.Windows.Forms.Button();
             this.panelContenedor = new System.Windows.Forms.Panel();
-            this.pnl_graficas = new System.Windows.Forms.Panel();
-            this.btn_chart = new System.Windows.Forms.Button();
             this.pnl_titulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_minizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).BeginInit();
             this.menu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.pnl_subTraslados.SuspendLayout();
             this.pnl_subreportes.SuspendLayout();
+            this.pnl_subTraslados.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnl_titulo
@@ -136,6 +136,155 @@
             this.menu.TabIndex = 1;
             this.menu.Paint += new System.Windows.Forms.PaintEventHandler(this.menu_Paint);
             // 
+            // pnl_subreportes
+            // 
+            this.pnl_subreportes.Controls.Add(this.btn_reportSalidas);
+            this.pnl_subreportes.Controls.Add(this.btn_reportEntradas);
+            this.pnl_subreportes.Controls.Add(this.panel6);
+            this.pnl_subreportes.Controls.Add(this.panel3);
+            this.pnl_subreportes.Location = new System.Drawing.Point(22, 340);
+            this.pnl_subreportes.Name = "pnl_subreportes";
+            this.pnl_subreportes.Size = new System.Drawing.Size(200, 75);
+            this.pnl_subreportes.TabIndex = 3;
+            this.pnl_subreportes.Visible = false;
+            // 
+            // btn_reportSalidas
+            // 
+            this.btn_reportSalidas.FlatAppearance.BorderSize = 0;
+            this.btn_reportSalidas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(192)))), ((int)(((byte)(227)))));
+            this.btn_reportSalidas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_reportSalidas.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_reportSalidas.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_reportSalidas.Image = ((System.Drawing.Image)(resources.GetObject("btn_reportSalidas.Image")));
+            this.btn_reportSalidas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_reportSalidas.Location = new System.Drawing.Point(10, 40);
+            this.btn_reportSalidas.Name = "btn_reportSalidas";
+            this.btn_reportSalidas.Size = new System.Drawing.Size(190, 34);
+            this.btn_reportSalidas.TabIndex = 4;
+            this.btn_reportSalidas.Text = "Salidas";
+            this.btn_reportSalidas.UseVisualStyleBackColor = true;
+            this.btn_reportSalidas.Click += new System.EventHandler(this.btn_reportSalidas_Click);
+            // 
+            // btn_reportEntradas
+            // 
+            this.btn_reportEntradas.FlatAppearance.BorderSize = 0;
+            this.btn_reportEntradas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(192)))), ((int)(((byte)(227)))));
+            this.btn_reportEntradas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_reportEntradas.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_reportEntradas.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_reportEntradas.Image = ((System.Drawing.Image)(resources.GetObject("btn_reportEntradas.Image")));
+            this.btn_reportEntradas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_reportEntradas.Location = new System.Drawing.Point(10, 0);
+            this.btn_reportEntradas.Name = "btn_reportEntradas";
+            this.btn_reportEntradas.Size = new System.Drawing.Size(190, 34);
+            this.btn_reportEntradas.TabIndex = 2;
+            this.btn_reportEntradas.Text = "Entradas";
+            this.btn_reportEntradas.UseVisualStyleBackColor = true;
+            this.btn_reportEntradas.Click += new System.EventHandler(this.btn_reportEntradas_Click);
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
+            this.panel6.Location = new System.Drawing.Point(0, 40);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(10, 34);
+            this.panel6.TabIndex = 3;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(10, 34);
+            this.panel3.TabIndex = 1;
+            // 
+            // pnl_graficas
+            // 
+            this.pnl_graficas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
+            this.pnl_graficas.Location = new System.Drawing.Point(0, 340);
+            this.pnl_graficas.Name = "pnl_graficas";
+            this.pnl_graficas.Size = new System.Drawing.Size(16, 45);
+            this.pnl_graficas.TabIndex = 15;
+            // 
+            // pnl_subTraslados
+            // 
+            this.pnl_subTraslados.Controls.Add(this.btn_trasladosEntradas);
+            this.pnl_subTraslados.Controls.Add(this.btn_trasladosSalidas);
+            this.pnl_subTraslados.Controls.Add(this.panel5);
+            this.pnl_subTraslados.Controls.Add(this.panel8);
+            this.pnl_subTraslados.Location = new System.Drawing.Point(22, 289);
+            this.pnl_subTraslados.Name = "pnl_subTraslados";
+            this.pnl_subTraslados.Size = new System.Drawing.Size(200, 75);
+            this.pnl_subTraslados.TabIndex = 7;
+            this.pnl_subTraslados.Visible = false;
+            // 
+            // btn_trasladosEntradas
+            // 
+            this.btn_trasladosEntradas.FlatAppearance.BorderSize = 0;
+            this.btn_trasladosEntradas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(192)))), ((int)(((byte)(227)))));
+            this.btn_trasladosEntradas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_trasladosEntradas.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_trasladosEntradas.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_trasladosEntradas.Image = ((System.Drawing.Image)(resources.GetObject("btn_trasladosEntradas.Image")));
+            this.btn_trasladosEntradas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_trasladosEntradas.Location = new System.Drawing.Point(10, 0);
+            this.btn_trasladosEntradas.Name = "btn_trasladosEntradas";
+            this.btn_trasladosEntradas.Size = new System.Drawing.Size(190, 34);
+            this.btn_trasladosEntradas.TabIndex = 2;
+            this.btn_trasladosEntradas.Text = "Entradas";
+            this.btn_trasladosEntradas.UseVisualStyleBackColor = true;
+            this.btn_trasladosEntradas.Click += new System.EventHandler(this.btn_trasladosEntradas_Click);
+            // 
+            // btn_trasladosSalidas
+            // 
+            this.btn_trasladosSalidas.FlatAppearance.BorderSize = 0;
+            this.btn_trasladosSalidas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(192)))), ((int)(((byte)(227)))));
+            this.btn_trasladosSalidas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_trasladosSalidas.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_trasladosSalidas.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_trasladosSalidas.Image = ((System.Drawing.Image)(resources.GetObject("btn_trasladosSalidas.Image")));
+            this.btn_trasladosSalidas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_trasladosSalidas.Location = new System.Drawing.Point(10, 40);
+            this.btn_trasladosSalidas.Name = "btn_trasladosSalidas";
+            this.btn_trasladosSalidas.Size = new System.Drawing.Size(190, 34);
+            this.btn_trasladosSalidas.TabIndex = 4;
+            this.btn_trasladosSalidas.Text = "Salidas";
+            this.btn_trasladosSalidas.UseVisualStyleBackColor = true;
+            this.btn_trasladosSalidas.Click += new System.EventHandler(this.btn_trasladosSalidas_Click);
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
+            this.panel5.Location = new System.Drawing.Point(0, 40);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(10, 34);
+            this.panel5.TabIndex = 3;
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
+            this.panel8.Location = new System.Drawing.Point(0, 0);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(10, 34);
+            this.panel8.TabIndex = 1;
+            // 
+            // btn_chart
+            // 
+            this.btn_chart.FlatAppearance.BorderSize = 0;
+            this.btn_chart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(192)))), ((int)(((byte)(227)))));
+            this.btn_chart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_chart.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_chart.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_chart.Image = ((System.Drawing.Image)(resources.GetObject("btn_chart.Image")));
+            this.btn_chart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_chart.Location = new System.Drawing.Point(16, 340);
+            this.btn_chart.Name = "btn_chart";
+            this.btn_chart.Size = new System.Drawing.Size(204, 45);
+            this.btn_chart.TabIndex = 16;
+            this.btn_chart.Text = "Graficas";
+            this.btn_chart.UseVisualStyleBackColor = true;
+            this.btn_chart.Click += new System.EventHandler(this.btn_chart_Click);
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
@@ -159,6 +308,7 @@
             this.btn_ajustes.TabIndex = 14;
             this.btn_ajustes.Text = "Ajustes";
             this.btn_ajustes.UseVisualStyleBackColor = true;
+            this.btn_ajustes.Click += new System.EventHandler(this.btn_ajustes_Click);
             // 
             // lbl_perfil1
             // 
@@ -241,68 +391,6 @@
             this.btn_logOut.UseVisualStyleBackColor = false;
             this.btn_logOut.Click += new System.EventHandler(this.btn_logOut_Click);
             // 
-            // pnl_subTraslados
-            // 
-            this.pnl_subTraslados.Controls.Add(this.btn_trasladosEntradas);
-            this.pnl_subTraslados.Controls.Add(this.btn_trasladosSalidas);
-            this.pnl_subTraslados.Controls.Add(this.panel5);
-            this.pnl_subTraslados.Controls.Add(this.panel8);
-            this.pnl_subTraslados.Location = new System.Drawing.Point(22, 289);
-            this.pnl_subTraslados.Name = "pnl_subTraslados";
-            this.pnl_subTraslados.Size = new System.Drawing.Size(200, 75);
-            this.pnl_subTraslados.TabIndex = 7;
-            this.pnl_subTraslados.Visible = false;
-            // 
-            // btn_trasladosEntradas
-            // 
-            this.btn_trasladosEntradas.FlatAppearance.BorderSize = 0;
-            this.btn_trasladosEntradas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(192)))), ((int)(((byte)(227)))));
-            this.btn_trasladosEntradas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_trasladosEntradas.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_trasladosEntradas.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_trasladosEntradas.Image = ((System.Drawing.Image)(resources.GetObject("btn_trasladosEntradas.Image")));
-            this.btn_trasladosEntradas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_trasladosEntradas.Location = new System.Drawing.Point(10, 0);
-            this.btn_trasladosEntradas.Name = "btn_trasladosEntradas";
-            this.btn_trasladosEntradas.Size = new System.Drawing.Size(190, 34);
-            this.btn_trasladosEntradas.TabIndex = 2;
-            this.btn_trasladosEntradas.Text = "Entradas";
-            this.btn_trasladosEntradas.UseVisualStyleBackColor = true;
-            this.btn_trasladosEntradas.Click += new System.EventHandler(this.btn_trasladosEntradas_Click);
-            // 
-            // btn_trasladosSalidas
-            // 
-            this.btn_trasladosSalidas.FlatAppearance.BorderSize = 0;
-            this.btn_trasladosSalidas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(192)))), ((int)(((byte)(227)))));
-            this.btn_trasladosSalidas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_trasladosSalidas.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_trasladosSalidas.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_trasladosSalidas.Image = ((System.Drawing.Image)(resources.GetObject("btn_trasladosSalidas.Image")));
-            this.btn_trasladosSalidas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_trasladosSalidas.Location = new System.Drawing.Point(10, 40);
-            this.btn_trasladosSalidas.Name = "btn_trasladosSalidas";
-            this.btn_trasladosSalidas.Size = new System.Drawing.Size(190, 34);
-            this.btn_trasladosSalidas.TabIndex = 4;
-            this.btn_trasladosSalidas.Text = "Salidas";
-            this.btn_trasladosSalidas.UseVisualStyleBackColor = true;
-            this.btn_trasladosSalidas.Click += new System.EventHandler(this.btn_trasladosSalidas_Click);
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
-            this.panel5.Location = new System.Drawing.Point(0, 40);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(10, 34);
-            this.panel5.TabIndex = 3;
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
-            this.panel8.Location = new System.Drawing.Point(0, 0);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(10, 34);
-            this.panel8.TabIndex = 1;
-            // 
             // btn_reportes
             // 
             this.btn_reportes.FlatAppearance.BorderSize = 0;
@@ -344,68 +432,6 @@
             this.btn_traslados.Text = "Traslados";
             this.btn_traslados.UseVisualStyleBackColor = true;
             this.btn_traslados.Click += new System.EventHandler(this.btn_traslados_Click);
-            // 
-            // pnl_subreportes
-            // 
-            this.pnl_subreportes.Controls.Add(this.btn_reportSalidas);
-            this.pnl_subreportes.Controls.Add(this.btn_reportEntradas);
-            this.pnl_subreportes.Controls.Add(this.panel6);
-            this.pnl_subreportes.Controls.Add(this.panel3);
-            this.pnl_subreportes.Location = new System.Drawing.Point(22, 340);
-            this.pnl_subreportes.Name = "pnl_subreportes";
-            this.pnl_subreportes.Size = new System.Drawing.Size(200, 75);
-            this.pnl_subreportes.TabIndex = 3;
-            this.pnl_subreportes.Visible = false;
-            // 
-            // btn_reportSalidas
-            // 
-            this.btn_reportSalidas.FlatAppearance.BorderSize = 0;
-            this.btn_reportSalidas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(192)))), ((int)(((byte)(227)))));
-            this.btn_reportSalidas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_reportSalidas.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_reportSalidas.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_reportSalidas.Image = ((System.Drawing.Image)(resources.GetObject("btn_reportSalidas.Image")));
-            this.btn_reportSalidas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_reportSalidas.Location = new System.Drawing.Point(10, 40);
-            this.btn_reportSalidas.Name = "btn_reportSalidas";
-            this.btn_reportSalidas.Size = new System.Drawing.Size(190, 34);
-            this.btn_reportSalidas.TabIndex = 4;
-            this.btn_reportSalidas.Text = "Salidas";
-            this.btn_reportSalidas.UseVisualStyleBackColor = true;
-            this.btn_reportSalidas.Click += new System.EventHandler(this.btn_reportSalidas_Click);
-            // 
-            // btn_reportEntradas
-            // 
-            this.btn_reportEntradas.FlatAppearance.BorderSize = 0;
-            this.btn_reportEntradas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(192)))), ((int)(((byte)(227)))));
-            this.btn_reportEntradas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_reportEntradas.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_reportEntradas.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_reportEntradas.Image = ((System.Drawing.Image)(resources.GetObject("btn_reportEntradas.Image")));
-            this.btn_reportEntradas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_reportEntradas.Location = new System.Drawing.Point(10, 0);
-            this.btn_reportEntradas.Name = "btn_reportEntradas";
-            this.btn_reportEntradas.Size = new System.Drawing.Size(190, 34);
-            this.btn_reportEntradas.TabIndex = 2;
-            this.btn_reportEntradas.Text = "Entradas";
-            this.btn_reportEntradas.UseVisualStyleBackColor = true;
-            this.btn_reportEntradas.Click += new System.EventHandler(this.btn_reportEntradas_Click);
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
-            this.panel6.Location = new System.Drawing.Point(0, 40);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(10, 34);
-            this.panel6.TabIndex = 3;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(10, 34);
-            this.panel3.TabIndex = 1;
             // 
             // pnl_reportes
             // 
@@ -449,31 +475,6 @@
             this.panelContenedor.TabIndex = 2;
             this.panelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContenedor_Paint);
             // 
-            // pnl_graficas
-            // 
-            this.pnl_graficas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(144)))), ((int)(((byte)(176)))));
-            this.pnl_graficas.Location = new System.Drawing.Point(0, 340);
-            this.pnl_graficas.Name = "pnl_graficas";
-            this.pnl_graficas.Size = new System.Drawing.Size(16, 45);
-            this.pnl_graficas.TabIndex = 15;
-            // 
-            // btn_chart
-            // 
-            this.btn_chart.FlatAppearance.BorderSize = 0;
-            this.btn_chart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(192)))), ((int)(((byte)(227)))));
-            this.btn_chart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_chart.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_chart.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_chart.Image = ((System.Drawing.Image)(resources.GetObject("btn_chart.Image")));
-            this.btn_chart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_chart.Location = new System.Drawing.Point(16, 340);
-            this.btn_chart.Name = "btn_chart";
-            this.btn_chart.Size = new System.Drawing.Size(204, 45);
-            this.btn_chart.TabIndex = 16;
-            this.btn_chart.Text = "Graficas";
-            this.btn_chart.UseVisualStyleBackColor = true;
-            this.btn_chart.Click += new System.EventHandler(this.btn_chart_Click);
-            // 
             // Prinicipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -492,9 +493,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).EndInit();
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.pnl_subTraslados.ResumeLayout(false);
             this.pnl_subreportes.ResumeLayout(false);
+            this.pnl_subTraslados.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -210,5 +210,10 @@ namespace Bodega
         {
             abrirFormHijo(new Reportes.ReportesEntradas());
         }
+
+        private void btn_ajustes_Click(object sender, EventArgs e)
+        {
+            abrirFormHijo(new Ajustes.AjustesPrincipal());
+        }
     }
 }

@@ -30,6 +30,63 @@ namespace Bodega
         public static string bodega = "select * from Bodega";
         public static string pedido = "select * from DetalleInventario";
         public static string prestador = "select * from prestador";
+        public static string perfil = "select * from perfil";
+        public static string usuario = "select * from usuario";
+        public static string usuario2 = "select * from usuario where estado=1";
+
+        public static DataTable llenarUsuarioActivo()
+        {
+            DataTable tmp = new DataTable();
+            OdbcDataAdapter msj = new OdbcDataAdapter(usuario2, cnx);
+            try
+            {
+                cnx.Open();
+                msj.Fill(tmp);
+                cnx.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            finally { cnx.Close(); }
+            return tmp;
+        }
+
+        public static DataTable llenarUsuario()
+        {
+            DataTable tmp = new DataTable();
+            OdbcDataAdapter msj = new OdbcDataAdapter(usuario, cnx);
+            try
+            {
+                cnx.Open();
+                msj.Fill(tmp);
+                cnx.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            finally { cnx.Close(); }
+            return tmp;
+        }
+
+        public static DataTable llenarPerfil()
+        {
+            DataTable tmp = new DataTable();
+            OdbcDataAdapter msj = new OdbcDataAdapter(perfil, cnx);
+            try
+            {
+                cnx.Open();
+                msj.Fill(tmp);
+                cnx.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            finally { cnx.Close(); }
+            return tmp;
+        }
 
         public static DataTable llenarproducto()
         {
@@ -179,7 +236,7 @@ namespace Bodega
             using (OdbcCommand cmd = new OdbcCommand())
             {
                 
-                cmd.CommandText = "SELECT * FROM usuario where Nombre='" + log_username + "' AND contraseña='" + log_password + "'";
+                cmd.CommandText = "SELECT * FROM usuario where Nombre='" + log_username + "' AND contraseña='" + log_password + "' and estado=1";
                 cmd.CommandType = CommandType.Text;
                 cmd.Connection = con1;
 

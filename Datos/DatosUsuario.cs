@@ -23,7 +23,7 @@ namespace Datos
                 using (OdbcCommand cmd = new OdbcCommand())
                 {
                     cmd.Connection = connection;
-                    cmd.CommandText = "SELECT * FROM usuario where Nombre='"+user+"' AND contraseña='"+pass+"'";
+                    cmd.CommandText = "SELECT * FROM usuario where Nombre='"+user+"' AND contraseña='"+pass+ "' and estado=1";
                     
                     cmd.Parameters.AddWithValue("?user", user);
                     cmd.Parameters.AddWithValue("?pass", pass);
@@ -40,6 +40,8 @@ namespace Datos
                             UserLoginCache.Telefono = reader.GetInt32(1);
                             UserLoginCache.Correo = reader.GetString(2);
                             UserLoginCache.Perfil = reader.GetString(4);
+                            UserLoginCache.estado = reader.GetString(5);
+
                         }
                         
                         

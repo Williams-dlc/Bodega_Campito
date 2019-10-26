@@ -63,6 +63,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ajustes\AjustesPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ajustes\AjustesPrincipal.Designer.cs">
+      <DependentUpon>AjustesPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ajustes\CambiarContraseña.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ajustes\CambiarContraseña.Designer.cs">
+      <DependentUpon>CambiarContraseña.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ajustes\EliminarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ajustes\EliminarUsuario.Designer.cs">
+      <DependentUpon>EliminarUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ajustes\NuevoUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ajustes\NuevoUsuario.Designer.cs">
+      <DependentUpon>NuevoUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="CapaDatosBodega.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -132,6 +156,18 @@
     <Compile Include="Traslados\TipoTraslado.Designer.cs">
       <DependentUpon>TipoTraslado.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Ajustes\AjustesPrincipal.resx">
+      <DependentUpon>AjustesPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ajustes\CambiarContraseña.resx">
+      <DependentUpon>CambiarContraseña.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ajustes\EliminarUsuario.resx">
+      <DependentUpon>EliminarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ajustes\NuevoUsuario.resx">
+      <DependentUpon>NuevoUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>

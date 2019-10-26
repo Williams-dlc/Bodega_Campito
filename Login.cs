@@ -106,58 +106,6 @@ namespace Bodega
         private void btn_aceptar_Click(object sender, EventArgs e)
         {
 
-
-
-            /* try
-             {
-                 OdbcConnection con = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
-                 OdbcCommand cmd = new OdbcCommand("select * from usuario where Nombre = '" + txt_usuario.Text + "'and contraseña= '" + txt_contraseña.Text + "'", con);
-                 con.Open();//abre la conexion 
-                 OdbcDataReader queryResults = cmd.ExecuteReader();
-                 if (queryResults.Read())
-                 {
-                     MessageBox.Show("CONECTADO");
-                     Prinicipal prin = new Prinicipal();
-                     prin.Show();
-                 }
-                 else
-                 {
-                     MessageBox.Show("usuario o contraseña incorrecto");
-
-                 }
-             }
-             catch (Exception ex)
-             {
-                 MessageBox.Show(ex.ToString());
-             }
-             Login log = new Login();
-             log.Close();*/
-            
-            /*user.log_username = txt_usuario.Text;
-             user.log_password = txt_contraseña.Text;
-             bool verify = user.user_verification();
-             if (verify==true)
-             {
-                 MessageBox.Show("CONECTADO");
-                 string role = user.log_role;
-                 T_username = user.log_username;
-                 if (role == "1")
-                 {
-                     MessageBox.Show("ADMIN");
-                 }
-                 else if (role == "0")
-                 {
-                     T_role = "TRABAJADOR";
-                 }
-                 MessageBox.Show("CONECTADO");
-                 Prinicipal prin = new Prinicipal();
-                 prin.Show();
-             }
-             else
-             {
-                 MessageBox.Show("Verifique usuario y contraseña");
-                 
-             }*/
             UsuarioModel user = new UsuarioModel();
             DatosUsuario data = new DatosUsuario();
             if (txt_usuario.Text != "USUARIO")

@@ -68,3 +68,7 @@ C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito\obj\Debug\Bodega.Traslados.
 C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito\obj\Debug\Bodega.csproj.GenerateResource.Cache
 C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito\obj\Debug\Bodega.Reportes.ReportEntradas.resources
 C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito\obj\Debug\Bodega.Reportes.ReportSalidas.resources
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito\obj\Debug\Bodega.Ajustes.AjustesPrincipal.resources
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito\obj\Debug\Bodega.Ajustes.NuevoUsuario.resources
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito\obj\Debug\Bodega.Ajustes.EliminarUsuario.resources
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito\obj\Debug\Bodega.Ajustes.CambiarContraseña.resources
