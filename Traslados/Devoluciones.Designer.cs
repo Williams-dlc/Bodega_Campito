@@ -49,10 +49,10 @@
             this.lbl_tipoBodega = new System.Windows.Forms.Label();
             this.dtp_fecha = new System.Windows.Forms.DateTimePicker();
             this.btn_continuar = new System.Windows.Forms.Button();
-            this.cmb_encargado = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txt_codProducto = new System.Windows.Forms.TextBox();
             this.lbl_disponible = new System.Windows.Forms.Label();
             this.txt_disponible = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -68,9 +68,10 @@
             this.lbl_ProductoPrestamo = new System.Windows.Forms.Label();
             this.lbl_CantidadPrestamo = new System.Windows.Forms.Label();
             this.btn_ok = new System.Windows.Forms.Button();
-            this.txt_codProducto = new System.Windows.Forms.TextBox();
             this.btn_finalizar = new System.Windows.Forms.Button();
             this.btn_cancelar = new System.Windows.Forms.Button();
+            this.txt_encargado = new System.Windows.Forms.TextBox();
+            this.btn_refrescar = new System.Windows.Forms.Button();
             this.pnl_titulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -248,11 +249,11 @@
             // 
             // gbx_encabezado
             // 
+            this.gbx_encabezado.Controls.Add(this.txt_encargado);
             this.gbx_encabezado.Controls.Add(this.cmb_tipoBodega);
             this.gbx_encabezado.Controls.Add(this.lbl_tipoBodega);
             this.gbx_encabezado.Controls.Add(this.dtp_fecha);
             this.gbx_encabezado.Controls.Add(this.btn_continuar);
-            this.gbx_encabezado.Controls.Add(this.cmb_encargado);
             this.gbx_encabezado.Controls.Add(this.label1);
             this.gbx_encabezado.Controls.Add(this.label2);
             this.gbx_encabezado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -307,14 +308,6 @@
             this.btn_continuar.UseVisualStyleBackColor = false;
             this.btn_continuar.Click += new System.EventHandler(this.btn_continuar_Click);
             // 
-            // cmb_encargado
-            // 
-            this.cmb_encargado.FormattingEnabled = true;
-            this.cmb_encargado.Location = new System.Drawing.Point(245, 56);
-            this.cmb_encargado.Name = "cmb_encargado";
-            this.cmb_encargado.Size = new System.Drawing.Size(198, 25);
-            this.cmb_encargado.TabIndex = 1;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -353,6 +346,13 @@
             this.groupBox2.TabIndex = 85;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Información ";
+            // 
+            // txt_codProducto
+            // 
+            this.txt_codProducto.Location = new System.Drawing.Point(10, 51);
+            this.txt_codProducto.Name = "txt_codProducto";
+            this.txt_codProducto.Size = new System.Drawing.Size(51, 22);
+            this.txt_codProducto.TabIndex = 81;
             // 
             // lbl_disponible
             // 
@@ -495,13 +495,6 @@
             this.btn_ok.UseVisualStyleBackColor = true;
             this.btn_ok.Click += new System.EventHandler(this.btn_ok_Click_1);
             // 
-            // txt_codProducto
-            // 
-            this.txt_codProducto.Location = new System.Drawing.Point(10, 51);
-            this.txt_codProducto.Name = "txt_codProducto";
-            this.txt_codProducto.Size = new System.Drawing.Size(51, 22);
-            this.txt_codProducto.TabIndex = 81;
-            // 
             // btn_finalizar
             // 
             this.btn_finalizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
@@ -538,11 +531,32 @@
             this.btn_cancelar.UseVisualStyleBackColor = false;
             this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click_1);
             // 
+            // txt_encargado
+            // 
+            this.txt_encargado.Enabled = false;
+            this.txt_encargado.Location = new System.Drawing.Point(245, 57);
+            this.txt_encargado.Name = "txt_encargado";
+            this.txt_encargado.Size = new System.Drawing.Size(198, 22);
+            this.txt_encargado.TabIndex = 71;
+            // 
+            // btn_refrescar
+            // 
+            this.btn_refrescar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_refrescar.BackgroundImage")));
+            this.btn_refrescar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_refrescar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_refrescar.Location = new System.Drawing.Point(530, 656);
+            this.btn_refrescar.Name = "btn_refrescar";
+            this.btn_refrescar.Size = new System.Drawing.Size(39, 31);
+            this.btn_refrescar.TabIndex = 97;
+            this.btn_refrescar.UseVisualStyleBackColor = true;
+            this.btn_refrescar.Click += new System.EventHandler(this.btn_refrescar_Click);
+            // 
             // Devoluciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(850, 704);
+            this.Controls.Add(this.btn_refrescar);
             this.Controls.Add(this.btn_cancelar);
             this.Controls.Add(this.btn_finalizar);
             this.Controls.Add(this.btn_ok);
@@ -606,7 +620,6 @@
         private System.Windows.Forms.Label lbl_tipoBodega;
         private System.Windows.Forms.DateTimePicker dtp_fecha;
         private System.Windows.Forms.Button btn_continuar;
-        private System.Windows.Forms.ComboBox cmb_encargado;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -629,5 +642,7 @@
         private System.Windows.Forms.TextBox txt_codProducto;
         private System.Windows.Forms.Button btn_finalizar;
         private System.Windows.Forms.Button btn_cancelar;
+        private System.Windows.Forms.TextBox txt_encargado;
+        private System.Windows.Forms.Button btn_refrescar;
     }
 }
