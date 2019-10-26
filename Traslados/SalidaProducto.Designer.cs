@@ -90,12 +90,12 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(367, 240);
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(362, 283);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(104, 66);
+            this.label4.Size = new System.Drawing.Size(92, 42);
             this.label4.TabIndex = 24;
-            this.label4.Text = "Cantidad \r\na \r\ntransferir";
+            this.label4.Text = "Cantidad \r\na transferir";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label3
@@ -130,7 +130,7 @@
             // 
             // txt_cantidad
             // 
-            this.txt_cantidad.Location = new System.Drawing.Point(474, 263);
+            this.txt_cantidad.Location = new System.Drawing.Point(460, 297);
             this.txt_cantidad.Name = "txt_cantidad";
             this.txt_cantidad.Size = new System.Drawing.Size(198, 20);
             this.txt_cantidad.TabIndex = 20;
@@ -368,10 +368,10 @@
             // lbl_disponible
             // 
             this.lbl_disponible.AutoSize = true;
-            this.lbl_disponible.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_disponible.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_disponible.Location = new System.Drawing.Point(16, 283);
             this.lbl_disponible.Name = "lbl_disponible";
-            this.lbl_disponible.Size = new System.Drawing.Size(104, 44);
+            this.lbl_disponible.Size = new System.Drawing.Size(91, 42);
             this.lbl_disponible.TabIndex = 72;
             this.lbl_disponible.Text = "Cantidad \r\nDisponible";
             // 
@@ -411,11 +411,11 @@
             this.btn_prestamo.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btn_prestamo.Image = ((System.Drawing.Image)(resources.GetObject("btn_prestamo.Image")));
             this.btn_prestamo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_prestamo.Location = new System.Drawing.Point(90, 530);
+            this.btn_prestamo.Location = new System.Drawing.Point(32, 530);
             this.btn_prestamo.Name = "btn_prestamo";
-            this.btn_prestamo.Size = new System.Drawing.Size(157, 47);
+            this.btn_prestamo.Size = new System.Drawing.Size(224, 47);
             this.btn_prestamo.TabIndex = 83;
-            this.btn_prestamo.Text = "Realizar \r\nprestamo";
+            this.btn_prestamo.Text = "Realizar prestamo";
             this.btn_prestamo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_prestamo.UseVisualStyleBackColor = false;
             this.btn_prestamo.Click += new System.EventHandler(this.btn_prestamo_Click);

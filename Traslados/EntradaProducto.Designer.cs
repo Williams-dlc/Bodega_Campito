@@ -386,11 +386,11 @@
             this.btn_prestamo.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btn_prestamo.Image = ((System.Drawing.Image)(resources.GetObject("btn_prestamo.Image")));
             this.btn_prestamo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_prestamo.Location = new System.Drawing.Point(119, 542);
+            this.btn_prestamo.Location = new System.Drawing.Point(38, 542);
             this.btn_prestamo.Name = "btn_prestamo";
-            this.btn_prestamo.Size = new System.Drawing.Size(157, 47);
+            this.btn_prestamo.Size = new System.Drawing.Size(238, 47);
             this.btn_prestamo.TabIndex = 84;
-            this.btn_prestamo.Text = "Realizar \r\nDevolucion";
+            this.btn_prestamo.Text = "Realizar Devolucion";
             this.btn_prestamo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_prestamo.UseVisualStyleBackColor = false;
             this.btn_prestamo.Click += new System.EventHandler(this.btn_prestamo_Click);

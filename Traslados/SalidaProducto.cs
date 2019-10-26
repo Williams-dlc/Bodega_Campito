@@ -169,6 +169,14 @@ namespace Bodega.Traslados
 
         private void btn_aceptar_Click(object sender, EventArgs e)
         {
+            int disponible = Convert.ToInt32(txt_disponible.Text);
+            int cantidad = Convert.ToInt32(txt_cantidad.Text);
+            if (disponible < cantidad)
+            {
+                MessageBox.Show("No hay suficiente producto para hacer la salida de producto", "Error de disponibilidad", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dgb_pedido.DataSource = null;
+                dgb_pedido.Refresh();
+            }
             try
             {
                 OdbcConnection con = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC

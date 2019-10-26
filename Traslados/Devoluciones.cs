@@ -213,6 +213,12 @@ namespace Bodega.Traslados
 
         private void btn_introducir_Click(object sender, EventArgs e)
         {
+            int disponible = Convert.ToInt32(txt_disponible.Text);
+            int cantidad = Convert.ToInt32(txt_cantidad.Text);
+            if (disponible<cantidad)
+            {
+                MessageBox.Show("No hay suficiente producto para hacer la devolución", "Error de disponibilidad", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             if (txt_codProducto.Text==txt_ProductoPrestamo.Text && txt_cantidad.Text==txt_CantidadPrestamo.Text) {
                 try
                 {

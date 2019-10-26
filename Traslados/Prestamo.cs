@@ -180,7 +180,15 @@ namespace Bodega.Traslados
 
         private void btn_ingresar_Click(object sender, EventArgs e)
         {
-             try
+            int disponible = Convert.ToInt32(txt_disponible.Text);
+            int cantidad = Convert.ToInt32(txt_cantidad.Text);
+            if (disponible < cantidad)
+            {
+                MessageBox.Show("No hay suficiente producto para hacer el prestamo", "Error de disponibilidad", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dgb_pedido.DataSource = null;
+                dgb_pedido.Refresh();
+            }
+            try
             {
                 OdbcConnection con = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
 
