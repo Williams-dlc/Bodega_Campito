@@ -111,6 +111,7 @@
             this.btn_producto.Name = "btn_producto";
             this.btn_producto.Size = new System.Drawing.Size(82, 77);
             this.btn_producto.TabIndex = 5;
+            this.btn_producto.Click += new System.EventHandler(this.btn_producto_Click);
             // 
             // lbl_newProduct
             // 
@@ -168,6 +169,7 @@
             this.btn_EliminarProducto.Name = "btn_EliminarProducto";
             this.btn_EliminarProducto.Size = new System.Drawing.Size(82, 77);
             this.btn_EliminarProducto.TabIndex = 9;
+            this.btn_EliminarProducto.Click += new System.EventHandler(this.btn_EliminarProducto_Click);
             // 
             // label3
             // 

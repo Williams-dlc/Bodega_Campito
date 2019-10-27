@@ -59,6 +59,8 @@
             this.dgb_pedido = new System.Windows.Forms.DataGridView();
             this.txt_codProducto = new System.Windows.Forms.TextBox();
             this.btn_prestamo = new System.Windows.Forms.Button();
+            this.lbl_disponible = new System.Windows.Forms.Label();
+            this.txt_disponible = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_productos)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -75,14 +77,14 @@
             // 
             // txt_producto
             // 
-            this.txt_producto.Location = new System.Drawing.Point(206, 288);
+            this.txt_producto.Location = new System.Drawing.Point(66, 288);
             this.txt_producto.Name = "txt_producto";
             this.txt_producto.Size = new System.Drawing.Size(178, 20);
             this.txt_producto.TabIndex = 2;
             // 
             // txt_cantidad
             // 
-            this.txt_cantidad.Location = new System.Drawing.Point(414, 288);
+            this.txt_cantidad.Location = new System.Drawing.Point(459, 292);
             this.txt_cantidad.Name = "txt_cantidad";
             this.txt_cantidad.Size = new System.Drawing.Size(198, 20);
             this.txt_cantidad.TabIndex = 3;
@@ -121,7 +123,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(152, 263);
+            this.label3.Location = new System.Drawing.Point(12, 263);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(95, 22);
             this.label3.TabIndex = 9;
@@ -131,7 +133,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(410, 263);
+            this.label4.Location = new System.Drawing.Point(455, 263);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(99, 22);
             this.label4.TabIndex = 10;
@@ -371,7 +373,7 @@
             // 
             // txt_codProducto
             // 
-            this.txt_codProducto.Location = new System.Drawing.Point(156, 288);
+            this.txt_codProducto.Location = new System.Drawing.Point(16, 288);
             this.txt_codProducto.Name = "txt_codProducto";
             this.txt_codProducto.Size = new System.Drawing.Size(51, 20);
             this.txt_codProducto.TabIndex = 77;
@@ -395,11 +397,30 @@
             this.btn_prestamo.UseVisualStyleBackColor = false;
             this.btn_prestamo.Click += new System.EventHandler(this.btn_prestamo_Click);
             // 
+            // lbl_disponible
+            // 
+            this.lbl_disponible.AutoSize = true;
+            this.lbl_disponible.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_disponible.Location = new System.Drawing.Point(265, 263);
+            this.lbl_disponible.Name = "lbl_disponible";
+            this.lbl_disponible.Size = new System.Drawing.Size(102, 22);
+            this.lbl_disponible.TabIndex = 86;
+            this.lbl_disponible.Text = "Disponible";
+            // 
+            // txt_disponible
+            // 
+            this.txt_disponible.Location = new System.Drawing.Point(269, 292);
+            this.txt_disponible.Name = "txt_disponible";
+            this.txt_disponible.Size = new System.Drawing.Size(156, 20);
+            this.txt_disponible.TabIndex = 85;
+            // 
             // EntradaProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(850, 615);
+            this.Controls.Add(this.lbl_disponible);
+            this.Controls.Add(this.txt_disponible);
             this.Controls.Add(this.btn_prestamo);
             this.Controls.Add(this.txt_codProducto);
             this.Controls.Add(this.label8);
@@ -467,5 +488,7 @@
         private System.Windows.Forms.DataGridView dgb_pedido;
         private System.Windows.Forms.TextBox txt_codProducto;
         private System.Windows.Forms.Button btn_prestamo;
+        private System.Windows.Forms.Label lbl_disponible;
+        private System.Windows.Forms.TextBox txt_disponible;
     }
 }

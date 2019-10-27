@@ -54,5 +54,17 @@ namespace Bodega.Ajustes
             CambiarContraseña pass = new CambiarContraseña();
             pass.Show();
         }
+
+        private void btn_producto_Click(object sender, EventArgs e)
+        {
+            NuevoProducto producto = new NuevoProducto();
+            producto.Show();
+        }
+
+        private void btn_EliminarProducto_Click(object sender, EventArgs e)
+        {
+            EliminarProducto eliminar = new EliminarProducto();
+            eliminar.Show();
+        }
     }
 }

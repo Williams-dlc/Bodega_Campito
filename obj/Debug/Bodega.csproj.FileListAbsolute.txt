@@ -72,3 +72,5 @@ C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito\obj\Debug\Bodega.Ajustes.Aj
 C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito\obj\Debug\Bodega.Ajustes.NuevoUsuario.resources
 C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito\obj\Debug\Bodega.Ajustes.EliminarUsuario.resources
 C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito\obj\Debug\Bodega.Ajustes.CambiarContraseña.resources
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito\obj\Debug\Bodega.Ajustes.NuevoProducto.resources
+C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito\obj\Debug\Bodega.Ajustes.EliminarProducto.resources

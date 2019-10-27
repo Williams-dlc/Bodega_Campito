@@ -24,7 +24,7 @@ namespace Bodega
         }
 
 
-        public static string producto = "select * from Producto";
+        public static string producto = "select * from Producto where estado=1";
         public static string encargado = "select * from trabajador";
         public static string propietario = "select * from distribuidores";
         public static string bodega = "select * from Bodega";

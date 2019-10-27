@@ -21,20 +21,7 @@ namespace Bodega.Ajustes
             cmb_usuario.ValueMember = "nombre";
         }
 
-        public void usuario()////////////////////////////////////////////////Prestamos pendientes
-        {
-            DataTable tabla = new DataTable();
-            using (OdbcConnection con = new OdbcConnection(ConnStr))
-            {
-                con.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("select * from usuario where estado=1", con);//llama a la tabla de inventario para ver stock
-                                                                                                //OdbcDataReader queryResults = cmd.ExecuteReader();
-                cmd.Fill(tabla);
-
-            }
-
-            cmb_usuario.DataSource = tabla;
-        }
+       
 
         private void btn_Eliminar_Click(object sender, EventArgs e)
         {
