@@ -42,6 +42,8 @@
             this.btn_EliminarProducto = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.btn_CambiarPass = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -195,12 +197,37 @@
             this.btn_CambiarPass.Click += new System.EventHandler(this.btn_CambiarPass_Click);
             this.btn_CambiarPass.Paint += new System.Windows.Forms.PaintEventHandler(this.btn_CambiarPass_Paint);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(50, 364);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(153, 19);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Restaurar Producto";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Location = new System.Drawing.Point(83, 271);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(82, 77);
+            this.panel2.TabIndex = 11;
+            this.panel2.Click += new System.EventHandler(this.panel2_Click);
+            // 
             // AjustesPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(850, 615);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.btn_CambiarPass);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btn_EliminarProducto);
@@ -238,5 +265,7 @@
         private System.Windows.Forms.Panel btn_EliminarProducto;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel btn_CambiarPass;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel2;
     }
 }

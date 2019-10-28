@@ -66,5 +66,11 @@ namespace Bodega.Ajustes
             EliminarProducto eliminar = new EliminarProducto();
             eliminar.Show();
         }
+
+        private void panel2_Click(object sender, EventArgs e)
+        {
+            RestaurarProducto restaurar = new RestaurarProducto();
+            restaurar.Show();
+        }
     }
 }

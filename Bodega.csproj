@@ -99,6 +99,12 @@
     <Compile Include="Ajustes\NuevoUsuario.Designer.cs">
       <DependentUpon>NuevoUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ajustes\RestaurarProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ajustes\RestaurarProducto.Designer.cs">
+      <DependentUpon>RestaurarProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="CapaDatosBodega.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -185,6 +191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ajustes\NuevoUsuario.resx">
       <DependentUpon>NuevoUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ajustes\RestaurarProducto.resx">
+      <DependentUpon>RestaurarProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
