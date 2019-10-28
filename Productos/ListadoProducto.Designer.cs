@@ -37,11 +37,12 @@
             this.btn_aceptar = new System.Windows.Forms.Button();
             this.cmb_propietario = new System.Windows.Forms.ComboBox();
             this.gbx_Producto = new System.Windows.Forms.GroupBox();
+            this.txt_codProducto = new System.Windows.Forms.TextBox();
             this.btn_aceptarProd = new System.Windows.Forms.Button();
             this.txt_producto = new System.Windows.Forms.TextBox();
             this.btn_Mostrar = new System.Windows.Forms.Button();
             this.lbl_buscar = new System.Windows.Forms.Label();
-            this.txt_codProducto = new System.Windows.Forms.TextBox();
+            this.btn_Prestados = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_productos)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -53,7 +54,7 @@
             // 
             this.dgv_productos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_productos.Location = new System.Drawing.Point(27, 169);
+            this.dgv_productos.Location = new System.Drawing.Point(27, 159);
             this.dgv_productos.Name = "dgv_productos";
             this.dgv_productos.Size = new System.Drawing.Size(788, 379);
             this.dgv_productos.TabIndex = 0;
@@ -111,7 +112,7 @@
             this.btn_aceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_aceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_aceptar.ForeColor = System.Drawing.Color.Silver;
-            this.btn_aceptar.Location = new System.Drawing.Point(223, 22);
+            this.btn_aceptar.Location = new System.Drawing.Point(200, 22);
             this.btn_aceptar.Name = "btn_aceptar";
             this.btn_aceptar.Size = new System.Drawing.Size(84, 31);
             this.btn_aceptar.TabIndex = 12;
@@ -140,6 +141,13 @@
             this.gbx_Producto.TabIndex = 4;
             this.gbx_Producto.TabStop = false;
             this.gbx_Producto.Text = "Buscar por producto";
+            // 
+            // txt_codProducto
+            // 
+            this.txt_codProducto.Location = new System.Drawing.Point(15, 25);
+            this.txt_codProducto.Name = "txt_codProducto";
+            this.txt_codProducto.Size = new System.Drawing.Size(36, 26);
+            this.txt_codProducto.TabIndex = 14;
             // 
             // btn_aceptarProd
             // 
@@ -190,18 +198,30 @@
             this.lbl_buscar.TabIndex = 6;
             this.lbl_buscar.Text = "Buscar por producto";
             // 
-            // txt_codProducto
+            // btn_Prestados
             // 
-            this.txt_codProducto.Location = new System.Drawing.Point(15, 25);
-            this.txt_codProducto.Name = "txt_codProducto";
-            this.txt_codProducto.Size = new System.Drawing.Size(36, 26);
-            this.txt_codProducto.TabIndex = 14;
+            this.btn_Prestados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.btn_Prestados.FlatAppearance.BorderSize = 0;
+            this.btn_Prestados.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.btn_Prestados.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_Prestados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Prestados.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Prestados.ForeColor = System.Drawing.Color.Silver;
+            this.btn_Prestados.Location = new System.Drawing.Point(27, 559);
+            this.btn_Prestados.Name = "btn_Prestados";
+            this.btn_Prestados.Size = new System.Drawing.Size(131, 31);
+            this.btn_Prestados.TabIndex = 13;
+            this.btn_Prestados.Tag = "3";
+            this.btn_Prestados.Text = "Prestados";
+            this.btn_Prestados.UseVisualStyleBackColor = false;
+            this.btn_Prestados.Click += new System.EventHandler(this.btn_Prestados_Click);
             // 
             // ListadoProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(850, 615);
+            this.Controls.Add(this.btn_Prestados);
             this.Controls.Add(this.lbl_buscar);
             this.Controls.Add(this.btn_Mostrar);
             this.Controls.Add(this.gbx_Producto);
@@ -238,5 +258,6 @@
         private System.Windows.Forms.Button btn_Mostrar;
         private System.Windows.Forms.Label lbl_buscar;
         private System.Windows.Forms.TextBox txt_codProducto;
+        private System.Windows.Forms.Button btn_Prestados;
     }
 }

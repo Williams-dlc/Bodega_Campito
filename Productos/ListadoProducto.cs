@@ -94,5 +94,24 @@ namespace Bodega.Productos
                 MessageBox.Show(ex.ToString());
             }
         }
+
+        public void verPrestamos()
+        {
+            DataTable tabla = new DataTable();
+            using (OdbcConnection con = new OdbcConnection(ConnStr))
+            {
+                con.Open();
+                OdbcDataAdapter cmd = new OdbcDataAdapter("Select * from EncabezadoPrestamo a INNER JOIN DetallePrestamo b ON a.idPrestamo=b.FK_EncPrestamo AND b.Estado=1 and a.FK_Propietario='" + cmb_propietario.Text.ToString()+"'", con);//
+              
+                cmd.Fill(tabla);
+            }
+            dgv_productos.DataSource = tabla;
+
+        }
+
+        private void btn_Prestados_Click(object sender, EventArgs e)
+        {
+            verPrestamos();
+        }
     }
 }
