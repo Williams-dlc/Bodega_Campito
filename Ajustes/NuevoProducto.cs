@@ -18,15 +18,6 @@ namespace Bodega.Ajustes
         public NuevoProducto()
         {
             InitializeComponent();
-            //random();
-        }
-
-        public void random()
-        {
-            /*Random r_aleatgenerador = new Random();
-            int numero_generado;
-            numero_generado = r_aleatgenerador.Next();
-            txt_cod.Text = Convert.ToString(numero_generado);*/
         }
 
         private void label2_Click(object sender, EventArgs e)
