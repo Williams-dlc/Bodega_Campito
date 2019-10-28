@@ -53,6 +53,46 @@ namespace Datos
                 connection.Close();
             }
         }
+
+        public string idProducto2;
+        public string Nombre2;
+        public bool productoMas(string idProducto, string Nombre)
+        {
+            using (OdbcConnection connection = getConnection())
+            {
+                connection.Open();
+                using (OdbcCommand cmd = new OdbcCommand())
+                {
+                    cmd.Connection = connection;
+                    cmd.CommandText = "SELECT * FROM producto where idProducto='" + idProducto + "' AND name='" + Nombre + "' and estado=1";
+
+                    cmd.Parameters.AddWithValue("?idProducto", idProducto);
+                    cmd.Parameters.AddWithValue("?Nombre", Nombre);
+
+                    cmd.CommandType = CommandType.Text;
+                    OdbcDataReader reader = cmd.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        //user2 = (reader["Nombre"].ToString());
+                        //pass2 = (reader["Contraseña"].ToString());
+                        while (reader.Read())
+                        {
+                            AñadirProducto.idProducto = reader.GetString(0);
+                            AñadirProducto.Nombre = reader.GetString(1);
+                            AñadirProducto.Estado = reader.GetInt32(2);                           
+
+                        }
+
+
+                        return true;
+                    }
+                    else
+                        return false;
+                }
+                connection.Close();
+            }
+        }
+
         //PERMISOS DE USUARIO
         public void AnyMethod()
         {

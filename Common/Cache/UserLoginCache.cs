@@ -14,4 +14,12 @@ namespace Common.Cache
         public static string Perfil { set; get; }
         public static string estado { set; get; }
     }
+
+    public static class AñadirProducto
+    {
+        public static string idProducto { set; get; }
+        public static string Nombre { set; get; }
+        public static Int32 Estado { set; get; }
+        
+    }
 }

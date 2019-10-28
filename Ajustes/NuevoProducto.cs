@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Odbc;
 using Common.Cache;
+using Datos;
+using Dominio;
 
 namespace Bodega.Ajustes
 {
@@ -42,14 +44,34 @@ namespace Bodega.Ajustes
 
         private void btn_aceptar_Click(object sender, EventArgs e)
         {
-            
+            UsuarioModel producto = new UsuarioModel();
+
             if (txt_codigo.Text == "" || txt_nombre.Text == "")
             {
                 MessageBox.Show("Llene todos los campos", "Error de campos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                try
+
+                var validProduct = producto.AñadirProduc(txt_codigo.Text, txt_nombre.Text);
+                if (validProduct == true)
+                {
+                    OdbcConnection con = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
+                    OdbcCommand cmd1 = new OdbcCommand("insert into producto values ('" + txt_codigo.Text + "','" + txt_nombre.Text + "',1)", con);
+                    con.Open();//abre la conexion 
+                    cmd1.ExecuteNonQuery();//ejecuta el query
+                    con.Close();//cierra la conexion
+
+
+                    MessageBox.Show("Se añadio el prodcuto '" + txt_nombre.Text + "'", "Nuevo producto", MessageBoxButtons.OK);
+                    txt_codigo.Text = "";
+                    txt_nombre.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("Este codigo o nombre ya esta en uso, vuelva a intentarlo", "Error de ingreso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                /*try
                 {
                     OdbcConnection con = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
                     OdbcCommand cmd1 = new OdbcCommand("insert into producto values ('" + txt_codigo.Text + "','" + txt_nombre.Text + "',1)", con);
@@ -67,7 +89,7 @@ namespace Bodega.Ajustes
                     MessageBox.Show("Este codigo ya esta en uso, vuelva a intentarlo","Error de ingreso", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txt_codigo.Text = "";
                     txt_nombre.Text = "";
-                }
+                }*/
             }
         }
 
