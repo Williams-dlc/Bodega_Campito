@@ -71,25 +71,7 @@ namespace Bodega.Ajustes
                 {
                     MessageBox.Show("Este codigo o nombre ya esta en uso, vuelva a intentarlo", "Error de ingreso", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                /*try
-                {
-                    OdbcConnection con = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
-                    OdbcCommand cmd1 = new OdbcCommand("insert into producto values ('" + txt_codigo.Text + "','" + txt_nombre.Text + "',1)", con);
-                    con.Open();//abre la conexion 
-                    cmd1.ExecuteNonQuery();//ejecuta el query
-                    con.Close();//cierra la conexion
-
-
-                    MessageBox.Show("Se añadio el prodcuto '" + txt_nombre.Text + "'", "Nuevo producto", MessageBoxButtons.OK);
-                    txt_codigo.Text = "";
-                    txt_nombre.Text = "";
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Este codigo ya esta en uso, vuelva a intentarlo","Error de ingreso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txt_codigo.Text = "";
-                    txt_nombre.Text = "";
-                }*/
+                
             }
         }
 
