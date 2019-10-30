@@ -17,17 +17,25 @@ namespace Bodega.Reportes
 
         CapaDatosBodega conexion = new CapaDatosBodega();
         string ConnStr = "Driver={MySQL ODBC 3.51 Driver};Server=localhost;Database=bodega_campito;uid=willi;pwd=1234";
-
+        bool salidas;
         public ReportesEntradas()
         {
 
             InitializeComponent();
-            
+            years();
             cmb_propietario.DataSource = CapaDatosBodega.llenarPropietario();
             cmb_propietario.ValueMember = "Nombre";
 
             grf_Barras.Visible = false;
             grf_pie.Visible = false;
+            grf_barrasSalidas.Visible = false;
+            grf_pieSalidas.Visible = false;
+
+            cmb_year.Enabled = false;
+            cmb_mes.Enabled = false;
+            btn_aceptar.Enabled = false;
+            btn_salidas.Enabled = false;
+           
         }
 
         public void mes()
@@ -81,6 +89,37 @@ namespace Bodega.Reportes
             }
         }
         
+        public void years()
+        {
+            for (int i = 2019; i < 2050; i++)
+            {
+                cmb_year.Items.Add(i.ToString());
+            }
+            
+        }
+
+        public void radiob()
+        {
+            if (rdb_año.Checked == false && rdb_Mes.Checked == false)
+            {
+                MessageBox.Show("Seleccione una opcion", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                btn_aceptar.Enabled = true;
+                btn_salidas.Enabled = true;
+                if (rdb_Mes.Checked == true)
+                {
+                    cmb_mes.Enabled = true;
+                    cmb_year.Enabled = true;
+                }
+                else if (rdb_año.Checked == true)
+                {
+                    cmb_mes.Enabled = false;
+                    cmb_year.Enabled = true;
+                }
+            }
+        }
 
         public void Barras_producto()
         {
@@ -92,7 +131,7 @@ namespace Bodega.Reportes
             using (OdbcConnection con = new OdbcConnection(ConnStr))
             {
                 con.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("select * from encabezadoEntrada a INNER JOIN detalleentrada b ON a.idEntrada=b.FK_encEntrada AND b.FK_Producto=100 AND a.FK_Usuario ='" + cmb_propietario.Text.ToString() + "' and a.Fecha BETWEEN '2019-" + txt_numero.Text + "-1' AND '2019-" + txt_numero.Text + "-30'", con);//llama a la tabla de inventario para ver stock
+                OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT a.fk_encEntrada, a.fk_Producto, SUM(Cantidad) AS 'Cantidad' FROM detalleentrada a INNER JOIN encabezadoentrada b ON a.FK_encEntrada=b.idEntrada AND b.FK_Usuario='" + cmb_propietario.Text.ToString()+ "' AND b.Fecha BETWEEN '" + cmb_year.Text.ToString() + "-" + txt_numero.Text+ "-1' AND '" + cmb_year.Text.ToString() + "-" + txt_numero.Text + "-30' GROUP BY Fk_Producto", con);//llama a la tabla de inventario para ver stock
                                                                                                                                                                //OdbcDataReader queryResults = cmd.ExecuteReader();
                                                                                                                                                                 //SELECT YEAR(Fecha), SUM(Cantidad) as total, '"+cmb_propietario.Text.ToString()+"' from encabezadoentrada a INNER JOIN detalleentrada b on a.idEntrada = b.FK_encEntrada
                                                                                                                                                                 //"select * from detalleInventario where FK_Propietario =  '"+cmb_propietario.Text.ToString()+"' and Fecha=MONTH(text)"
@@ -108,7 +147,6 @@ namespace Bodega.Reportes
         public void pie_producto()
         {
             mes();
-            MessageBox.Show(cmb_mes.Text.ToString());
             grf_pie.Series["Series1"].IsValueShownAsLabel = true;
             grf_pie.Series["Series1"].XValueMember = "FK_Producto";
             grf_pie.Series["Series1"].YValueMembers = "Cantidad";
@@ -117,7 +155,7 @@ namespace Bodega.Reportes
             using (OdbcConnection con = new OdbcConnection(ConnStr))
             {
                 con.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("select * from encabezadoEntrada a INNER JOIN detalleentrada b ON a.idEntrada=b.FK_encEntrada AND b.FK_Producto=100 AND a.FK_Usuario ='"+cmb_propietario.Text.ToString()+"' and a.Fecha BETWEEN '2019-"+txt_numero.Text+ "-1' AND '2019-" + txt_numero.Text + "-30'", con);//llama a la tabla de inventario para ver stock
+                OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT a.fk_encEntrada, a.fk_Producto, SUM(Cantidad) AS 'Cantidad' FROM detalleentrada a INNER JOIN encabezadoentrada b ON a.FK_encEntrada=b.idEntrada AND b.FK_Usuario='" + cmb_propietario.Text.ToString() + "' AND b.Fecha BETWEEN '" + cmb_year.Text.ToString() + "-" + txt_numero.Text + "-1' AND '" + cmb_year.Text.ToString() + "-" + txt_numero.Text + "-30' GROUP BY Fk_Producto", con);//llama a la tabla de inventario para ver stock
                                                                                                                                                                                      //OdbcDataReader queryResults = cmd.ExecuteReader();
                                                                                                                                                                                      //SELECT YEAR(Fecha), SUM(Cantidad) as total, '"+cmb_propietario.Text.ToString()+"' from encabezadoentrada a INNER JOIN detalleentrada b on a.idEntrada = b.FK_encEntrada
                                                                                                                                                                                      //"select * from detalleInventario where FK_Propietario =  '"+cmb_propietario.Text.ToString()+"' and Fecha=MONTH(text)"
@@ -138,7 +176,7 @@ namespace Bodega.Reportes
             using (OdbcConnection con = new OdbcConnection(ConnStr))
             {
                 con.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("select * from detalleInventario where FK_Propietario =  '" + cmb_propietario.Text.ToString() + "' and YEAR(NOW())", con);//llama a la tabla de inventario para ver stock
+                OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT a.fk_encEntrada, a.fk_Producto, SUM(Cantidad) AS 'Cantidad' FROM detalleentrada a INNER JOIN encabezadoentrada b ON a.FK_encEntrada=b.idEntrada AND b.FK_Usuario='" + cmb_propietario.Text.ToString() + "' AND YEAR('"+cmb_year.Text.ToString()+"-1-1') GROUP BY Fk_Producto", con);//llama a la tabla de inventario para ver stock
                                                                                                                                                                                      //OdbcDataReader queryResults = cmd.ExecuteReader();
                                                                                                                                                                                      //SELECT YEAR(Fecha), SUM(Cantidad) as total, '"+cmb_propietario.Text.ToString()+"' from encabezadoentrada a INNER JOIN detalleentrada b on a.idEntrada = b.FK_encEntrada
                                                                                                                                                                                      //"select * from detalleInventario where FK_Propietario =  '"+cmb_propietario.Text.ToString()+"' and Fecha=MONTH(text)"
@@ -162,7 +200,7 @@ namespace Bodega.Reportes
             using (OdbcConnection con = new OdbcConnection(ConnStr))
             {
                 con.Open();
-                OdbcDataAdapter cmd = new OdbcDataAdapter("select * from detalleInventario where FK_Propietario =  '" + cmb_propietario.Text.ToString() + "' and YEAR(NOW())", con);//llama a la tabla de inventario para ver stock
+                OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT a.fk_encEntrada, a.fk_Producto, SUM(Cantidad) AS 'Cantidad' FROM detalleentrada a INNER JOIN encabezadoentrada b ON a.FK_encEntrada=b.idEntrada AND b.FK_Usuario='" + cmb_propietario.Text.ToString() + "' AND YEAR('" + cmb_year.Text.ToString() + "-1-1') GROUP BY Fk_Producto", con);//llama a la tabla de inventario para ver stock
                                                                                                                                                                                      //OdbcDataReader queryResults = cmd.ExecuteReader();
                                                                                                                                                                                      //SELECT YEAR(Fecha), SUM(Cantidad) as total, '"+cmb_propietario.Text.ToString()+"' from encabezadoentrada a INNER JOIN detalleentrada b on a.idEntrada = b.FK_encEntrada
                                                                                                                                                                                      //"select * from detalleInventario where FK_Propietario =  '"+cmb_propietario.Text.ToString()+"' and Fecha=MONTH(text)"
@@ -173,23 +211,137 @@ namespace Bodega.Reportes
             grf_pie.DataSource = tabla;
         }
 
+
+        public void Barras_productoSalidas()
+        {
+            mes();
+            grf_barrasSalidas.Series["Series1"].LegendText = cmb_propietario.Text.ToString();
+            grf_barrasSalidas.Series["Series1"].XValueMember = "FK_Producto";
+            grf_barrasSalidas.Series["Series1"].YValueMembers = "Cantidad";
+            DataTable tabla = new DataTable();
+            using (OdbcConnection con = new OdbcConnection(ConnStr))
+            {
+                con.Open();
+                OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT a.fk_encPedido, a.fk_Producto, SUM(Cantidad) AS 'Cantidad' FROM detallepedido a INNER JOIN encabezadopedido b ON a.FK_encPedido=b.idPedido AND b.FK_Usuario='" + cmb_propietario.Text.ToString() + "' AND b.Fecha BETWEEN '" + cmb_year.Text.ToString() + "-" + txt_numero.Text + "-1' AND '" + cmb_year.Text.ToString() + "-" + txt_numero.Text + "-30' GROUP BY Fk_Producto", con);//llama a la tabla de inventario para ver stock
+                                                                                                                                                                                                                                                                                                                                                                                                     //OdbcDataReader queryResults = cmd.ExecuteReader();
+                                                                                                                                                                                                                                                                                                                                                                                                     //SELECT YEAR(Fecha), SUM(Cantidad) as total, '"+cmb_propietario.Text.ToString()+"' from encabezadoentrada a INNER JOIN detalleentrada b on a.idEntrada = b.FK_encEntrada
+                                                                                                                                                                                                                                                                                                                                                                                                     //"select * from detalleInventario where FK_Propietario =  '"+cmb_propietario.Text.ToString()+"' and Fecha=MONTH(text)"
+                cmd.Fill(tabla);
+
+            }
+
+            grf_barrasSalidas.DataSource = tabla;
+
+
+        }
+
+        public void pie_productoSalidas()
+        {
+            mes();
+            grf_pieSalidas.Series["Series1"].IsValueShownAsLabel = true;
+            grf_pieSalidas.Series["Series1"].XValueMember = "FK_Producto";
+            grf_pieSalidas.Series["Series1"].YValueMembers = "Cantidad";
+            grf_pieSalidas.Series["Series1"].Points.AddXY("FK_Producto", "Cantidad");
+            DataTable tabla = new DataTable();
+            using (OdbcConnection con = new OdbcConnection(ConnStr))
+            {
+                con.Open();
+                OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT a.fk_encPedido, a.fk_Producto, SUM(Cantidad) AS 'Cantidad' FROM detallepedido a INNER JOIN encabezadopedido b ON a.FK_encPedido=b.idPedido AND b.FK_Usuario='" + cmb_propietario.Text.ToString() + "' AND b.Fecha BETWEEN '" + cmb_year.Text.ToString() + "-" + txt_numero.Text + "-1' AND '" + cmb_year.Text.ToString() + "-" + txt_numero.Text + "-30' GROUP BY Fk_Producto", con);//llama a la tabla de inventario para ver stock
+                                                                                                                                                                                                                                                                                                                                                                                                     //OdbcDataReader queryResults = cmd.ExecuteReader();
+                                                                                                                                                                                                                                                                                                                                                                                                     //SELECT YEAR(Fecha), SUM(Cantidad) as total, '"+cmb_propietario.Text.ToString()+"' from encabezadoentrada a INNER JOIN detalleentrada b on a.idEntrada = b.FK_encEntrada
+                                                                                                                                                                                                                                                                                                                                                                                                     //"select * from detalleInventario where FK_Propietario =  '"+cmb_propietario.Text.ToString()+"' and Fecha=MONTH(text)"
+                cmd.Fill(tabla);
+
+            }
+
+            grf_pieSalidas.DataSource = tabla;
+        }
+
+        public void Barras_productoAnualSalidas()
+        {
+
+            grf_barrasSalidas.Series["Series1"].LegendText = cmb_propietario.Text.ToString();
+            grf_barrasSalidas.Series["Series1"].XValueMember = "FK_Producto";
+            grf_barrasSalidas.Series["Series1"].YValueMembers = "Cantidad";
+            DataTable tabla = new DataTable();
+            using (OdbcConnection con = new OdbcConnection(ConnStr))
+            {
+                con.Open();
+                OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT a.fk_encPedido, a.fk_Producto, SUM(Cantidad) AS 'Cantidad' FROM detallepedido a INNER JOIN encabezadoPedido b ON a.FK_encPedido=b.idPedido AND b.FK_Usuario='" + cmb_propietario.Text.ToString() + "' AND YEAR('" + cmb_year.Text.ToString() + "-1-1') GROUP BY Fk_Producto", con);//llama a la tabla de inventario para ver stock
+                                                                                                                                                                                                                                                                                                                         //OdbcDataReader queryResults = cmd.ExecuteReader();
+                                                                                                                                                                                                                                                                                                                         //SELECT YEAR(Fecha), SUM(Cantidad) as total, '"+cmb_propietario.Text.ToString()+"' from encabezadoentrada a INNER JOIN detalleentrada b on a.idEntrada = b.FK_encEntrada
+                                                                                                                                                                                                                                                                                                                         //"select * from detalleInventario where FK_Propietario =  '"+cmb_propietario.Text.ToString()+"' and Fecha=MONTH(text)"
+                cmd.Fill(tabla);
+
+            }
+
+            grf_barrasSalidas.DataSource = tabla;
+
+
+        }
+
+        public void pie_productoAnualSalidas()
+        {
+
+            grf_pieSalidas.Series["Series1"].IsValueShownAsLabel = true;
+            grf_pieSalidas.Series["Series1"].XValueMember = "FK_Producto";
+            grf_pieSalidas.Series["Series1"].YValueMembers = "Cantidad";
+            grf_pieSalidas.Series["Series1"].Points.AddXY("FK_Producto", "Cantidad");
+            DataTable tabla = new DataTable();
+            using (OdbcConnection con = new OdbcConnection(ConnStr))
+            {
+                con.Open();
+                OdbcDataAdapter cmd = new OdbcDataAdapter("SELECT a.fk_encPedido, a.fk_Producto, SUM(Cantidad) AS 'Cantidad' FROM detallepedido a INNER JOIN encabezadoPedido b ON a.FK_encPedido=b.idPedido AND b.FK_Usuario='" + cmb_propietario.Text.ToString() + "' AND YEAR('" + cmb_year.Text.ToString() + "-1-1') GROUP BY Fk_Producto", con);//llama a la tabla de inventario para ver stock
+                                                                                                                                                                                                                                                                                                                         //OdbcDataReader queryResults = cmd.ExecuteReader();
+                                                                                                                                                                                                                                                                                                                         //SELECT YEAR(Fecha), SUM(Cantidad) as total, '"+cmb_propietario.Text.ToString()+"' from encabezadoentrada a INNER JOIN detalleentrada b on a.idEntrada = b.FK_encEntrada
+                                                                                                                                                                                                                                                                                                                         //"select * from detalleInventario where FK_Propietario =  '"+cmb_propietario.Text.ToString()+"' and Fecha=MONTH(text)"
+                cmd.Fill(tabla);
+
+            }
+
+            grf_pieSalidas.DataSource = tabla;
+        }
+
         private void btn_aceptar_Click(object sender, EventArgs e)
         {
-            if (rdb_año.Checked==false && rdb_Mes.Checked==false) {
-                MessageBox.Show("Seleccione una opcion", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            if (cmb_mes.SelectedIndex == -1 || cmb_year.SelectedIndex == -1 && rdb_Mes.Checked == true)
+            {
+                MessageBox.Show("Llene todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            else {
-                grf_Barras.Visible = true;
-                grf_pie.Visible = false;
-                if (rdb_Mes.Checked == true)
+            else
+            if (cmb_year.SelectedIndex == -1 && rdb_año.Checked==true)
+            {
+                MessageBox.Show("Llene todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                btn_barras.Visible = true;
+                btn_pie.Visible = true;
+
+                btn_pieSalidas.Visible = false;
+                btn_barrasSalidas.Visible = false;
+                grf_barrasSalidas.Visible = false;
+                grf_pieSalidas.Visible = false;
+
+                if (rdb_año.Checked == false && rdb_Mes.Checked == false)
                 {
-                    Barras_producto();
-
-
-                } else if (rdb_año.Checked == true)
+                    MessageBox.Show("Seleccione una opcion", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
                 {
-                    Barras_productoAnual();
+                    grf_Barras.Visible = true;
+                    grf_pie.Visible = false;
+                    if (rdb_Mes.Checked == true)
+                    {
+                        Barras_producto();
 
+
+                    }
+                    else if (rdb_año.Checked == true)
+                    {
+                        Barras_productoAnual();
+
+                    }
                 }
             }
         }
@@ -198,7 +350,7 @@ namespace Bodega.Reportes
         {
             if (rdb_año.Checked == false && rdb_Mes.Checked == false)
             {
-                MessageBox.Show("Seleccione una opcion", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Seleccione una opcion", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {
@@ -215,15 +367,16 @@ namespace Bodega.Reportes
                     Barras_productoAnual();
 
                 }
-            }
+            }            
 
         }
 
         private void btn_pie_Click(object sender, EventArgs e)
         {
+
             if (rdb_año.Checked == false && rdb_Mes.Checked == false)
             {
-                MessageBox.Show("Seleccione una opcion", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Seleccione una opcion", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {
@@ -241,7 +394,102 @@ namespace Bodega.Reportes
 
                 }
             }
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (cmb_mes.SelectedIndex == -1 || cmb_year.SelectedIndex == -1 && rdb_Mes.Checked==true)
+            {
+                MessageBox.Show("Llene todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else if (cmb_year.SelectedIndex == -1 && rdb_año.Checked == true)
+            {
+                MessageBox.Show("Llene todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                btn_pieSalidas.Visible = true;
+                btn_barrasSalidas.Visible = true;
+                btn_barras.Visible = false;
+                btn_pie.Visible = false;
+                grf_Barras.Visible = false;
+                grf_pie.Visible = false;
+
+
+                if (rdb_año.Checked == false && rdb_Mes.Checked == false)
+                {
+                    MessageBox.Show("Seleccione una opcion", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    grf_barrasSalidas.Visible = true;
+                    grf_pieSalidas.Visible = false;
+                    if (rdb_Mes.Checked == true)
+                    {
+                        Barras_productoSalidas();
+
+
+                    }
+                    else if (rdb_año.Checked == true)
+                    {
+                        Barras_productoAnualSalidas();
+
+                    }
+                }
+            }
+        }
+
+        private void btn_barrasSalidas_Click(object sender, EventArgs e)
+        {
+            if (rdb_año.Checked == false && rdb_Mes.Checked == false)
+            {
+                MessageBox.Show("Seleccione una opcion", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            
+            else
+            {
+                grf_barrasSalidas.Visible = true;
+                grf_pieSalidas.Visible = false;
+                if (rdb_Mes.Checked == true)
+                {
+                    Barras_productoSalidas();
+
+
+                }
+                else if (rdb_año.Checked == true)
+                {
+                    Barras_productoAnualSalidas();
+
+                }
+            }
+        }
+
+        private void btn_pieSalidas_Click(object sender, EventArgs e)
+        {
+            if (rdb_año.Checked == false && rdb_Mes.Checked == false)
+            {
+                MessageBox.Show("Seleccione una opcion", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }            
+            else
+            {
+                grf_barrasSalidas.Visible = false;
+                grf_pieSalidas.Visible = true;
+                if (rdb_Mes.Checked == true)
+                {
+                    pie_productoSalidas();
+                }
+                else if (rdb_año.Checked == true)
+                {
+                    pie_productoAnualSalidas();
+
+                }
+            }
+        }
+
+        private void btn_acept_Click(object sender, EventArgs e)
+        {
+            
+            radiob();
         }
     }
 }
