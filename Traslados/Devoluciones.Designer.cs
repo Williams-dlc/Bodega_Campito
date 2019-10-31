@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Devoluciones));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnl_titulo = new System.Windows.Forms.Panel();
             this.btn_salir = new System.Windows.Forms.PictureBox();
             this.lbl_titulo = new System.Windows.Forms.Label();
@@ -45,6 +51,7 @@
             this.cmb_propietario = new System.Windows.Forms.ComboBox();
             this.btn_aceptar = new System.Windows.Forms.Button();
             this.gbx_encabezado = new System.Windows.Forms.GroupBox();
+            this.txt_encargado = new System.Windows.Forms.TextBox();
             this.cmb_tipoBodega = new System.Windows.Forms.ComboBox();
             this.lbl_tipoBodega = new System.Windows.Forms.Label();
             this.dtp_fecha = new System.Windows.Forms.DateTimePicker();
@@ -70,7 +77,6 @@
             this.btn_ok = new System.Windows.Forms.Button();
             this.btn_finalizar = new System.Windows.Forms.Button();
             this.btn_cancelar = new System.Windows.Forms.Button();
-            this.txt_encargado = new System.Windows.Forms.TextBox();
             this.btn_refrescar = new System.Windows.Forms.Button();
             this.pnl_titulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).BeginInit();
@@ -172,9 +178,34 @@
             // dgv_productos
             // 
             this.dgv_productos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_productos.BackgroundColor = System.Drawing.Color.White;
+            this.dgv_productos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgv_productos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_productos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_productos.EnableHeadersVisualStyles = false;
             this.dgv_productos.Location = new System.Drawing.Point(38, 171);
             this.dgv_productos.Name = "dgv_productos";
+            this.dgv_productos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_productos.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
+            this.dgv_productos.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_productos.Size = new System.Drawing.Size(618, 129);
             this.dgv_productos.TabIndex = 69;
             this.dgv_productos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_productos_CellDoubleClick);
@@ -264,6 +295,14 @@
             this.gbx_encabezado.TabIndex = 84;
             this.gbx_encabezado.TabStop = false;
             this.gbx_encabezado.Text = "Encabezado";
+            // 
+            // txt_encargado
+            // 
+            this.txt_encargado.Enabled = false;
+            this.txt_encargado.Location = new System.Drawing.Point(245, 57);
+            this.txt_encargado.Name = "txt_encargado";
+            this.txt_encargado.Size = new System.Drawing.Size(198, 22);
+            this.txt_encargado.TabIndex = 71;
             // 
             // cmb_tipoBodega
             // 
@@ -426,9 +465,35 @@
             // dgv_productos2
             // 
             this.dgv_productos2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_productos2.BackgroundColor = System.Drawing.Color.White;
+            this.dgv_productos2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgv_productos2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_productos2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgv_productos2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_productos2.EnableHeadersVisualStyles = false;
             this.dgv_productos2.Location = new System.Drawing.Point(26, 563);
             this.dgv_productos2.Name = "dgv_productos2";
+            this.dgv_productos2.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_productos2.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
+            this.dgv_productos2.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgv_productos2.Size = new System.Drawing.Size(498, 129);
             this.dgv_productos2.TabIndex = 86;
             this.dgv_productos2.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_productos2_CellDoubleClick);
@@ -530,14 +595,6 @@
             this.btn_cancelar.Text = "Cancelar operacion";
             this.btn_cancelar.UseVisualStyleBackColor = false;
             this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click_1);
-            // 
-            // txt_encargado
-            // 
-            this.txt_encargado.Enabled = false;
-            this.txt_encargado.Location = new System.Drawing.Point(245, 57);
-            this.txt_encargado.Name = "txt_encargado";
-            this.txt_encargado.Size = new System.Drawing.Size(198, 22);
-            this.txt_encargado.TabIndex = 71;
             // 
             // btn_refrescar
             // 

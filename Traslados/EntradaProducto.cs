@@ -373,6 +373,7 @@ namespace Bodega.Traslados
             txt_producto.Text = "";
             txt_codProducto.Text = "";
             txt_cantidad.Text = "";
+            txt_cantidad.Text = "";
             producto();
         }
 
