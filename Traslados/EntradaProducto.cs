@@ -373,7 +373,7 @@ namespace Bodega.Traslados
             txt_producto.Text = "";
             txt_codProducto.Text = "";
             txt_cantidad.Text = "";
-            txt_cantidad.Text = "";
+            txt_disponible.Text = "";
             producto();
         }
 
@@ -381,6 +381,58 @@ namespace Bodega.Traslados
         {
             Devoluciones dev = new Devoluciones();
             dev.Show();
+        }
+
+        private void dgb_pedido_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txt_deleteCod.Text = Convert.ToString(dgb_pedido.Rows[e.RowIndex].Cells[0].Value.ToString());
+            txt_deleteCant.Text = Convert.ToString(dgb_pedido.Rows[e.RowIndex].Cells[1].Value.ToString());
+        }
+
+        private void btn_delete_Click(object sender, EventArgs e)
+        {
+            if (txt_deleteCant.Text == "" || txt_deleteCod.Text == "")
+            {
+                MessageBox.Show("No se ha seleccionado algun articulo para eliminar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show("¿Desea cancelar el producto '" + txt_deleteCod.Text + "' con la cantidad de '" + txt_deleteCant.Text + "'?", "Nuevo", MessageBoxButtons.YesNo);
+
+                if (result == DialogResult.Yes)
+                {
+                    OdbcConnection con = new OdbcConnection(ConnStr);//varibale para llamar la conexion ODBC
+
+                    OdbcCommand cmd1 = new OdbcCommand("DELETE FROM detalleentrada WHERE Fk_Producto='" + txt_deleteCod.Text + "' AND FK_EncEntrada='" + txt_codigo.Text + "'", con);
+                    con.Open();//abre la conexion ;
+                    cmd1.ExecuteNonQuery();
+                    con.Close();//cierra la conexion
+
+                    OdbcCommand cmd4 = new OdbcCommand("UPDATE detalleinventario set cantidad=cantidad - '" + txt_deleteCant.Text + "' WHERE Fk_Producto='" + txt_deleteCod.Text + "' AND FK_Propietario='" + cmb_propietario.Text.ToString() + "'", con);
+                    con.Open();//abre la conexion ;
+                    cmd4.ExecuteNonQuery();
+                    con.Close();//cierra la conexion
+
+                    txt_deleteCant.Text = "";
+                    txt_deleteCod.Text = "";
+
+                    dgb_pedido.Rows.Remove(dgb_pedido.CurrentRow);
+                }
+                else if (result == DialogResult.Yes)
+                {
+
+                }
+            }
+        }
+
+        private void txt_deleteCant_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_deleteCod_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
