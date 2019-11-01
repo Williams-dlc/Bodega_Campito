@@ -19,7 +19,6 @@ C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2\obj\Debug\Bodega.exe
 C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2\obj\Debug\Bodega.pdb
 C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2\bin\Debug\Bodega.exe
 C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2\bin\Debug\Bodega.pdb
-C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2\obj\Debug\Bodega.csprojResolveAssemblyReference.cache
 C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2\obj\Debug\Bodega.Login.resources
 C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2\obj\Debug\Bodega.Prinicipal.resources
 C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito2\obj\Debug\Bodega.Productos.ListadoProducto.resources
@@ -75,3 +74,15 @@ C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito\obj\Debug\Bodega.Ajustes.Ca
 C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito\obj\Debug\Bodega.Ajustes.NuevoProducto.resources
 C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito\obj\Debug\Bodega.Ajustes.EliminarProducto.resources
 C:\Users\Williams Cuesta\Source\Repos\Bodega_Campito\obj\Debug\Bodega.Ajustes.RestaurarProducto.resources
+C:\Users\Williams Cuesta\source\repos\Bodega_Campito2\obj\Debug\Bodega.csprojAssemblyReference.cache
+C:\Users\Williams Cuesta\source\repos\Bodega_Campito2\obj\Debug\Bodega.Ajustes.AjustesPrincipal.resources
+C:\Users\Williams Cuesta\source\repos\Bodega_Campito2\obj\Debug\Bodega.Ajustes.CambiarContraseña.resources
+C:\Users\Williams Cuesta\source\repos\Bodega_Campito2\obj\Debug\Bodega.Ajustes.EliminarProducto.resources
+C:\Users\Williams Cuesta\source\repos\Bodega_Campito2\obj\Debug\Bodega.Ajustes.EliminarUsuario.resources
+C:\Users\Williams Cuesta\source\repos\Bodega_Campito2\obj\Debug\Bodega.Ajustes.NuevoProducto.resources
+C:\Users\Williams Cuesta\source\repos\Bodega_Campito2\obj\Debug\Bodega.Ajustes.NuevoUsuario.resources
+C:\Users\Williams Cuesta\source\repos\Bodega_Campito2\obj\Debug\Bodega.Ajustes.RestaurarProducto.resources
+C:\Users\Williams Cuesta\source\repos\Bodega_Campito2\obj\Debug\Bodega.Reportes.ReportEntradas.resources
+C:\Users\Williams Cuesta\source\repos\Bodega_Campito2\obj\Debug\Bodega.Reportes.ReportSalidas.resources
+C:\Users\Williams Cuesta\source\repos\Bodega_Campito2\obj\Debug\Bodega.csproj.CoreCompileInputs.cache
+C:\Users\Williams Cuesta\source\repos\Bodega_Campito2\obj\Debug\Bodega.csproj.CopyComplete
